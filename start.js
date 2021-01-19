@@ -5,7 +5,6 @@ const { prefix, token } = require('./config.json');
 const os = require("os")
 const version = "Test Release 21";
 const release = "anitrox_unstable"
-const buildno = "404"
 console.log('Starting!')
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -40,7 +39,7 @@ client.once('ready', () => {
 setInterval(() => {
 	const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); 
 	client.user.setActivity(activities_list[index]); 
-}, 10000); 
+}, 20000); 
 
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -54,7 +53,7 @@ client.on('message', message => {
 		client.commands.get(command).execute(client, message, args);
 	} catch (error) {
 		const embed = {
-			"title": "<:NyabotError:697145462347661412> ***An error occurred!***",
+			"title": "<:NyabotError:697145462347661412> **An error occurred!**",
 			"color": 13632027,
 			"footer": {
 			  "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
