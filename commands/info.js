@@ -31,7 +31,6 @@ const version = ("DEV1.0")
     const embed = {
             "title": "<:NyabotInfo:697145463350231040> Information about projectanitrox",
             "description": "Everything you've ever wanted to know about projectanitrox!",
-            "url": "https://discordapp.com",
             "color": 11038194,
             "footer": {
               "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
@@ -73,10 +72,7 @@ const version = ("DEV1.0")
                 "name": "<:cpu:793672442056802354> CPU Type",
                 "value": process.arch
               },
-              {
-                "name": "<:memory:793536677737136178> **System Memory Usage**",
-                "value": (Math.round(os.memoryUsage / 1024 / 1024 * 100) / 100) + " MiB of " + (Math.round(os.freemem / 1024 / 1024 * 100) / 100)
-              },
+              
               {
                 "name": "<:hostos:793866961675223090> OS Type",
                 "value": process.platform + " / " + os.version()
