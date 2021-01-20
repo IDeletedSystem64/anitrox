@@ -3,9 +3,9 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const os = require("os")
-const version = "Test Release 21";
-const release = "anitrox_unstable"
-const buildno = "404"
+const version = "Public Test Release 1";
+const release = "anitrox_ptb"
+const buildno = "430"
 console.log('Starting!')
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
