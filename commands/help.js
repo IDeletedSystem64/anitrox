@@ -7,6 +7,7 @@ module.exports = {
 const embed = {
     "title": "<:NyabotInfo:697145463350231040> **Help? HELP!** ",
     "color": 9540095,
+    "description": "<:NyabotWarning:697145463194910791> Not all commands have been implemented. and may be removed without warning",
     "footer": {
       "text": "Some commands are hidden for dev-only. | Anitrox © IDeletedSystem64 2018-2021"
     },
