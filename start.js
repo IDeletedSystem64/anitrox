@@ -3,11 +3,8 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const os = require("os")
-
-const version = "Public Test Release 1";
-const release = "anitrox_ptb"
-const buildno = "430"
-
+const version = "Test Release 21";
+const release = "anitrox_unstable"
 console.log('Starting!')
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -24,7 +21,8 @@ const activities_list = [
 	"on Happy's main PC- wait shoot she's coming",
 	"btw I use Debian linux"
 ];
-	
+const footicon = "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png"
+const footer = "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
