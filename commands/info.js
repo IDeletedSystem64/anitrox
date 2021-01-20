@@ -24,13 +24,13 @@ module.exports = {
   
    
 
-const version = ("DEV1.0")
+const version = ("dev build 421")
     const release = ("anitrox_dev")
     const os = require("os")
   
     const embed = {
-            "title": "<:NyabotInfo:697145463350231040> Information about projectanitrox",
-            "description": "Everything you've ever wanted to know about projectanitrox!",
+            "title": "<:NyabotInfo:697145463350231040> Information about Anitrox",
+            "description": "Everything you've ever wanted to know about Anitrox!",
             "color": 11038194,
             "footer": {
               "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
@@ -93,11 +93,11 @@ const version = ("DEV1.0")
               },
               {
                 "name": "<:NyabotInfo:697145463350231040> **Want more system information?**",
-                "value": "Run n!sysinfo for more detailed system information"
+                "value": "Run np!sysinfo for more detailed system information (Coming Soon™)"
               },
               {
                 "name":  "<:usersuccess:793885338250641469> **Special Thanks To**",
-                "value": "@OfficialTCGMatt for providing help with development"
+                "value": "@OfficialTCGMatt for providing help with development/n @chuu_shi Allowing me to host Anitrox on his server"
               }
 
             ]
