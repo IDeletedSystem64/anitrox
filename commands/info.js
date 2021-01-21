@@ -1,6 +1,6 @@
 
 module.exports = {
-	
+
 	name: 'info',
 	description: 'Shows bot and host information',
 	execute(client, message, args) {
@@ -21,13 +21,13 @@ module.exports = {
       let uptime = `${days}**, **${hours}**, **${minutes}**, **${seconds}`;
       return uptime;
   };
-  
-   
 
-const version = ("dev build 421")
-    const release = ("anitrox_dev")
+
+
+const version = ("Public Test Buld 3, Based on dev Build 424")
+    const release = ("anitrox_ptb")
     const os = require("os")
-  
+
     const embed = {
             "title": "<:NyabotInfo:697145463350231040> Information about Anitrox",
             "description": "Everything you've ever wanted to know about Anitrox!",
@@ -72,7 +72,7 @@ const version = ("dev build 421")
                 "name": "<:cpu:793672442056802354> CPU Type",
                 "value": process.arch
               },
-              
+
               {
                 "name": "<:hostos:793866961675223090> OS Type",
                 "value": process.platform + " / " + os.version()
