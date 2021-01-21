@@ -32,7 +32,7 @@ module.exports = {
           },
           {
             "name": "User Joined Server",
-            "value": "are inline fields",
+            "value": "tba",
             "inline": true
           }
         ]
