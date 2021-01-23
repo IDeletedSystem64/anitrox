@@ -24,8 +24,8 @@ module.exports = {
 
 
 
-const version = ("Public Test Buld 4, Based on dev Build 429")
-    const release = ("anitrox_ptb")
+const version = ("dev build 429")
+    const release = ("anitrox_dev")
     const os = require("os")
 
     const embed = {

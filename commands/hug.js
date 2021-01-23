@@ -7,7 +7,7 @@ module.exports = {
       const taggedUser = message.mentions.users.first();
           const embed = {
             "title": "<a:ABlobCatHuggle:801232248035999784> Hug",
-            "description": taggedUser + " You have been hugged by " + messageAuthor + "!",
+            "description": "<@" + taggedUser + ">" + " You have been hugged by " + "<@" + messageAuthor + ">!",
             "color": 8311585,
             "footer": {
               "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
@@ -17,8 +17,8 @@ module.exports = {
               "url": "https://i.imgur.com/r9aU2xv.gif?noredirect"
             }
           }
-         
-            
-          message.channel.send({ embed: embed });             
+
+
+          message.channel.send({ embed: embed });
             }
     }
