@@ -3,8 +3,8 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const os = require("os")
-const version = "Test Release 21";
-const release = "anitrox_unstable"
+const version = "Test Release 2,";
+const release = "anitrox_ptb"
 
 console.log('Starting!')
 const client = new Discord.Client();
