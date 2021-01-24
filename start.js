@@ -3,7 +3,7 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const os = require("os")
-const version = "Test Release 21";
+const version = "build 432";
 const release = "anitrox_unstable"
 
 console.log('Starting!')
