@@ -5,7 +5,20 @@ module.exports = {
     execute(client, message, args) {
       const messageAuthor = message.author
       const taggedUser = message.mentions.users.first();
-          const embed = {
+          
+       // --------------------------------------
+       const gifchoices = [
+        "https://cdn.discordapp.com/attachments/803658122299572255/803708174293008474/tenor.gif",
+        "https://community.gamepress.gg/uploads/default/original/3X/0/a/0a762099c5ad6de9ca5f13dd22a7e45884a99eb3.gif",
+        "https://media1.giphy.com/media/ARSp9T7wwxNcs/giphy.gif"
+        
+
+      ];
+      const index = Math.floor(Math.random() * (gifchoices.length - 1) + 2);
+      var gif = (gifchoices[index]);
+      // ---------------------------------------    
+      
+      const embed = {
             "title": "<:pats:801238281286713355> Pat",
             "description": "<@" + taggedUser + "> You have been patted by <@" + messageAuthor + ">!",
             "color": 8311585,
@@ -14,7 +27,7 @@ module.exports = {
               "text": "Made with ❤ in Illinois | Anitrox © IDeletedSystem64 2018-2021"
             },
             "image": {
-              "url": "https://media1.giphy.com/media/ARSp9T7wwxNcs/giphy.gif"
+              "url": gif
             }
           }
 
