@@ -6,7 +6,7 @@ module.exports = {
     name: "leskiss",
     description: "Lesbian kiss <:lesbian:803831629428686849>",
     execute(client, message, args) {
-        const messageAuthor = message.messageAuthor
+        const messageAuthor = message.author
         const taggedUser = message.mentions.users.first();
           // --------------------------------------
        const gifchoices = [
