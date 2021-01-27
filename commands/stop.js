@@ -1,6 +1,6 @@
 
 module.exports = {
-    name: 'shutdown',
+    name: 'stop',
     description: '(Owner Only) Shuts down the bot.',
     execute(client, message, args) {
         if (message.author.id == 309427567004483586) {

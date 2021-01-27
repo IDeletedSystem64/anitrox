@@ -9,10 +9,7 @@ module.exports = {
             client.destroy()
             .catch(console.error)
         .then
-        console.log("Restarting!")
-        console.log("Getting ready")
-        console.log("Ready to start!")
-        client.login(token);
+        setTimeout(() => { client.login(token); }, 3000);
         message.channel.send("<:NyabotSuccess:697211376740859914> Restart Successful")
         console.log("All systems go")
         } else {

@@ -26,7 +26,7 @@ const embed = {
       },
       {
         "name": "Fun Commands",
-        "value": "`hug` `poke` `bonk` `slap` `pat` `kiss` `lick` `cuddle` `nom`"
+        "value": "`hug` `poke` `bonk` `slap` `pat` `kiss` `lick` `cuddle` `nom` `leskiss`"
       },
       {
         "name": "**Need additional help or want to report an issue?**",
