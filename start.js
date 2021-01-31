@@ -29,7 +29,7 @@ const activities_list = [
 	"videos on Hulu",
 	"American Truck Simulator",
 	"my users!",
-	"Sophies skirt"
+	"with Sophies skirt"
 ];
 const footicon = "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png"
 const footer = "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
