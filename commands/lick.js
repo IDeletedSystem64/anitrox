@@ -1,7 +1,7 @@
 module.exports = {
 
-    name: "slap",
-    description: "Slaps an user!",
+    name: "lick",
+    description: "Licks an user!",
     execute(client, message, args) {
       const messageAuthor = message.author
       const taggedUser = message.mentions.users.first();
@@ -29,15 +29,15 @@ if(!taggedUser) {
 }
 
       const embed = {
-            "title": ":anger: Slap",
-            "description": "<@" + taggedUser + "> You have been slapped by <@" + messageAuthor + ">!",
+            "title": "Lick",
+            "description": "<@" + taggedUser + "> You have been licked by <@" + messageAuthor + ">!",
             "color": 8311585,
             "footer": {
               "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
               "text": "Made with ❤ in Illinois | Anitrox © IDeletedSystem64 2018-2021"
             },
             "image": {
-              "url": "https://media1.tenor.com/images/b6d8a83eb652a30b95e87cf96a21e007/tenor.gif?itemid=10426943"
+              "url": "https://cdn.discordapp.com/attachments/803658122299572255/805314244123951114/cef569820773b0f5d54ee34cfa18e1f8.gif"
             }
           }
 

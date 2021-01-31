@@ -24,8 +24,8 @@ module.exports = {
 
 
 
-const version = ("dev build 429")
-    const release = ("anitrox_dev")
+const version = ("Public Test Release 4.1 (build 444)")
+    const release = ("anitrox_ptb")
     const os = require("os")
 
     const embed = {
@@ -58,7 +58,7 @@ const version = ("dev build 429")
               },
               {
                 "name": "<:memory:793536677737136178> Bot Memory Usage",
-                "value": (Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100) / 100) + " MiB" + ", Total Free Memory"
+                "value": (Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100) / 100) + " MiB"
               },
               {
                 "name":  "<:hostinfo:793529505263517747> Host Information",
