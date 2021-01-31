@@ -3,29 +3,33 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const os = require("os")
-
-const version = "Test Release 3, build 439";
-const release = "anitrox_ptb"
-
+const version = "build 435";
+const release = "anitrox_unstable"
 
 console.log('Starting!')
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const activities_list = [
-	"with n!help",
+	"with np!help",
 	"Where am I?",
 	"with Sylveons!",
 	"on my host's hard disk",
-	"with Happy",
+	"with Sophie",
 	"HAAAAAAAAPPPPPPPYYYYYYYYYYYYYYYYYYYY",
 	"Running on " + process.platform + " / " + os.version() + "!",
 	"with the tea machine",
 	"with Borked Computers",
-	"on Happy's main PC- wait shoot she's coming",
+	"on Sophie's main PC- wait shoot she's coming",
 	"btw I use Debian linux",
 	"Watching you",
 	"Running " + release + " Version " + version,
-	"in Incognito Mode- wait what"
+	"in Incognito Mode- wait what",
+	"uwu",
+	"Team Fortress 2 with Sophie",
+	"videos on Hulu",
+	"American Truck Simulator",
+	"my users!",
+	"Sophies skirt"
 ];
 const footicon = "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png"
 const footer = "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
