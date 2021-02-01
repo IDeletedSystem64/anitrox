@@ -2,13 +2,9 @@ console.log('Preparing to start!')
 const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
-const os = require("os")
-const version = "build 435";
-const release = "anitrox_unstable"
-
-console.log('Starting!')
-const client = new Discord.Client();
-client.commands = new Discord.Collection();
+const os = require("os");
+const version = "build 444";
+const release = "anitrox_ptb"
 const activities_list = [
 	"with np!help",
 	"Where am I?",
@@ -31,7 +27,11 @@ const activities_list = [
 	"my users!",
 	"with Sophies skirt"
 ];
-const footicon = "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png"
+
+console.log('Starting! This should only take a moment.')
+const client = new Discord.Client();
+client.commands = new Discord.Collection();
+const footicon = "https://cdn.discordapp.com/attachments/803658122299572255/805506708352008232/system64.png"
 const footer = "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -43,9 +43,15 @@ for (const file of commandFiles) {
 
 client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
-client.on("debug", (e) => console.info(e))
+
 client.once('ready', () => {
-	console.log('All systems go.');
+	console.log('    ___          _ __                 ');
+	console.log('   /   |  ____  (_) /__________  _  __');
+	console.log('  / /| | / __ \/ / __/ ___/ __ \| |/_/');
+	console.log(' / ___ |/ / / / / /_/ /  / /_/ />  <  ');
+	console.log('/_/  |_/_/ /_/_/\__/_/   \____/_/|_|  ')
+
+	console.log('All Systems Go. | Anitrox (C) 2021 IDeletedSystem64.');
 });
 setInterval(() => {
 	const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
@@ -63,6 +69,7 @@ client.on('message', message => {
 	try {
 		client.commands.get(command).execute(client, message, args);
 	} catch (error) {
+		console.error
 		const embed = {
 			"title": "<:NyabotError:697145462347661412> **Well that happened...**",
 			"color": 13632027,
