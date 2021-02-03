@@ -27,7 +27,7 @@ module.exports = {
         "https://cdn.discordapp.com/attachments/793537380330111028/803834514269798460/gif19.gif"
 
       ];
-      const index = Math.floor(Math.random() * (gifchoices.length - 1) + 1);
+      const index = Math.floor(Math.random() * (gifchoices.length - 1) + 1.75);
       var gif = (gifchoices[index]);
       // ---------------------------------------    
       const errorembed = {
