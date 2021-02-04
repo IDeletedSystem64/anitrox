@@ -32,7 +32,13 @@ const embed = {
       {
         "name": "**...or is the bot actually on fire? Come here for help and support!**",
         "value": "bit.ly/anitrox-help"
+      },
+      {
+        "name": "**Or you can view the bot progress, known issues, and planned features!**",
+        "value": "bit.ly/anitrox-trello"
       }
+
+
     ]
   };
   message.channel.send({ embed });
