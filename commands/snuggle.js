@@ -8,18 +8,18 @@ module.exports = {
       
       // --------------------------------------
       const gifchoices = [
-        "https://i.pinimg.com/originals/4d/89/d7/4d89d7f963b41a416ec8a55230dab31b.gif",
-        "https://media1.tenor.com/images/6d73b0a9cadef5310be4b6160d2f959a/tenor.gif?itemid=12099823",
-        "https://media.tenor.com/images/2636cf3c8152631b4630bf71757a4afa/tenor.gif",
-        "https://i.imgur.com/JiFpT5E.gif"
+        "https://media.discordapp.net/attachments/803658122299572255/806775382995894282/anime-couple-snuggle-gif-5.gif?width=450&height=238",
+        "https://media.discordapp.net/attachments/803658122299572255/806775411928989726/snuggl1.gif",
+        "https://cdn.discordapp.com/attachments/803658122299572255/806775422833786911/ImpureDeepAmbushbug-small.gif"
+        
       ];
       const index = Math.floor(Math.random() * (gifchoices.length - 1) + 1);
       var gif = (gifchoices[index]);
       // ---------------------------------------
 
       const embed = {
-            "title": ":heart: Cuddle",
-            "description": "<@" + taggedUser + ">" + " You have been cuddled by " + "<@" + messageAuthor + ">!",
+            "title": "<:BlobSnuggleCat:806759753450782731> Snuggle",
+            "description": "<@" + taggedUser + ">" + " You have been snuggled by " + "<@" + messageAuthor + ">!",
             "color": 8311585,
             "footer": {
               "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
