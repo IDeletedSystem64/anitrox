@@ -14,25 +14,22 @@ module.exports = {
         // This should have a 50/50 amount of yes and no answers for equality.
         ]
         const index = Math.floor(Math.random() * (answers.length - 1) + 1);
+        const question = message.content
         var answer = (answers[index]);
 
         const embed = {
             "title": ":8ball: Anitrox 8 Ball",
-            "description": "**question**",
+            "description": "**" + question + "**",
             "color": 6942950,
             "footer": {
               "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
               "text": "Made with :heart: in Illinois | Anitrox (C) IDeletedSystem64 2018-2021"
             },
-            "author": {
-              "name": "author name",
-              "url": "https://discordapp.com",
-              "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
-            },
+            
             "fields": [
               {
-                "name": "🤔",
-                "value": "answer"
+                "name": "🤔 My Answer",
+                "value": answer
               }
             ]
           };
