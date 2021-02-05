@@ -92,10 +92,6 @@ const version = ("Public Test Release 4.1 (build 444)")
                 "inline": true
               },
               {
-                "name": "<:NyabotInfo:697145463350231040> **Want more system information?**",
-                "value": "Run np!sysinfo for more detailed system information (Coming Soon™)"
-              },
-              {
                 "name":  "<:usersuccess:793885338250641469> **Special Thanks To**",
                 "value": "@OfficialTCGMatt for providing help with development/n @chuu_shi Allowing me to host Anitrox on his server"
               }
