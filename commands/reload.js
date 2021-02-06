@@ -3,6 +3,7 @@ module.exports = {
 	description: 'Reloads a command',
 	args: true,
 	execute(client, message, args) {
+		if (message.author.id == 309427567004483586) {
 		const commandName = args[0].toLowerCase();
 		const command = message.client.commands.get(commandName)
 			|| message.client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
@@ -21,6 +22,23 @@ module.exports = {
 		} catch (error) {
 			console.error(error);
 			message.channel.send(`There was an error while reloading \`${command.name}\`:\n\`${error.message}\``);
-		}
+		} 
+	} else {
+			const embed = {
+				"title": "<:NyabotDenied:697145462565896194> **Access is denied**",
+				"color": 13632027,
+				"footer": {
+				  "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
+				  "text": "Anitrox © IDeletedSystem64 2018-2021 All Rights Reserved."
+				},
+				"fields": [
+				  {
+					"name": "**What Happened?**",
+					"value": "You don't have the appropriate permissions to run this command!"
+				  }
+				]
+			  };
+			  message.channel.send({ embed });
+			}
 	},
 };
