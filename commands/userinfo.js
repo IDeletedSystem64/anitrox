@@ -5,6 +5,22 @@ module.exports = {
   execute(client, message, args) {
 
     const user = message.mentions.users.first();
+    for (var i=0;i<user.presence.activities.length;i) {
+      if (activity.type == "CUSTOM_STATUS")
+        activity.name + activity.state
+        else
+        activity.type + activity.name
+    };
+
+
+    
+    
+    
+    
+    var i=0;i<user.presence.activities.length;i
+    var o=0;o<user.presence.activities.length;o++
+    const activity = user.presence.activities[i];
+    const playing = user.presence.activities[o];
     const embed = {
       "title": "Everything you've ever wanted to know about " + user.username + "!",
       "color": 172544,
@@ -31,7 +47,7 @@ module.exports = {
         },
         {
           "name": "User Status",
-          value: user.presence.activity
+           value:  activity.state + " " + playing.name
         },
         {
           "name": "User ID",
