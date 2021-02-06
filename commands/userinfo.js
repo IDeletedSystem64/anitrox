@@ -4,9 +4,9 @@ module.exports = {
   description: "Gets info about an user, such as ID, Discord Join date and more.",
   execute(client, message, args) {
 
-    const taggedUser = message.mentions.users.first();
+    const user = message.mentions.users.first();
     const embed = {
-      "title": "Everything you've ever wanted to know about " + taggedUser.username + "!",
+      "title": "Everything you've ever wanted to know about " + user.username + "!",
       "color": 172544,
       "footer": {
         "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
@@ -14,7 +14,7 @@ module.exports = {
       },
 
       "thumbnail": {
-        "url": taggedUser.displayAvatarURL()
+        "url": user.displayAvatarURL()
       },
       "fields": [
         {
@@ -23,15 +23,23 @@ module.exports = {
         },
         {
           "name": "Full Username",
-          "value": taggedUser.tag
+          "value": user.tag
+        },
+        {
+          "name": "User Presence",
+          value: user.presence.status
+        },
+        {
+          "name": "User Status",
+          value: user.presence.activity
         },
         {
           "name": "User ID",
-          "value": "``" + taggedUser.id + "``"
+          "value": "``" + user.id + "``"
         },
         {
           "name": "User Joined Discord",
-          "value": taggedUser.createdAt,
+          "value": user.createdAt,
           inline: true
         },
 
