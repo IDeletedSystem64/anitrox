@@ -9,12 +9,11 @@ module.exports = {
 
        // --------------------------------------
        const gifchoices = [
-        "https://thumbs.gfycat.com/SlowGlossyBlackcrappie-small.gif",
-        "https://media0.giphy.com/media/12VXIxKaIEarL2/giphy.gif",
-        "https://cutewallpaper.org/21/anime-kiss-girl/Anime-Kissing-GIF-Anime-Kissing-Girl-Discover-Share-GIFs.gif",
-        "https://i.makeagif.com/media/4-29-2017/orH05W.gif",
-        "https://31.media.tumblr.com/ea7842aad07c00b098397bf4d00723c6/tumblr_n570yg0ZIv1rikkvpo1_500.gif"
-
+        "https://cdn.discordapp.com/attachments/803658122299572255/807671954055626812/kiss5.gif",
+        "https://cdn.discordapp.com/attachments/803658122299572255/807671956236140554/kiss2.gif",
+        "https://cdn.discordapp.com/attachments/803658122299572255/807671964599713862/kiss1.gif",
+        "https://cdn.discordapp.com/attachments/803658122299572255/807671971168387082/kiss4.gif",
+        "https://cdn.discordapp.com/attachments/803658122299572255/807672017217781840/kiss3.gif"
       ];
       const index = Math.floor(Math.random() * (gifchoices.length - 1) + 1);
       var gif = (gifchoices[index]);
@@ -37,10 +36,15 @@ module.exports = {
       if(!taggedUser) {
         return message.channel.send({ embed: errorembed});
       }
+      
+    if(!taggedUser) {
+      return message.channel.send({ embed: errorembed});
+    // Checks if a user was mentioned. If not, returns error message.
+    }
       const embed = {
             "title": ":heart: Kiss",
             "description": "<@" + taggedUser + ">" + ", You have been kissed by <@" + messageAuthor + ">!",
-            "color": 8311585,
+            "color": 9442302,
             "footer": {
               "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
               "text": "Made with ❤ in Illinois | Anitrox © IDeletedSystem64 2018-2021"
