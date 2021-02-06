@@ -3,7 +3,9 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const os = require("os");
+
 const version = "build 465";
+
 const release = "anitrox_ptb"
 const activities_list = [
 	"with np!help",
