@@ -4,34 +4,41 @@ module.exports = {
 	description: '',
 	execute(client, message, args) {
 
+    const messageAuthor = message.author
 const embed = {
-    "title": "<:NyabotInfo:697145463350231040> **Help? HELP!** ",
+    "title": "<:NyabotInfo:697145463350231040> **HELP** " + messageAuthor.username + " **THE BOT IS ON FIRE!** ",
     "color": 9540095,
-    "description": "<:NyabotWarning:697145463194910791> Not all commands have been implemented, and may be removed without warning.",
+    "description": "More commands are soon to come, stay tuned!",
     "footer": {
       "text": "Some commands are hidden for dev-only. | Anitrox © IDeletedSystem64 2018-2021"
     },
     "fields": [
       {
-        "name": "**General Commands**",
-        "value": "`help` ``info`` ``userinfo`` ``ping`` ``invite`` ``avatar`` ``google`` ``youtube``"
+        "name": "Utility Commands",
+        "value": "`help` ``info`` ``userinfo`` ``ping`` ``invite`` ``avatar``"
       },
       {
         "name": "Moderation Commands",
-        "value": "`ban` `kick` `warn` `mute` `unban` `unmute` `purge` `permissions`"
+        "value": "`ban`/`unban` `kick` `mute`/`unmute` "
       },
       {
         "name": "Server Management Commands",
-        "value": "` channelcreate` `channeldelete` `channelrename` `rolecreate` `roleedit` `roledelete` `setnick`"
+        "value": "`makerole`/`delrole`/`editrole` `setnick` `makechan`/`editchan`/`delchan` "
       },
       {
-        "name": "Fun Commands",
-        "value": "`hug` `poke` `bonk` `slap` `pat` `kiss` `lick` `cuddle` `nom` `leskiss`"
+        "name": "Action Commands",
+        "value": "`hug` `poke` `bonk` `slap` `pat` `kiss` `lick` `cuddle` `nom` `leskiss` `snuggle`"
       },
       {
-        "name": "**Need additional help or want to report an issue?**",
-        "value": "https://discord.gg/grebRGsBZ3"
+        "name": "**...or is the bot actually on fire? Come here for help and support!**",
+        "value": "bit.ly/anitrox-help"
+      },
+      {
+        "name": "**Or you can view the bot progress, known issues, and planned features!**",
+        "value": "bit.ly/anitrox-trello"
       }
+
+
     ]
   };
   message.channel.send({ embed });

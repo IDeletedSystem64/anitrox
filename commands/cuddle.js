@@ -20,7 +20,7 @@ module.exports = {
       const embed = {
             "title": ":heart: Cuddle",
             "description": "<@" + taggedUser + ">" + " You have been cuddled by " + "<@" + messageAuthor + ">!",
-            "color": 8311585,
+            "color": 9442302,
             "footer": {
               "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
               "text": "Made with ❤ in Illinois | Anitrox © IDeletedSystem64 2018-2021"

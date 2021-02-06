@@ -11,7 +11,8 @@ module.exports = {
         "https://cdn.lowgif.com/full/91e3f30773596637-.gif",
         "https://thumbs.gfycat.com/WealthyWastefulBluemorphobutterfly-size_restricted.gif",
         "https://data.whicdn.com/images/294164107/original.gif",
-        "https://media1.tenor.com/images/e5e7779385d003db13396e03b7fd1024/tenor.gif?itemid=16619907"
+        "https://media1.tenor.com/images/e5e7779385d003db13396e03b7fd1024/tenor.gif?itemid=16619907",
+        "https://cdn.discordapp.com/attachments/803658122299572255/806775446095396915/hug.gif"
       ];
      //---------------------------------
      const errorembed = {

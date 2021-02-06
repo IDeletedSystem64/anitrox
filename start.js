@@ -3,7 +3,9 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const os = require("os");
-const version = "build 444";
+
+const version = "build 465";
+
 const release = "anitrox_ptb"
 const activities_list = [
 	"with np!help",
@@ -24,7 +26,7 @@ const activities_list = [
 	"Team Fortress 2 with Sophie",
 	"videos on Hulu",
 	"American Truck Simulator",
-	"my users!",
+	"with my users!",
 	"with Sophies skirt"
 ];
 
@@ -63,7 +65,7 @@ client.on('message', message => {
 
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
-
+	
 	if (!client.commands.has(command)) return;
 
 	try {
