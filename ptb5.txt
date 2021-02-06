@@ -1,4 +1,4 @@
-Anitrox PTB Release 5 (Build 455) adds new fixes and features to Anitrox.
+Anitrox PTB Release 5 (Build 465) adds new fixes and features to Anitrox.
 + Fixed action command GIF issues. They should always show GIFs now. 
 + Anitrox now has a Trello! You can check it out at bit.ly/anitrox-trello
 + Added 8ball, Ask Anitrox ANY question and they will answer! Thanks to @OfficialTCGMatt for helping me finish this.
