@@ -6,18 +6,16 @@ module.exports = {
       const messageAuthor = message.author
       const taggedUser = message.mentions.users.first();
       const gifchoices = [
-        "https://media1.tenor.com/images/684efd91473dcfab34cb78bf16d211cf/tenor.gif?itemid=14495459",
-        "https://cdn.lowgif.com/medium/d26c65f2d66be540-merriberri-graphic-arts-services-requests.gif",
-        "https://cdn.lowgif.com/full/91e3f30773596637-.gif",
-        "https://thumbs.gfycat.com/WealthyWastefulBluemorphobutterfly-size_restricted.gif",
-        "https://data.whicdn.com/images/294164107/original.gif",
-        "https://media1.tenor.com/images/e5e7779385d003db13396e03b7fd1024/tenor.gif?itemid=16619907",
-        "https://cdn.discordapp.com/attachments/803658122299572255/806775446095396915/hug.gif"
+        "https://cdn.discordapp.com/attachments/803658122299572255/807670647920001044/hug2.gif",
+        "https://cdn.discordapp.com/attachments/803658122299572255/807670797983285268/hug1.gif",
+        "https://cdn.discordapp.com/attachments/803658122299572255/807670951113392178/gif6.gif",
+        "https://cdn.discordapp.com/attachments/803658122299572255/808834617494208532/gif3new.gif",
+        "https://cdn.discordapp.com/attachments/803658122299572255/807671126376972308/gif4.gif"
       ];
      //---------------------------------
      const errorembed = {
       "title": "<:NyabotError:697145462347661412> Error",
-      "color": 13632027,
+      "color": 9442302,
       "footer": {
         "icon_url": "https://images-ext-2.discordapp.net/external/-qaO3jaZLojhEnjrHiKABdXD7gLWqFvdUqHdskNGWhE/https/media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
         "text": "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
@@ -35,7 +33,7 @@ module.exports = {
     // Checks if a user was mentioned. If not, returns error message.
     }
     
-      const index = Math.floor(Math.random() * (gifchoices.length - 1) + 2);
+      const index = Math.floor(Math.random() * (gifchoices.length - 1) + 0.4);
       var gif = (gifchoices[index]);    
       const embed = {
             "title": "<a:ABlobCatHuggle:801232248035999784> Hug",
