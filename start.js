@@ -3,9 +3,7 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const os = require("os");
-
-const version = "build 465";
-
+const version = "build 467";
 const release = "anitrox_ptb"
 const activities_list = [
 	"with np!help",
@@ -47,6 +45,7 @@ client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
 
 client.once('ready', () => {
+	console.clear()
 	console.log('    ___          _ __                 ');
 	console.log('   /   |  ____  (_) /__________  _  __');
 	console.log('  / /| | / __ \/ / __/ ___/ __ \| |/_/');
