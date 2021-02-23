@@ -24,14 +24,14 @@ module.exports = {
 
 
 
-const version = ("Public Test Release 4.1 (build 444)")
+const version = ("Public Test Release 5 (build 465)")
     const release = ("anitrox_ptb")
     const os = require("os")
 
     const embed = {
             "title": "<:NyabotInfo:697145463350231040> Information about Anitrox",
             "description": "Everything you've ever wanted to know about Anitrox!",
-            "color": 11038194,
+            "color": 9442302,
             "footer": {
               "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
               "text": "Made with ❤ in Illinois | Anitrox © IDeletedSystem64 2018-2021 "
@@ -93,7 +93,7 @@ const version = ("Public Test Release 4.1 (build 444)")
               },
               {
                 "name":  "<:usersuccess:793885338250641469> **Special Thanks To**",
-                "value": "@OfficialTCGMatt for providing help with development/n @chuu_shi Allowing me to host Anitrox on his server"
+                "value": "@OfficialTCGMatt for providing help with development\n @chuu_shi Allowing me to host Anitrox on his server"
               }
 
             ]
