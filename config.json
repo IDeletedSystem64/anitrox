@@ -1,4 +1,8 @@
 {
   "prefix": "n!",
-  "ownerID": "309427567004483586"
+
+  "token": "NTQwOTQxNjc5MDQ2Mjk1NTUz.XFR9Mg.MpSy0w6Gqy72nGsfIEH8opOGn8A",
+  "ownerID": "309427567004483586",
+  "release": "anitrox_ptb",
+  "build": "Public Test Release 6, build 493"
 }

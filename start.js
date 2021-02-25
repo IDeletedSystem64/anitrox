@@ -1,10 +1,10 @@
 console.log('Preparing to start!')
 const fs = require('fs');
 const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
+const { build, release, prefix, token } = require('./config.json');
+const { denied, error, info, success, warning } = require('./icons.json');
 const os = require("os");
-const version = "build 467";
-const release = "anitrox_ptb"
+
 const activities_list = [
 	"with np!help",
 	"Where am I?",
@@ -18,7 +18,7 @@ const activities_list = [
 	"on Sophie's main PC- wait shoot she's coming",
 	"btw I use Debian linux",
 	"Watching you",
-	"Running " + release + " Version " + version,
+	"Running " + release + " Version " + build,
 	"in Incognito Mode- wait what",
 	"uwu",
 	"Team Fortress 2 with Sophie",
