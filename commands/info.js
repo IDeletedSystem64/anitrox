@@ -3,7 +3,8 @@ module.exports = {
 
 	name: 'info',
 	description: 'Shows bot and host information',
-	execute(client, message, args) {
+	execute(client, message, args,) {
+    const { build, release } = require('../config.json');
     function Uptime(uptimetype) {
       let totalSeconds = (uptimetype / 1000);
 
@@ -22,11 +23,10 @@ module.exports = {
       return uptime;
   };
 
-
-const user = ("309427567004483586")
-const version = ("Public Test Release 6 (build 493)")
-    const release = ("anitrox_ptb")
+    
     const os = require("os")
+    var osu = require('node-os-utils')
+    var cpu = osu.cpu
     const embed = {
             "title": "<:AnitroxInfo:809651936831733791> Information about Anitrox",
             "description": "Everything you've ever wanted to know about Anitrox!",
@@ -36,7 +36,7 @@ const version = ("Public Test Release 6 (build 493)")
               "text": "Made with ❤ in Illinois | Anitrox © IDeletedSystem64 2018-2021 "
             },
             "thumbnail": {
-              "url": ("https://images-ext-2.discordapp.net/external/-qaO3jaZLojhEnjrHiKABdXD7gLWqFvdUqHdskNGWhE/https/media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png")
+              "url": ("https://cdn.discordapp.com/avatars/576805923964715018/20f9b2815850dbbebd6d858308c90330.webp")
             },
             "fields": [
               {
@@ -49,7 +49,7 @@ const version = ("Public Test Release 6 (build 493)")
               },
               {
                 "name": "Release Version",
-                "value": version
+                "value": build
               },
               {
                 "name": "Uptime",
@@ -69,7 +69,7 @@ const version = ("Public Test Release 6 (build 493)")
               },
               {
                 "name": "<:cpu:793672442056802354> CPU Type",
-                "value": process.arch
+                "value": process.arch + ", " + cpu.model()
               },
 
               {
