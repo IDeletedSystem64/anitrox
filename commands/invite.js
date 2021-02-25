@@ -23,7 +23,16 @@ module.exports = {
 			  {
 				"name": "Anitrox PTB (Public Test Build)",
 				"value": "This is the PTB build, which has new features as they are pushed out. and is generally stable. \n https://discord.com/oauth2/authorize?client_id=489125054261755925&scope=bot&permissions=66186303"
+			  },
+			  {
+				  "name": "Anitrox Dev (Unstable)",
+				  "value": "This isn't availiable for invite, though it is availiable on the support server."
+			  },
+			  {
+				  "name": "Need help?",
+				  "value": "You can join the support server here: bit.ly/anitrox-help"  
 			  }
+
 			]
 		  };
 		  message.channel.send({ embed });

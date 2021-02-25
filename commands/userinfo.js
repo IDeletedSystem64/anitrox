@@ -13,10 +13,12 @@ module.exports = {
     var i=0;i<user.presence.activities.length;i
     const activity = user.presence.activities[i];
 
-   
+    if(!activity) {
+      const activity = "This user doesn't have a set status"
+    // Checks if a user was mentioned. If not, returns error message.
+    }
 
 
-    
 
     const embed = {
       "title": "Everything you've ever wanted to know about " + user.username + "!",
@@ -25,7 +27,7 @@ module.exports = {
         "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
         "text": "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
       },
-
+      
       "thumbnail": {
         "url": user.displayAvatarURL()
       },

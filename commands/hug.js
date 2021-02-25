@@ -14,7 +14,7 @@ module.exports = {
       ];
      //---------------------------------
      const errorembed = {
-      "title": "<:NyabotError:697145462347661412> Error",
+      "title": "<:AnitroxError:809651936563429416> Error",
       "color": 9442302,
       "footer": {
         "icon_url": "https://images-ext-2.discordapp.net/external/-qaO3jaZLojhEnjrHiKABdXD7gLWqFvdUqHdskNGWhE/https/media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
