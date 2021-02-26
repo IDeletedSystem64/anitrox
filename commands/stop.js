@@ -1,28 +1,31 @@
-
 module.exports = {
-    name: 'stop',
-    description: '(Owner Only) Shuts down the bot.',
-    execute( client, message, args, denied) {
+    name: "stop",
+    description: "Stops the bot",
+    execute(client, message, args) {
         if (message.author.id == 309427567004483586) {
-            message.channel.send("<a:NyabotWorking:697147309531594843> The bot is stopping!")
-            .then
+        const embed = {
+                "title": ":AnitroxWorking: **Shutting Down...**",
+                "description": "See you next time!",
+                "color": 9442302,
+                "footer": {
+                  "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
+                  "text": "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
+                }
+              };
+            message.channel.send({ embed });
             client.destroy()
-            .catch(console.error)
+            process.exit()
         } else {
-            const embed = {
-				"title": denied + "**Access is denied**",
-				"color": 13632027,
-				"footer": {
-				  "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-				  "text": "Anitrox © IDeletedSystem64 2018-2021 All Rights Reserved."
-				},
-				"fields": [
-				  {
-					"name": "**What Happened?**",
-					"value": "You don't have the appropriate permissions to run this command!"
-				  }
-				]
-			  };
-			  message.channel.send({ embed });
+            const denied = {
+                "title": ":AnitroxDenied: Access Denied",
+                "description": "You need to be the bot owner to execute this command!",
+                "color": 13632027,
+                "footer": {
+                  "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
+                  "text": "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
+                }
+              };
+              message.channel.send({ denied });
+            }
         }
-    }}
+    }
