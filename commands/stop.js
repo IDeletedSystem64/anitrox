@@ -4,7 +4,7 @@ module.exports = {
     execute(client, message, args) {
         if (message.author.id == 309427567004483586) {
         const embed = {
-                "title": ":AnitroxWorking: **Shutting Down...**",
+                "title": "<a:AnitroxWorking:697147309531594843> **Shutting Down...**",
                 "description": "See you next time!",
                 "color": 9442302,
                 "footer": {
@@ -13,8 +13,9 @@ module.exports = {
                 }
               };
             message.channel.send({ embed });
-            client.destroy()
-            process.exit()
+            setTimeout(function(){ 
+              client.destroy()
+           }, 5000);
         } else {
             const denied = {
                 "title": ":AnitroxDenied: Access Denied",
