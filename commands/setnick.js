@@ -1,13 +1,10 @@
 module.exports = {
     name: 'setnick',
-    description: 'Sets yours or another users nickname',
-    execute(client, message, args,) {
-        new Discord.GuildMember(data, guild);
-        const guild = guild.fetch
-        const member = guild.member(message.author)  
-    if (message.channel.permissionsFor(message.author).has("CHANGE_NICKNAME")){
-        
-        } else {
-    message.channel.send("no permission")
-    }
+    description: 'i genuinely fucking dont know. :SylvPain:',
+    execute(client, message, args, Discord) {
+    if (message.channel.permissionsFor(message.author).has("CHANGE_NICKNAME")) {
+        message.channel.send("meow")
+    } else {
+        message.channel.send("no permission")
+    };
 }}
