@@ -25,7 +25,11 @@ const activities_list = [
 	"videos on Hulu",
 	"American Truck Simulator",
 	"with my users!",
-	"with Sophies skirt"
+	"with Sophies skirt",
+	"Euro Truck Simulator 2",
+	"with a screwdriver",
+	"Found new hardware.",
+	"@everyone"
 ];
 
 console.log('Starting! This should only take a moment.')
@@ -51,7 +55,7 @@ client.once('ready', () => {
 	console.log('  / /| | / __ \/ / __/ ___/ __ \| |/_/');
 	console.log(' / ___ |/ / / / / /_/ /  / /_/ />  <  ');
 	console.log('/_/  |_/_/ /_/_/\__/_/   \____/_/|_|  ')
-
+	console.log(release + " " + build)
 	console.log('All Systems Go. | Anitrox (C) 2021 IDeletedSystem64.');
 });
 setInterval(() => {
