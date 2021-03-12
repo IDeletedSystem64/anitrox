@@ -1,10 +1,51 @@
+const { GuildMember } = require("discord.js");
+
 module.exports = {
     name: 'setnick',
-    description: 'i genuinely fucking dont know. :SylvPain:',
+    description: 'Sets your nickname',
     execute(client, message, args, Discord) {
     if (message.channel.permissionsFor(message.author).has("CHANGE_NICKNAME")) {
-        message.channel.send("meow")
+    var newnick = args.slice(0).join(" ")
+    const successembed = {
+        "title": "<:AnitroxSuccess:809651936819019796> Nickname Changed",
+        "color": 9442302,
+        "footer": {
+          "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
+          "text": "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
+        },
+        "fields": [
+          {
+            "name": "Changed nickname successfully!",
+            "value": "You need to have permission ``CHANGE_NICKNAME`` to change your nick!"
+          },
+          {
+            "name": "Old Nickname",
+            "value": "oldnick",
+            "inline": true
+          },
+          {
+            "name": "New Nickname",
+            "value": newnick,
+            "inline": true
+          }
+        ]
+      };
+      GuildMember.setNickname(newnick, "Nickname change requested by a server member. If you don't want users to be able to change their nickname disable 'CHANGE_NICKNAME' via Change Nickname in Roles.")
     } else {
-        message.channel.send("no permission")
+        const failembed = {
+            "title": "<:AnitroxDenied:809651936642203668> Well that happened...",
+            "color": 13632027,
+            "footer": {
+              "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
+              "text": "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
+            },
+            "fields": [
+              {
+                "name": "Failed to set nickname",
+                "value": "You need to have permission ``CHANGE_NICKNAME`` to change your nick!"
+              }
+            ]
+          };
+          message.channel.send({ failembed });
     };
 }}
