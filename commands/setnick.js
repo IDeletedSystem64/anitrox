@@ -8,6 +8,7 @@ module.exports = {
     if (message.channel.permissionsFor(message.author).has("CHANGE_NICKNAME")) {
     var newnick = args.slice(0).join(" ")
 
+    try {
     const successembed = {
         "title": "<:AnitroxSuccess:809651936819019796> Nickname Changed",
         "color": 9442302,
@@ -28,7 +29,7 @@ module.exports = {
         ]
       };
       message.member.setNickname(newnick, "Nickname change requested by the server member. If you don't want users to be able to change their nickname disable 'CHANGE_NICKNAME' via Change Nickname in Roles.")
-    } else {
+    } catch (error) {
         const failembed = {
             "title": "<:AnitroxDenied:809651936642203668> Well that happened...",
             "color": 13632027,
@@ -45,4 +46,4 @@ module.exports = {
           };
           message.channel.send({ failembed });
     };
-}}
+}}}
