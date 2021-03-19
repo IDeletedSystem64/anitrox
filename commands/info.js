@@ -3,7 +3,8 @@ module.exports = {
 
 	name: 'info',
 	description: 'Shows bot and host information',
-	execute(client, message, args) {
+	execute(client, message, args,) {
+    const { build, release } = require('../config.json');
     function Uptime(uptimetype) {
       let totalSeconds = (uptimetype / 1000);
 
@@ -22,22 +23,20 @@ module.exports = {
       return uptime;
   };
 
-
-
-const version = ("Public Test Release 4.1 (build 444)")
-    const release = ("anitrox_ptb")
+    
     const os = require("os")
-
+    var osu = require('node-os-utils')
+    var cpu = osu.cpu
     const embed = {
-            "title": "<:NyabotInfo:697145463350231040> Information about Anitrox",
+            "title": "<:AnitroxInfo:809651936831733791> Information about Anitrox",
             "description": "Everything you've ever wanted to know about Anitrox!",
-            "color": 11038194,
+            "color": 9442302,
             "footer": {
               "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
               "text": "Made with ❤ in Illinois | Anitrox © IDeletedSystem64 2018-2021 "
             },
             "thumbnail": {
-              "url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png"
+              "url": ("https://cdn.discordapp.com/avatars/576805923964715018/20f9b2815850dbbebd6d858308c90330.webp")
             },
             "fields": [
               {
@@ -50,7 +49,7 @@ const version = ("Public Test Release 4.1 (build 444)")
               },
               {
                 "name": "Release Version",
-                "value": version
+                "value": build
               },
               {
                 "name": "Uptime",
@@ -70,7 +69,7 @@ const version = ("Public Test Release 4.1 (build 444)")
               },
               {
                 "name": "<:cpu:793672442056802354> CPU Type",
-                "value": process.arch
+                "value": process.arch + ", " + cpu.model()
               },
 
               {
@@ -93,7 +92,7 @@ const version = ("Public Test Release 4.1 (build 444)")
               },
               {
                 "name":  "<:usersuccess:793885338250641469> **Special Thanks To**",
-                "value": "@OfficialTCGMatt for providing help with development/n @chuu_shi Allowing me to host Anitrox on his server"
+                "value": "@OfficialTCGMatt for providing help with development\n @chuu_shi Allowing me to host Anitrox on his server"
               }
 
             ]

@@ -3,7 +3,7 @@ module.exports = {
     name: 'restart',
     description: '(Owner Only) Shuts down the bot.',
     execute(client, message, args) {
-        const { token } = require('./config.json');
+        const { token } = require('../config.json');
         if (message.author.id == 309427567004483586) {
             message.channel.send("<a:NyabotWorking:697147309531594843> Restarting...").then
             client.destroy()

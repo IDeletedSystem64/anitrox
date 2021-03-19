@@ -2,7 +2,7 @@ module.exports = {
 	name: 'reload',
 	description: 'Reloads a command',
 	args: true,
-	execute(client, message, args) {
+	execute(client, message, args, denied) {
 		if (message.author.id == 309427567004483586) {
 		const commandName = args[0].toLowerCase();
 		const command = message.client.commands.get(commandName)
@@ -21,7 +21,7 @@ module.exports = {
 			console.log('User reloaded ${command.name}.')
 		} catch (error) {
 			console.error(error);
-			message.channel.send(`There was an error while reloading \`${command.name}\`:\n\`${error.message}\``);
+			message.channel.send(`<:AnitroxError:809651936563429416> There was an error while reloading \`${command.name}\`:\n\`${error.message}\``);
 		} 
 	} else {
 			const embed = {

@@ -1,13 +1,32 @@
-
 module.exports = {
-    name: 'stop',
-    description: '(Owner Only) Shuts down the bot.',
+    name: "stop",
+    description: "Stops the bot",
     execute(client, message, args) {
         if (message.author.id == 309427567004483586) {
-            message.channel.send("<a:NyabotWorking:697147309531594843> Shutting Down...").then
-            client.destroy()
-            .catch(console.error)
+        const embed = {
+                "title": "<a:AnitroxWorking:697147309531594843> **Shutting Down...**",
+                "description": "See you next time!",
+                "color": 9442302,
+                "footer": {
+                  "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
+                  "text": "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
+                }
+              };
+            message.channel.send({ embed });
+            setTimeout(function(){ 
+              client.destroy()
+           }, 5000);
         } else {
-            message.channel.send("<:NyabotDenied:697145462565896194> Access Denied, You must be bot owner to execute this command.");
+            const denied = {
+                "title": ":AnitroxDenied: Access Denied",
+                "description": "You need to be the bot owner to execute this command!",
+                "color": 13632027,
+                "footer": {
+                  "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
+                  "text": "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
+                }
+              };
+              message.channel.send({ denied });
+            }
         }
-    }}
+    }

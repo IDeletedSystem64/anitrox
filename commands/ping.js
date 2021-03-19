@@ -4,7 +4,7 @@ module.exports = {
   execute(client, message, args) {
     const embed = {
   "title": ":ping_pong: Ping",
-  "color": 15433939,
+  "color": 9442302,
   "fields": [
     {
       "name": "Ping is " + client.ws.ping + " ms",

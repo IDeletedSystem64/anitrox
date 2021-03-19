@@ -17,6 +17,9 @@ module.exports = {
       var gif = (gifchoices[index]);
       // ---------------------------------------
 
+      if(!taggedUser) {
+        return message.channel.send("<:AnitroxError:809651936563429416> You need to specify an user!")
+      }
       const embed = {
             "title": ":heart: Cuddle",
             "description": "<@" + taggedUser + ">" + " You have been cuddled by " + "<@" + messageAuthor + ">!",

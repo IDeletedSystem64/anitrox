@@ -7,7 +7,7 @@ module.exports = {
     const messageAuthor = message.author
 const embed = {
     "title": "<:NyabotInfo:697145463350231040> **HELP** " + messageAuthor.username + " **THE BOT IS ON FIRE!** ",
-    "color": 9540095,
+    "color": 9442302,
     "description": "More commands are soon to come, stay tuned!",
     "footer": {
       "text": "Some commands are hidden for dev-only. | Anitrox © IDeletedSystem64 2018-2021"

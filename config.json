@@ -1,6 +1,8 @@
 {
   "prefix": "n!",
 
-  "token": "<token>",
-  "ownerID": "309427567004483586"
+  "token": "token",
+  "ownerID": "309427567004483586",
+  "release": "anitrox_ptb",
+  "build": "Anitrox Stable Release Canidiate 1"
 }

@@ -1,12 +1,10 @@
 console.log('Preparing to start!')
 const fs = require('fs');
 const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
+const { build, release, prefix, token } = require('./config.json');
+const { denied, error, info, success, warning } = require('./icons.json');
 const os = require("os");
 
-const version = "build 465";
-
-const release = "anitrox_ptb"
 const activities_list = [
 	"with np!help",
 	"Where am I?",
@@ -20,14 +18,18 @@ const activities_list = [
 	"on Sophie's main PC- wait shoot she's coming",
 	"btw I use Debian linux",
 	"Watching you",
-	"Running " + release + " Version " + version,
+	"Running " + release + " Version " + build,
 	"in Incognito Mode- wait what",
 	"uwu",
 	"Team Fortress 2 with Sophie",
 	"videos on Hulu",
 	"American Truck Simulator",
 	"with my users!",
-	"with Sophies skirt"
+	"with Sophies skirt",
+	"Euro Truck Simulator 2",
+	"with a screwdriver",
+	"Found new hardware.",
+	"@everyone"
 ];
 
 console.log('Starting! This should only take a moment.')
@@ -47,12 +49,13 @@ client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
 
 client.once('ready', () => {
+	console.clear()
 	console.log('    ___          _ __                 ');
 	console.log('   /   |  ____  (_) /__________  _  __');
 	console.log('  / /| | / __ \/ / __/ ___/ __ \| |/_/');
 	console.log(' / ___ |/ / / / / /_/ /  / /_/ />  <  ');
 	console.log('/_/  |_/_/ /_/_/\__/_/   \____/_/|_|  ')
-
+	console.log(release + " " + build)
 	console.log('All Systems Go. | Anitrox (C) 2021 IDeletedSystem64.');
 });
 setInterval(() => {
@@ -69,11 +72,11 @@ client.on('message', message => {
 	if (!client.commands.has(command)) return;
 
 	try {
-		client.commands.get(command).execute(client, message, args);
+		client.commands.get(command).execute(client, message, args, Discord);
 	} catch (error) {
 		console.error
 		const embed = {
-			"title": "<:NyabotError:697145462347661412> **Well that happened...**",
+			"title": "<:AnitroxError:809651936563429416> **Well that happened...**",
 			"color": 13632027,
 			"footer": {
 			  "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
@@ -86,7 +89,7 @@ client.on('message', message => {
 			  },
 			  {
 				"name": "Error Info",
-				"value": error.message
+				"value": error.stack
 			  }
 			]
 		  };
