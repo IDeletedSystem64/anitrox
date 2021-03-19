@@ -11,7 +11,7 @@ module.exports = {
                 "title": "<:AnitroxSuccess:809651936819019796> Nickname Changed",
                 "color": 9442302,
                 "footer": {
-                    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
+                    "icon_url": "https://images-ext-2.discordapp.net/external/-qaO3jaZLojhEnjrHiKABdXD7gLWqFvdUqHdskNGWhE/https/media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
                     "text": "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
                 },
                 "fields": [
