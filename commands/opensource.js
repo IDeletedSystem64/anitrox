@@ -1,35 +1,28 @@
 module.exports = {
-    name: "opensource",
-    description: "Get the source for the original Anitrox code!",
-    execute(client, message, args) {
+    name: 'opensource',
+    description: 'Attributions to open source components used by Anitrox',
+    execute(client, message, args){
         const embed = {
-            "title": "<:AnitroxInfo:809651936831733791> Anitrox Source",
-            "description": "These legacy builds are **!!NOT!!** supported and are considered discontinued. Some of this legacy code may still be in use but is being replaced with more up-to-date and usable code.",
-            "url": "https://discordapp.com",
-            "color": 9442302,
+            "title": "Component Attribution",
+            "description": "Some parts of Anitrox are using open source code, and their attributions are avaliable here!",
+            "color": 52508,
             "footer": {
-              "icon_url": "https://cdn.discordapp.com/emojis/809651936819019796.png?v=1",
-              "text": "Released under GPLv3 licese. "
+              "icon_url": "https://images-ext-2.discordapp.net/external/-qaO3jaZLojhEnjrHiKABdXD7gLWqFvdUqHdskNGWhE/https/media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
+              "text": "Made with ❤ in Illinois | Anitrox by IDeletedSystem64"
             },
             "thumbnail": {
-              "url": "https://cdn.discordapp.com/attachments/793537380330111028/822894433665810432/nyabotanitrox.png"
+              "url": "https://cdn.discordapp.com/attachments/803658122299572255/838854256471703602/793885335498522685.png"
             },
             "fields": [
               {
-                "name": "anitroxlegacy_v1/nyabotv1",
-                "value": "https://github.com/IDeletedSystem64/anitroxlegacy"
+                "name": "Discord.JS",
+                "value": "[Check out the Discord.JS project on GitHub](https://github.com/discordjs/discord.js/)"
               },
               {
-                "name": "anitroxlegacy_v3/projectcanary (Nyabot 3.0)",
-                "value": "https://github.com/IDeletedSystem64/anitroxlegacyv3"
-              },
-              {
-                "name": "License Type",
-                "value": "This is released under the GNU Public License v3. You are allowed to modify, rewrite, expand on the code as you wish. You don't need to provide me credit on your projects involving this code. Learn more at http://www.gnu.org/licenses/gpl-3.0.html",
-                "inline": true
+                "name": "You",
+                "value": "Using and supporting the Anitrox Project, thank you! ❤"
               }
             ]
           };
           message.channel.send({ embed });
-    }
-}
+        }}
