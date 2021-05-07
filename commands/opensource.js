@@ -19,6 +19,10 @@ module.exports = {
                 "value": "[Check out the Discord.JS project on GitHub](https://github.com/discordjs/discord.js/)"
               },
               {
+                "name": "The Anitrox Project",
+                "value": "[Check out Anitrox on GitHub](https://github.com/IDeletedSystem64/anitrox)"
+              },
+              {
                 "name": "You",
                 "value": "Using and supporting the Anitrox Project, thank you! ❤"
               }
