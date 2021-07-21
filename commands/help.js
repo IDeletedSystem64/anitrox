@@ -10,7 +10,7 @@ const embed = {
     "color": 9442302,
     "description": "More commands are soon to come, stay tuned!",
     "footer": {
-      "text": "Some commands are hidden for dev-only. | Anitrox © IDeletedSystem64 2018-2021"
+      "text": "Made with ❤ in Illinois | Anitrox by IDeletedSystem64"
     },
     "fields": [
       {
@@ -18,12 +18,8 @@ const embed = {
         "value": "`help` ``info`` ``userinfo`` ``ping`` ``invite`` ``avatar``"
       },
       {
-        "name": "Moderation Commands",
-        "value": "`ban`/`unban` `kick` `mute`/`unmute` "
-      },
-      {
         "name": "Server Management Commands",
-        "value": "`makerole`/`delrole`/`editrole` `setnick` `makechan`/`editchan`/`delchan` "
+        "value": "`setnick`"
       },
       {
         "name": "Action Commands",
@@ -36,8 +32,10 @@ const embed = {
       {
         "name": "**Or you can view the bot progress, known issues, and planned features!**",
         "value": "bit.ly/anitrox-trello"
+      },
+      {
+        "name": "<:AnitroxInfo:809651936831733791> **The bot isn't yet fully finished. There's more to come! if I don't rewrite from scratch that is 😛**"
       }
-
 
     ]
   };

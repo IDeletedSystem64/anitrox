@@ -8,7 +8,7 @@ module.exports = {
   "fields": [
     {
       "name": "Ping is " + client.ws.ping + " ms",
-      "value": "If this is more than 1500ms there may be a problem!"
+      "value": "If this is more than 350ms there may be a problem!"
     }
   ]
 };

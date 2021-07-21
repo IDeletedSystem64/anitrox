@@ -33,7 +33,7 @@ module.exports = {
             "color": 9442302,
             "footer": {
               "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-              "text": "Made with ❤ in Illinois | Anitrox © IDeletedSystem64 2018-2021 "
+              "text": "Made with ❤ in Illinois | Anitrox by IDeletedSystem64"
             },
             "thumbnail": {
               "url": ("https://cdn.discordapp.com/avatars/576805923964715018/20f9b2815850dbbebd6d858308c90330.webp")
