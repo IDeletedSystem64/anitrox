@@ -10,28 +10,14 @@ console.log('(Info) Loaded OS successfully!')
 
 const activities_list = [
 	"with np!help",
-	"Where am I?",
-	"with Sylveons!",
-	"on my host's hard disk",
-	"with Sophie",
-	"HAAAAAAAAPPPPPPPYYYYYYYYYYYYYYYYYYYY",
-	"Running on " + process.platform + " / " + os.version() + "!",
-	"with the tea machine",
-	"with Borked Computers",
-	"on Sophie's main PC- wait shoot she's coming",
-	"btw I use Debian linux",
-	"Watching you",
-	"Running " + release + " Version " + build,
-	"in Incognito Mode- wait what",
-	"uwu",
-	"Team Fortress 2 with Sophie",
-	"videos on Hulu",
-	"American Truck Simulator",
-	"with my users!",
-	"Euro Truck Simulator 2",
-	"with a screwdriver",
-	"Found new hardware.",
-	"@everyone"
+	"with Sophie!",
+	"Trans Rights!",
+	"in your computer",
+	"with my internet router",
+	"ssh: system64@borkeonv2",
+	"YouTube",
+	"with source code",
+	"Visual Studio Code"
 ];
 
 console.log('Starting! This should only take a moment.')
