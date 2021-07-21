@@ -11,4 +11,4 @@ Localization updates-nahjk (maybe one day? 🤔)
 Simplified error message
 Patched a security vulnerbility in one of the dependencies, I forget what it was but Dependabot gave me a heads up about it soo ¯\_(ツ)_
 Probably a bunch of other stuff I've forgot about 🙃
-
+https://www.youtube.com/watch?v=_WW2JWIv6G8
