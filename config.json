@@ -1,8 +1,8 @@
 {
-  "prefix": "np!",
+  "prefix": "n!",
 
-  "token": "token",
+  "token": "nOwoTaRe4lt0k3n",
   "ownerID": "309427567004483586",
-  "release": "anitrox_ptb",
-  "build": "Stable Release Canidiate 3.1, Based off release commit 907fa1d"
+  "release": "anitrox_dev",
+  "build": "1.0 Prerelease, Based off commit 0757e1f"
 }
