@@ -1,10 +1,11 @@
-console.log('(Info) Preparing to start!')
+
+console.log("(Info)" + " Preparing to start!" )
 const fs = require('fs');
 console.log('(Info) Loaded Filesystem successfully!')
 const Discord = require('discord.js');
+const { MessageActionRow, MessageButton } = require('discord.js')
 console.log('(Info) Loaded Discord successfully!')
 const { build, release, prefix, token } = require('./config.json');
-const { denied, error, info, success, warning } = require('./icons.json');
 const os = require("os");
 console.log('(Info) Loaded OS successfully!')
 
@@ -17,9 +18,9 @@ const activities_list = [
 	"ssh: system64@borkeonv2",
 	"YouTube",
 	"with source code",
-	"Visual Studio Code"
+	"Visual Studio Code",
+	"Running Anitrox" + build
 ];
-
 console.log('Starting! This should only take a moment.')
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -33,9 +34,9 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-client.on("error", (e) => console.error(e));
-client.on("warn", (e) => console.warn(e));
-
+client.on("error", (e) => console.log(Date.now + "[ERROR]" + error(e)));
+client.on("warn", (e) => (Date.now + "[WARN]" + warn(e)));
+// sends errors/warnings to the hosts console/terminal. crash errors ignore this
 client.once('ready', () => {
 	console.clear()
 	console.log('    ___          _ __                 ');
@@ -46,11 +47,12 @@ client.once('ready', () => {
 	console.log(release + ", " + build)
 	console.log("All Systems Go. | Anitrox by IDeletedSystem64 | We're now open-source! Check it out at bit.ly/anitroxsource");
 });
+// does a cool logo thingy on start up
 setInterval(() => {
 	const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
 	client.user.setActivity(activities_list[index]);
 }, 20000);
-
+// runs some math to randomly pick a status from activites_list, this may need tuning when statuses are added/removed to make it more random (as it may just land on the current status instead)
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -82,6 +84,7 @@ client.on('message', message => {
 			]
 		  };
 		  message.channel.send({ embed });
+		  // tries to run the executed command, if fails it will send a error msg with the error stack
 	}
 });
 
