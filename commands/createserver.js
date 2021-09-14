@@ -16,3 +16,4 @@ module.exports = {
  message.channel.send({ embed: start });
         }
     }
+// This ain't even finished yet lmao
