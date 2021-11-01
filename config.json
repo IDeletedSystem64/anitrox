@@ -1,8 +1,8 @@
 {
-  "prefix": "n!",
-
-  "token": "nOwoTaRe4lt0k3n",
-  "ownerID": "309427567004483586",
-  "release": "anitrox_dev",
-  "build": "1.0 Prerelease, Based off commit 0757e1f"
+    "token":  "your-token-here",
+    "release": "experimental",
+    "version": "placeholder",
+    "footer": "Anitrox Experimental - ⚠ Things may break horribly, or be removed! You have been warned!",
+    "icon": "iconlink",
+    "prefix": "n!"
 }
