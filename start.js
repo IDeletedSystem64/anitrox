@@ -3,7 +3,7 @@ console.log("Let's get started")
 const fs = require('fs');
 const Discord = require('discord.js');
 const { MessageActionRow, MessageButton } = require('discord.js')
-const { build, release, prefix, token } = require('./config.json');
+const { build, release, prefix, token, footer } = require('./config.json');
 const os = require("os");
 
 const activities_list = [
@@ -21,8 +21,6 @@ const activities_list = [
 console.log('Starting! This should only take a moment.')
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
-const footicon = "https://cdn.discordapp.com/attachments/803658122299572255/805506708352008232/system64.png"
-const footer = "Anitrox, IDeletedSystem64 2018-2022"
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 

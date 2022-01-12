@@ -3,7 +3,7 @@ module.exports = {
 
 	name: 'info',
 	description: 'Shows bot and host information',
-	execute(client, message, args, footer) {
+	execute(client, message, args) {
     const { build, release } = require('../config.json');
     function Uptime(uptimetype) {
       let totalSeconds = (uptimetype / 1000);
@@ -23,7 +23,6 @@ module.exports = {
       return uptime;
   };
 
-    
     const os = require("os")
     var osu = require('node-os-utils')
     var cpu = osu.cpu
@@ -33,7 +32,7 @@ module.exports = {
             "color": 9442302,
             "footer": {
               "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-              "text": footer
+              "text": "meow"
             },
             "thumbnail": {
               "url": ("https://cdn.discordapp.com/avatars/576805923964715018/20f9b2815850dbbebd6d858308c90330.webp")
