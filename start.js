@@ -1,13 +1,10 @@
 
-console.log("(Info)" + " Preparing to start!" )
+console.log("Let's get started")
 const fs = require('fs');
-console.log('(Info) Loaded Filesystem successfully!')
 const Discord = require('discord.js');
 const { MessageActionRow, MessageButton } = require('discord.js')
-console.log('(Info) Loaded Discord successfully!')
 const { build, release, prefix, token } = require('./config.json');
 const os = require("os");
-console.log('(Info) Loaded OS successfully!')
 
 const activities_list = [
 	"with np!help",
@@ -25,7 +22,7 @@ console.log('Starting! This should only take a moment.')
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const footicon = "https://cdn.discordapp.com/attachments/803658122299572255/805506708352008232/system64.png"
-const footer = "Made with ❤ in Illinois | Anitrox, by IDeletedSystem64"
+const footer = "Anitrox, IDeletedSystem64 2018-2022"
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -34,9 +31,9 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-client.on("error", (e) => console.log(Date.now + "[ERROR]" + error(e)));
-client.on("warn", (e) => (Date.now + "[WARN]" + warn(e)));
-// sends errors/warnings to the hosts console/terminal. crash errors ignore this
+client.on("error", (e) => console.log("[ERROR]" + error(e)));
+client.on("warn", (e) => ("[WARN]" + warn(e)));
+// Log errors and warnings ton console.
 client.once('ready', () => {
 	console.clear()
 	console.log('    ___          _ __                 ');
@@ -45,7 +42,7 @@ client.once('ready', () => {
 	console.log(' / ___ |/ / / / / /_/ /  / /_/ />  <  ');
 	console.log('/_/  |_/_/ /_/_/\__/_/   \____/_/|_|  ')
 	console.log(release + ", " + build)
-	console.log("All Systems Go. | Anitrox by IDeletedSystem64 | We're now open-source! Check it out at bit.ly/anitroxsource");
+	console.log("All Systems Go. | Anitrox by IDeletedSystem64 | meow meow :3");
 });
 // does a cool logo thingy on start up
 setInterval(() => {
@@ -62,7 +59,7 @@ client.on('message', message => {
 	if (!client.commands.has(command)) return;
 
 	try {
-		client.commands.get(command).execute(client, message, args, Discord);
+		client.commands.get(command).execute(client, message, args, Discord, footer);
 	} catch (error) {
 		console.stack
 		const embed = {
