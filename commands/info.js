@@ -3,7 +3,7 @@ module.exports = {
 
 	name: 'info',
 	description: 'Shows bot and host information',
-	execute(client, message, args,) {
+	execute(client, message, args) {
     const { build, release } = require('../config.json');
     function Uptime(uptimetype) {
       let totalSeconds = (uptimetype / 1000);
@@ -23,17 +23,17 @@ module.exports = {
       return uptime;
   };
 
-    
     const os = require("os")
     var osu = require('node-os-utils')
     var cpu = osu.cpu
+    let botAvatar = client.user.displayAvatarURL()
     const embed = {
             "title": "<:AnitroxInfo:809651936831733791> Information about Anitrox",
             "description": "Everything you've ever wanted to know about Anitrox!",
             "color": 9442302,
             "footer": {
               "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-              "text": "Made with ❤ in Illinois | Anitrox by IDeletedSystem64"
+              "text": "meow"
             },
             "thumbnail": {
               "url": ("https://cdn.discordapp.com/avatars/576805923964715018/20f9b2815850dbbebd6d858308c90330.webp")
@@ -79,11 +79,6 @@ module.exports = {
               {
                 "name": "<:node:793537507018145813> Node.JS Version",
                 "value": process.version
-              },
-              {
-                "name": "<:Discord:793676263411679232> Discord API Ping",
-                "value": "tba" + " ms",
-                "inline": true
               },
               {
                 "name": "<:hostinfo:793529505263517747> Bot Ping",
