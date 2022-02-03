@@ -26,6 +26,7 @@ module.exports = {
     const os = require("os")
     var osu = require('node-os-utils')
     var cpu = osu.cpu
+    let botAvatar = client.user.displayAvatarURL()
     const embed = {
             "title": "<:AnitroxInfo:809651936831733791> Information about Anitrox",
             "description": "Everything you've ever wanted to know about Anitrox!",
