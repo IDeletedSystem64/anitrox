@@ -1,10 +1,11 @@
+const { Client, ClientUser } = require('discord.js');
 
 module.exports = {
 
 	name: 'info',
 	description: 'Shows bot and host information',
 	execute(client, message, args) {
-    const { build, release } = require('../config.json');
+    const { build, release, footerTxt } = require('../config.json');
     function Uptime(uptimetype) {
       let totalSeconds = (uptimetype / 1000);
 
@@ -29,14 +30,14 @@ module.exports = {
     let botAvatar = client.user.displayAvatarURL()
     const embed = {
             "title": "<:AnitroxInfo:809651936831733791> Information about Anitrox",
-            "description": "Everything you've ever wanted to know about Anitrox!",
+            "description": "Everything you've ever wanted to know about your favorite bot, Anitrox!",
             "color": 9442302,
             "footer": {
-              "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-              "text": "meow"
+              "icon_url": message.author.displayAvatarURL(),
+              "text": footerTxt
             },
             "thumbnail": {
-              "url": ("https://cdn.discordapp.com/avatars/576805923964715018/20f9b2815850dbbebd6d858308c90330.webp")
+              "url": client.user.displayAvatarURL()
             },
             "fields": [
               {
@@ -45,19 +46,33 @@ module.exports = {
               },
               {
                 "name": "Release Type",
-                "value": release
+                "value": release,
+                "inline": true
               },
               {
                 "name": "Release Version",
-                "value": build
+                "value": build,
+                "inline": true
               },
               {
                 "name": "Uptime",
-                "value": Uptime(client.uptime)
+                "value": Uptime(client.uptime),
+                "inline": true
               },
               {
                 "name": "<:memory:793536677737136178> Bot Memory Usage",
-                "value": (Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100) / 100) + " MiB"
+                "value": (Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100) / 100) + " MiB",
+                "inline": true
+              },
+              {
+                "name": "Bot Name",
+                "value": client.user.tag,
+                "inline": true
+              },
+              {
+                "name": "Bot ID",
+                "value": "``" + client.user.id + "``",
+                "inline": true
               },
               {
                 "name":  "<:hostinfo:793529505263517747> Host Information",
