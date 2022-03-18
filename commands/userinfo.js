@@ -44,7 +44,7 @@ module.exports = {
         },
         {
           "name": "User ID",
-          "value": "```" + user.id + "```"
+          "value": "``" + user.id + "``"
         },
         {
           "name": "User Joined Discord",
