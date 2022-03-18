@@ -1,17 +1,19 @@
 module.exports = {
   name: "ping",
   description: "Gets bot ping",
-  execute(client, message, args) {
+  execute(client, message) {
+  const {footerTxt} = require('../config.json');
+  
     const embed = {
   "title": ":ping_pong: Ping",
-  "color": 9442302,
-  "fields": [
-    {
-      "name": "Ping is " + client.ws.ping + " ms",
-      "value": "If this is more than 350ms there may be a problem!"
-    }
-  ]
-};
-message.channel.send({ embed });
+  "description": "**Pong!** " + client.ws.ping + " ms.",
+  "color": 9442302, 
+  "footer": {
+    "icon_url": message.author.displayAvatarURL(),
+    "text": footerTxt
+  }
+}
+  
+  message.channel.send({ embed });
   }
 };
