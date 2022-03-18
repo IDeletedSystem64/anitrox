@@ -1,31 +1,42 @@
 module.exports = {
     name: '8ball',
     description: 'Ask Anitrox a question, any question! and they will answer it!',
+    syntax: ["[Question]"],
     execute(client, message, args) {
+    const {footerTxt} = require('../config.json');
         const answers = [
             "Heck no!",
             "Are you crazy!? No!",
             "Don't even think about it.",
             "No! You might bork something!",
             "Heck yeah",
-            "YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE",
+            "I don't think so.",
+            "Let me think about it first. No.",
+            "Let me think about it first. Yeah",
+            "Let me think about it first. Maybe",
+            "I don't know man",
+            "Maybe",
+            "I'm not sure",
+            "Ask again",
+            "YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!!!",
             "Definitely!",
-            "Go for it! :smile:"
-        // This should have a 50/50 amount of yes and no answers for equality even though anitrox doesn't seem to care 🙃
+            "Go for it! :smile:",
+            "Good idea!",
+            "Sure"
         ]
-        const index = Math.floor(Math.random() * (answers.length - 1) + 1);
+        const index = Object.keys(answers)[Math.floor(Math.random() * Object.keys(answers).length)];
         var question = args.slice(0).join(" ")
         var answer = (answers[index]);
         console.log(args);
 
         if (!question) {
           const embed = {
-            "title": "<:AnitroxError:809651936563429416> Well that happened...",
-            "description": "You need to specify a question!",
+            "title": "<:AnitroxError:809651936563429416> **Something went wrong!**",
+            "description": "You need to ask a",
             "color": 13632027,
             "footer": {
-              "icon_url": "https://images-ext-2.discordapp.net/external/-qaO3jaZLojhEnjrHiKABdXD7gLWqFvdUqHdskNGWhE/https/media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-              "text": "placeholder"
+              "icon_url": message.author.displayAvatarURL(),
+              "text": footerTxt
             }
           }
         }
@@ -34,8 +45,8 @@ module.exports = {
             "description": "Your question: **" + question + "**",
             "color": 9442302,
             "footer": {
-                "icon_url": "https://images-ext-2.discordapp.net/external/-qaO3jaZLojhEnjrHiKABdXD7gLWqFvdUqHdskNGWhE/https/media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-                "text": "placeholder"
+              "icon_url": message.author.displayAvatarURL(),
+              "text": footerTxt
             },
             
             "fields": [
