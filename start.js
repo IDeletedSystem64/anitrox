@@ -34,9 +34,11 @@ setInterval(() => {
 	client.user.setActivity(statuses[index]);
 }, 20000);
 // Picks a status from the config file
-client.on('message', message => {
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
+// Begin Command Handler
+client.on('message', message => {
+
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
 	
@@ -53,11 +55,11 @@ client.on('message', message => {
 			"color": 13632027,
 			"footer": {
 			  "icon_url": message.author.displayAvatarURL(),
-			  "text": footerTxt
+			  "text": footerTxt + " | Something went wrong! :("
 			}
 		};
 		  message.channel.send({ embed });
-		  // tries to run the executed command, if fails it will send a error msg with the error stack
+// End Command Handler
 	}
 });
 
