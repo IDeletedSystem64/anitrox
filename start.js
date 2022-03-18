@@ -1,11 +1,10 @@
-console.log("Let's get started")
 const fs = require('fs');
 const Discord = require('discord.js');
 const { MessageActionRow, MessageButton } = require('discord.js')
 const { statuses, build, release, prefix, token, footerTxt } = require('./config.json');
 const os = require("os");
 
-console.log('Starting! This should only take a moment.')
+console.log('Starting!')
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
@@ -27,7 +26,7 @@ client.once('ready', () => {
 	console.log(' / ___ |/ / / / / /_/ /  / /_/ />  <  ');
 	console.log('/_/  |_/_/ /_/_/\__/_/   \____/_/|_|  ')
 	console.log(release + ", " + build)
-	console.log("All Systems Go. | Anitrox by IDeletedSystem64 | meow meow :3");
+	console.log("All Systems Go. | Anitrox by IDeletedSystem64 | ALL MY CODE KEEPS BLOWING UP!");
 });
 
 setInterval(() => {
