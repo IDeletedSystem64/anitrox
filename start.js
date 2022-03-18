@@ -1,23 +1,10 @@
-
 console.log("Let's get started")
 const fs = require('fs');
 const Discord = require('discord.js');
 const { MessageActionRow, MessageButton } = require('discord.js')
-const { build, release, prefix, token, footer } = require('./config.json');
+const { statuses, build, release, prefix, token, footerTxt } = require('./config.json');
 const os = require("os");
 
-const activities_list = [
-	"with np!help",
-	"with Sophie!",
-	"Trans Rights!",
-	"in your computer",
-	"with my internet router",
-	"ssh: system64@borkeonv2",
-	"YouTube",
-	"with source code",
-	"Visual Studio Code",
-	"Running Anitrox" + build
-];
 console.log('Starting! This should only take a moment.')
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -31,7 +18,7 @@ for (const file of commandFiles) {
 
 client.on("error", (e) => console.log("[ERROR]" + error(e)));
 client.on("warn", (e) => ("[WARN]" + warn(e)));
-// Log errors and warnings ton console.
+// Log errors to console.
 client.once('ready', () => {
 	console.clear()
 	console.log('    ___          _ __                 ');
@@ -42,12 +29,12 @@ client.once('ready', () => {
 	console.log(release + ", " + build)
 	console.log("All Systems Go. | Anitrox by IDeletedSystem64 | meow meow :3");
 });
-// does a cool logo thingy on start up
+
 setInterval(() => {
-	const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
-	client.user.setActivity(activities_list[index]);
+	const index = Math.floor(Math.random() * (statuses.length - 1) + 1);
+	client.user.setActivity(statuses[index]);
 }, 20000);
-// runs some math to randomly pick a status from activites_list, this may need tuning when statuses are added/removed to make it more random (as it may just land on the current status instead)
+// Picks a status from the config file
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -57,27 +44,19 @@ client.on('message', message => {
 	if (!client.commands.has(command)) return;
 
 	try {
-		client.commands.get(command).execute(client, message, args, Discord, footer);
+		client.commands.get(command).execute(client, message, args, footerTxt, Discord);
 	} catch (error) {
 		console.stack
+		const usr = message.author;
 		const embed = {
-			"title": "<:AnitroxError:809651936563429416> **Well that happened...**",
+			"title": "<:AnitroxError:809651936563429416> **Something went wrong!**",
+			"description": error.stack,
 			"color": 13632027,
 			"footer": {
-			  "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-			  "text": footer
-			},
-			"fields": [
-			  {
-				"name": "**What Happened?**",
-				"value": "The command you tried to run failed to execute due to an error."
-			  },
-			  {
-				"name": "Error Info",
-				"value": error.stack
-			  }
-			]
-		  };
+			  "icon_url": message.author.displayAvatarURL(),
+			  "text": footerTxt
+			}
+		};
 		  message.channel.send({ embed });
 		  // tries to run the executed command, if fails it will send a error msg with the error stack
 	}
