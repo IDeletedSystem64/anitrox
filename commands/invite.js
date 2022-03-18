@@ -2,15 +2,17 @@
 module.exports = {
 	
 	name: 'invite',
-	description: 'Sends invite to add the bot to a server.',
+	description: 'Add Anitrox to your beautiful server!',
+	syntax: [],
 	execute(client, message) {
+		const {footerTxt} = require('../config.json');
 		const embed = {
-			"title": "Add Anitrox to your Server",
+			"title": "Add Anitrox to your Server!",
 			"description": "Weather you want stable, or that squeaky clean fresh PTB build, we gotchu.",
 			"color": 9442302,
 			"footer": {
-			  "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-			  "text": "Made with ❤ in Illinois | Anitrox by IDeletedSystem64"
+			  "icon_url": message.author.displayAvatarURL(),
+			  "text": footerTxt
 			},
 			"thumbnail": {
 			  "url": "https://cdn.discordapp.com/attachments/803658122299572255/814352905394061322/anitroxaddsrvr.png"
@@ -18,19 +20,15 @@ module.exports = {
 			"fields": [
 			  {
 				"name": "Anitrox",
-				"value": "This is the stable main build. \n https://discord.com/oauth2/authorize?client_id=576805923964715018&scope=bot&permissions=8"
+				"value": "Get the ripe off the vine Anitrox! \n [Add Anitrox to your server](https://discord.com/oauth2/authorize?client_id=576805923964715018&scope=bot&permissions=8)"
 			  },
 			  {
 				"name": "Anitrox PTB (Public Test Build)",
-				"value": "This is the PTB build, which has new features as they are pushed out. and is generally stable. \n https://discord.com/oauth2/authorize?client_id=489125054261755925&scope=bot&permissions=66186303"
-			  },
-			  {
-				  "name": "Anitrox Dev (Unstable)",
-				  "value": "This isn't availiable for invite, though it is availiable on the support server."
+				"value": "So you want the fresh and hot builds straight from the oven? We gotchu \n [Add Anitrox PTB to your server](https://discord.com/oauth2/authorize?client_id=489125054261755925&scope=bot&permissions=66186303)"
 			  },
 			  {
 				  "name": "Need help?",
-				  "value": "You can join the support server here: bit.ly/anitrox-help"  
+				  "value": "Come join the Anitrox Support Server, for support and much more!\n [Anitrox Support Server](https://discord.gg/grebRGsBZ3)"  
 			  }
 
 			]
