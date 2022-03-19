@@ -1,44 +1,30 @@
 module.exports = {
-	
-	name: 'help',
-	description: '',
-	execute(client, message, args) {
+    
+  name: 'help',
+  description: 'Get help on anything from commands, to what the bot does! just not your homework..',
+  syntax: '<Command>',
 
-    const messageAuthor = message.author
-const embed = {
-    "title": "<:NyabotInfo:697145463350231040> **HELP** " + messageAuthor.username + " **THE BOT IS ON FIRE!** ",
-    "color": 9442302,
-    "description": "More commands are soon to come, stay tuned!",
-    "footer": {
-      "text": "Made with ❤ in Illinois | Anitrox by IDeletedSystem64"
-    },
-    "fields": [
-      {
-        "name": "Utility Commands",
-        "value": "`help` ``info`` ``userinfo`` ``ping`` ``invite`` ``avatar``"
-      },
-      {
-        "name": "Server Management Commands",
-        "value": "`setnick`"
-      },
-      {
-        "name": "Action Commands",
-        "value": "`hug` `poke` `bonk` `slap` `pat` `kiss` `lick` `cuddle` `nom` `leskiss` `snuggle`"
-      },
-      {
-        "name": "**...or is the bot actually on fire? Come here for help and support!**",
-        "value": "bit.ly/anitrox-help"
-      },
-      {
-        "name": "**Or you can view the bot progress, known issues, and planned features!**",
-        "value": "bit.ly/anitrox-trello"
-      },
-      {
-        "name": "<:AnitroxInfo:809651936831733791> **The bot isn't yet fully finished. There's more to come! if I don't rewrite from scratch that is 😛**"
-      }
+  execute(client, message, args) {
+    const {footerTxt} = require('../config.json');
 
-    ]
-  };
-  message.channel.send({ embed });
-}
-};
+     const Embed = {
+      "title": "HELP! SEYMOUR! THE BOT IS ON FIRE!",
+      "description": "Get help on anything from commands, to what the bot does! just not your homework..",
+      "color": 9442302,
+      "footer": {
+        "icon_url": message.author.displayAvatarURL(),
+        "text": footerTxt + " | No mother it's just the northern lights"
+      },
+      "fields": [
+        {
+          "name": "Command List",
+          "value": "[Click here!](https://github.com/IDeletedSystem64/anitrox/blob/dev/commands.md)"
+        },
+        {
+          "name": "...Or is the bot actually on fire?",
+          "value": "Join the [support server!](https://discord.gg/grebRGsBZ3)"
+        }
+      ]
+    };
+    message.channel.send({ embed: Embed });
+}};
