@@ -2,11 +2,13 @@ module.exports = {
   name: "ping",
   description: "Gets bot ping",
   execute(client, message) {
-  const {footerTxt} = require('../config.json');
+  const {footerTxt, locations} = require('../config.json');
   
-    const embed = {
+  const index = Math.floor(Math.random() * (locations.length -1 ) + 1);
+  PingLocation = locations[index]
+  const embed = {
   "title": ":ping_pong: Ping",
-  "description": "**Pong!** " + client.ws.ping + " ms.",
+  "description": "**Pong!** We pinged **" + PingLocation + "** and got " + client.ws.ping + " ms.",
   "color": 9442302, 
   "footer": {
     "icon_url": message.author.displayAvatarURL(),
