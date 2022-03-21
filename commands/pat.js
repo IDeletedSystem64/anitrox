@@ -3,7 +3,7 @@ module.exports = {
     name: "pat",
     description: "Pats an user!",
     execute(client, message, args) {
-      const messageAuthor = message.author
+      const {footerTxt} = require('../config.json');
       const taggedUser = message.mentions.users.first();
           
        // --------------------------------------
@@ -21,8 +21,8 @@ module.exports = {
         "title": "<:AnitroxError:809651936563429416> Error",
         "color": 9442302,
         "footer": {
-          "icon_url": "https://images-ext-2.discordapp.net/external/-qaO3jaZLojhEnjrHiKABdXD7gLWqFvdUqHdskNGWhE/https/media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-          "text": "Made with ❤ in Illinois | Anitrox by IDeletedSystem64"
+          "icon_url": message.author.displayAvatarURL(),
+          "text": footerTxt
         },
         "fields": [
           {
@@ -42,8 +42,8 @@ module.exports = {
             "description": "<@" + taggedUser + "> You have been patted by <@" + messageAuthor + ">!",
             "color": 8311585,
             "footer": {
-              "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-              "text": "Made with ❤ in Illinois | Anitrox © IDeletedSystem64 2018-2021"
+              "icon_url": message.author.displayAvatarURL(),
+              "text": footerTxt
             },
             "image": {
               "url": gif

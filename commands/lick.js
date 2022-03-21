@@ -3,7 +3,7 @@ module.exports = {
     name: "lick",
     description: "Licks an user!",
     execute(client, message, args) {
-      const messageAuthor = message.author
+      const {footerTxt} = require('../config.json');
       const taggedUser = message.mentions.users.first();
 //---------------------------------------------------
  // --------------------------------------
@@ -41,11 +41,11 @@ if(!taggedUser) {
 
       const embed = {
             "title": "<a:LeafeonLick:806396195089154058> Lick",
-            "description": "<@" + taggedUser + "> You have been licked by <@" + messageAuthor + ">!",
+            "description": "<@" + taggedUser + "> You have been licked by <@" + message.author + ">!",
             "color": 8311585,
             "footer": {
-              "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-              "text": "Made with ❤ in Illinois | Anitrox © IDeletedSystem64 2018-2021"
+              "icon_url": message.author.displayAvatarURL(),
+              "text": footerTxt
             },
             "image": {
               "url": "https://cdn.discordapp.com/attachments/803658122299572255/805314244123951114/cef569820773b0f5d54ee34cfa18e1f8.gif"

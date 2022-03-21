@@ -3,9 +3,8 @@ module.exports = {
     name: "cuddle",
     description: "Cuddle an user!",
     execute(client, message, args) {
-      const messageAuthor = message.author
       const taggedUser = message.mentions.users.first();
-      
+      const {footerTxt} = require('../config.json');
       // --------------------------------------
       const gifchoices = [
         "https://i.pinimg.com/originals/4d/89/d7/4d89d7f963b41a416ec8a55230dab31b.gif",
@@ -22,11 +21,11 @@ module.exports = {
       }
       const embed = {
             "title": ":heart: Cuddle",
-            "description": "<@" + taggedUser + ">" + " You have been cuddled by " + "<@" + messageAuthor + ">!",
+            "description": "<@" + taggedUser + ">" + " You have been cuddled by " + "<@" + message.author + ">!",
             "color": 9442302,
             "footer": {
-              "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-              "text": "Made with ❤ in Illinois | Anitrox by IDeletedSystem64"
+              "icon_url": message.author.displayAvatarURL(),
+              "text": footerTxt
             },
             "image": {
               "url": gif
