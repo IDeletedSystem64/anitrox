@@ -1,6 +1,6 @@
 
-# Anitrox Dev Branch (anitrox_unstable)
-This is the development branch for Anitrox, If you want those fresh hot Anitrox builds right from the oven, you've come to the right place!
+# Anitrox Stable Branch (anitrox_stable)
+This is the stable branch, If you want the prepackaged and prepared builds, you're at the right place.
 # Dependencies to get started
 To begin, you will need to satisfy the following dependencies:
 Node.JS: 14 
