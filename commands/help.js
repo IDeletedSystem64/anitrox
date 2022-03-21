@@ -1,39 +1,30 @@
 module.exports = {
-	
-	name: 'help',
-	description: '',
-	execute(client, message, args) {
+    
+  name: 'help',
+  description: 'Get help on anything from commands, to what the bot does! just not your homework..',
+  syntax: '<Command>',
 
-const embed = {
-    "title": "<:NyabotInfo:697145463350231040> **Help? HELP!** ",
-    "color": 9540095,
-    "description": "<:NyabotWarning:697145463194910791> Not all commands have been implemented. and may be removed without warning",
-    "footer": {
-      "text": "Some commands are hidden for dev-only. | Anitrox © IDeletedSystem64 2018-2021"
-    },
-    "fields": [
-      {
-        "name": "**General Commands**",
-        "value": "`help` ``info`` ``userinfo`` ``ping`` ``invite`` ``avatar`` ``google`` ``youtube``"
+  execute(client, message, args) {
+    const {footerTxt} = require('../config.json');
+
+     const Embed = {
+      "title": "HELP! SEYMOUR! THE BOT IS ON FIRE!",
+      "description": "Get help on anything from commands, to what the bot does! just not your homework..",
+      "color": 9442302,
+      "footer": {
+        "icon_url": message.author.displayAvatarURL(),
+        "text": footerTxt + " | No mother it's just the northern lights"
       },
-      {
-        "name": "Moderation Commands",
-        "value": "`ban` `kick` `warn` `mute` `unban` `unmute` `purge` `permissions`"
-      },
-      {
-        "name": "Server Management Commands",
-        "value": "` channelcreate` `channeldelete` `channelrename` `rolecreate` `roleedit` `roledelete` `setnick`"
-      },
-      {
-        "name": "Fun Commands",
-        "value": "`hug` `poke` `bonk` `slap` `pat` `kiss` `lick` `cuddle` `nom`"
-      },
-      {
-        "name": "**Need additional help or want to report an issue?**",
-        "value": "https://discord.gg/grebRGsBZ3"
-      }
-    ]
-  };
-  message.channel.send({ embed });
-}
-};
+      "fields": [
+        {
+          "name": "Command List",
+          "value": "[Click here!](https://github.com/IDeletedSystem64/anitrox/blob/dev/commands.md)"
+        },
+        {
+          "name": "...Or is the bot actually on fire?",
+          "value": "Join the [support server!](https://discord.gg/grebRGsBZ3)"
+        }
+      ]
+    };
+    message.channel.send({ embed: Embed });
+}};

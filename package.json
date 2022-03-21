@@ -1,15 +1,16 @@
 {
-  "name": "nyabotcanary",
+  "name": "projectanitrox",
   "version": "1.0.0",
   "description": "Discord Bot Based on Discord.JS",
-  "main": "main.js",
+  "main": "start.js",
   "dependencies": {
-    "discord.js": "^11.5.1",
-    "node-os-utils": "^1.3.2"
+    "discord.js": "^12.5.1",
+    "node-os-utils": "^1.3.2",
+    "require-all": "^3.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Anthony Mondz",
+  "author": "IDeletedSystem64",
   "license": "ISC"
 }

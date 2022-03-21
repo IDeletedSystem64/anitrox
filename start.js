@@ -1,27 +1,12 @@
-console.log('Preparing to start!')
 const fs = require('fs');
 const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
-const os = require("os")
-const version = "Test Release 21";
-const release = "anitrox_unstable"
+const { MessageActionRow, MessageButton } = require('discord.js')
+const { statuses, build, release, prefix, token, footerTxt } = require('./config.json');
+const os = require("os");
+
 console.log('Starting!')
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
-const activities_list = [
-	"with n!help",
-	"Where am I?",
-	"with Sylveons!",
-	"on my host's hard disk",
-	"with Happy",
-	"HAAAAAAAAPPPPPPPYYYYYYYYYYYYYYYYYYYY",
-	"Running on " + process.platform + " / " + os.version() + "!",
-	"with the tea machine",
-	"with Borked Computers",
-	"on Happy's main PC- wait shoot she's coming",
-	"btw I use Debian linux"
-];
-	
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -30,47 +15,51 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-client.on("error", (e) => console.error(e));
-client.on("warn", (e) => console.warn(e));
-client.on("debug", (e) => console.info(e))
+client.on("error", (e) => console.log("[ERROR]" + error(e)));
+client.on("warn", (e) => ("[WARN]" + warn(e)));
+// Log errors to console.
 client.once('ready', () => {
-	console.log('All systems go.');
+	console.clear()
+	console.log('    ___          _ __                 ');
+	console.log('   /   |  ____  (_) /__________  _  __');
+	console.log('  / /| | / __ \/ / __/ ___/ __ \| |/_/');
+	console.log(' / ___ |/ / / / / /_/ /  / /_/ />  <  ');
+	console.log('/_/  |_/_/ /_/_/\__/_/   \____/_/|_|  ')
+	console.log(release + ", " + build)
+	console.log("All Systems Go. | Anitrox by IDeletedSystem64 | ALL MY CODE KEEPS BLOWING UP!");
 });
+
 setInterval(() => {
-	const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); 
-	client.user.setActivity(activities_list[index]); 
-}, 20000); 
+	const index = Math.floor(Math.random() * (statuses.length - 1) + 1);
+	client.user.setActivity(statuses[index]);
+}, 20000);
+// Picks a status from the config file
 
+// Begin Command Handler
 client.on('message', message => {
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
-
+	
 	if (!client.commands.has(command)) return;
 
 	try {
-		client.commands.get(command).execute(client, message, args);
+		client.commands.get(command).execute(client, message, args, footerTxt, Discord);
 	} catch (error) {
+		console.stack
+		const usr = message.author;
 		const embed = {
-			"title": "<:NyabotError:697145462347661412> **An error occurred!**",
+			"title": "<:AnitroxError:809651936563429416> **Something went wrong!**",
+			"description": error.stack,
 			"color": 13632027,
 			"footer": {
-			  "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-			  "text": "Anitrox © IDeletedSystem64 2018-2021 All Rights Reserved."
-			},
-			"fields": [
-			  {
-				"name": "**What Happened?**",
-				"value": "The command you tried to run failed to execute"
-			  },
-			  {
-				"name": "Error Info",
-				"value": error.message
-			  }
-			]
-		  };
+			  "icon_url": message.author.displayAvatarURL(),
+			  "text": footerTxt + " | Something went wrong! :("
+			}
+		};
 		  message.channel.send({ embed });
+// End Command Handler
 	}
 });
 

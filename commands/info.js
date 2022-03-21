@@ -1,9 +1,11 @@
+const { Client, ClientUser } = require('discord.js');
 
 module.exports = {
-	
+
 	name: 'info',
 	description: 'Shows bot and host information',
 	execute(client, message, args) {
+    const { build, release, footerTxt } = require('../config.json');
     function Uptime(uptimetype) {
       let totalSeconds = (uptimetype / 1000);
 
@@ -21,23 +23,21 @@ module.exports = {
       let uptime = `${days}**, **${hours}**, **${minutes}**, **${seconds}`;
       return uptime;
   };
-  
-   
 
-const version = ("DEV1.0")
-    const release = ("anitrox_dev")
     const os = require("os")
-  
+    var osu = require('node-os-utils')
+    var cpu = osu.cpu
+    let botAvatar = client.user.displayAvatarURL()
     const embed = {
-            "title": "<:NyabotInfo:697145463350231040> Information about projectanitrox",
-            "description": "Everything you've ever wanted to know about projectanitrox!",
-            "color": 11038194,
+            "title": "<:AnitroxInfo:809651936831733791> Information about Anitrox",
+            "description": "Everything you've ever wanted to know about your favorite bot, Anitrox!",
+            "color": 9442302,
             "footer": {
-              "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-              "text": "Made with ❤ in Illinois | Anitrox © IDeletedSystem64 2018-2021 "
+              "icon_url": message.author.displayAvatarURL(),
+              "text": footerTxt
             },
             "thumbnail": {
-              "url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png"
+              "url": client.user.displayAvatarURL()
             },
             "fields": [
               {
@@ -46,19 +46,33 @@ const version = ("DEV1.0")
               },
               {
                 "name": "Release Type",
-                "value": release
+                "value": release,
+                "inline": true
               },
               {
                 "name": "Release Version",
-                "value": version
+                "value": build,
+                "inline": true
               },
               {
                 "name": "Uptime",
-                "value": Uptime(client.uptime)
+                "value": Uptime(client.uptime),
+                "inline": true
               },
               {
                 "name": "<:memory:793536677737136178> Bot Memory Usage",
-                "value": (Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100) / 100) + " MiB" + ", Total Free Memory"
+                "value": (Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100) / 100) + " MiB",
+                "inline": true
+              },
+              {
+                "name": "Bot Name",
+                "value": client.user.tag,
+                "inline": true
+              },
+              {
+                "name": "Bot ID",
+                "value": "``" + client.user.id + "``",
+                "inline": true
               },
               {
                 "name":  "<:hostinfo:793529505263517747> Host Information",
@@ -70,9 +84,9 @@ const version = ("DEV1.0")
               },
               {
                 "name": "<:cpu:793672442056802354> CPU Type",
-                "value": process.arch
+                "value": process.arch + ", " + cpu.model()
               },
-              
+
               {
                 "name": "<:hostos:793866961675223090> OS Type",
                 "value": process.platform + " / " + os.version()
@@ -82,22 +96,13 @@ const version = ("DEV1.0")
                 "value": process.version
               },
               {
-                "name": "<:Discord:793676263411679232> Discord API Ping",
-                "value": "tba" + " ms",
-                "inline": true
-              },
-              {
                 "name": "<:hostinfo:793529505263517747> Bot Ping",
                 "value": Math.round(client.ws.ping) + " ms",
                 "inline": true
               },
               {
-                "name": "<:NyabotInfo:697145463350231040> **Want more system information?**",
-                "value": "Run n!sysinfo for more detailed system information"
-              },
-              {
                 "name":  "<:usersuccess:793885338250641469> **Special Thanks To**",
-                "value": "@OfficialTCGMatt for providing help with development"
+                "value": "@OfficialTCGMatt for providing help with development\n @chuu_shi Allowing me to host Anitrox on his server"
               }
 
             ]
