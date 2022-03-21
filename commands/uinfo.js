@@ -1,5 +1,5 @@
 module.exports = {
-  name: "userinfo",
+  name: "uinfo",
   description: "Gets info about an user, such as ID, Discord Join date and more",
   syntax: "<User>",
   execute(client, message, args) {
