@@ -3,7 +3,7 @@ module.exports = {
     name: "kiss",
     description: "Kisses an user!",
     execute(client, message, args) {
-      const messageAuthor = message.author
+      const {footerTxt} = require('../config.json');
       const taggedUser = message.mentions.users.first();
       
 
@@ -22,8 +22,8 @@ module.exports = {
         "title": "<:AnitroxError:809651936563429416> Error",
         "color": 13632027,
         "footer": {
-          "icon_url": "https://images-ext-2.discordapp.net/external/-qaO3jaZLojhEnjrHiKABdXD7gLWqFvdUqHdskNGWhE/https/media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-          "text": "Made with ❤ in Illinois | Anitrox by IDeletedSystem64"
+          "icon_url": message.author.displayAvatarURL(),
+          "text": footerTxt
         },
         "fields": [
           {

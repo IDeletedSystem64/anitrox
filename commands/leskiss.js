@@ -6,8 +6,8 @@ module.exports = {
     name: "leskiss",
     description: "Lesbian kiss <:lesbian:803831629428686849>",
     execute(client, message, args) {
-        const messageAuthor = message.author
         const taggedUser = message.mentions.users.first();
+        const {footerTxt} = require('../config.json');
           // --------------------------------------
        const gifchoices = [
         "https://cdn.discordapp.com/attachments/793537380330111028/803833954750038066/gif5.gif",
@@ -34,8 +34,8 @@ module.exports = {
         "title": "<:AnitroxError:809651936563429416> Error",
         "color": 9442302,
         "footer": {
-          "icon_url": "https://images-ext-2.discordapp.net/external/-qaO3jaZLojhEnjrHiKABdXD7gLWqFvdUqHdskNGWhE/https/media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-          "text": "Made with ❤ in Illinois | Anitrox by IDeletedSystem64"
+          "icon_url": message.author.displayAvatarURL(),
+          "text": footerTxt
         },
         "fields": [
           {
