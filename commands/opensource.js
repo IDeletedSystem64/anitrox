@@ -2,13 +2,14 @@ module.exports = {
     name: 'opensource',
     description: 'Attributions to open source components used by Anitrox',
     execute(client, message, args){
-        const embed = {
+      const {footerTxt} = require('../config.json');  
+      const embed = {
             "title": "Component Attribution",
             "description": "Some parts of Anitrox are using open source code, and their attributions are avaliable here!",
             "color": 52508,
             "footer": {
-              "icon_url": "https://images-ext-2.discordapp.net/external/-qaO3jaZLojhEnjrHiKABdXD7gLWqFvdUqHdskNGWhE/https/media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-              "text": "Made with ❤ in Illinois | Anitrox by IDeletedSystem64"
+              "icon_url": message.author.displayAvatarURL(),
+              "text": footerTxt
             },
             "thumbnail": {
               "url": "https://cdn.discordapp.com/attachments/803658122299572255/838854256471703602/793885335498522685.png"

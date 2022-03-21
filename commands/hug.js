@@ -3,7 +3,7 @@ module.exports = {
     name: "hug",
     description: "Hugs an user!",
     execute(client, message, args) {
-      const messageAuthor = message.author
+      const {footerTxt} = require('../config.json');
       const taggedUser = message.mentions.users.first();
       const gifchoices = [
         "https://cdn.discordapp.com/attachments/803658122299572255/807670647920001044/hug2.gif",
@@ -17,8 +17,8 @@ module.exports = {
       "title": "<:AnitroxError:809651936563429416> Error",
       "color": 9442302,
       "footer": {
-        "icon_url": "https://images-ext-2.discordapp.net/external/-qaO3jaZLojhEnjrHiKABdXD7gLWqFvdUqHdskNGWhE/https/media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-        "text": "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
+        "icon_url": message.author.displayAvatarURL(),
+        "text": message.author.displayAvatarURL()
       },
       "fields": [
         {
@@ -37,11 +37,11 @@ module.exports = {
       var gif = (gifchoices[index]);    
       const embed = {
             "title": "<a:ABlobCatHuggle:801232248035999784> Hug",
-            "description": "<@" + taggedUser + ">" + " You have been hugged by " + "<@" + messageAuthor + ">!",
+            "description": "<@" + taggedUser + ">" + " You have been hugged by " + "<@" + message.author + ">!",
             "color": 8311585,
             "footer": {
-              "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-              "text": "Made with ❤ in Illinois | Anitrox © IDeletedSystem64 2018-2021"
+              "icon_url": message.author.displayAvatarURL(),
+              "text": footerTxt
             },
             "image": {
               "url": gif
