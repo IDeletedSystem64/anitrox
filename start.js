@@ -30,16 +30,16 @@ client.generateErrorMessage = (errorMsg, messageAuthorURL) => ({embed: {
   ]
 }})
 
-client.on("error", (e) => console.log("[ERROR]" + error(e)));
-client.on("warn", (e) => ("[WARN]" + warn(e)));
+client.on("error", (e) => console.log(`[ERROR] ${error(e)}`));
+client.on("warn", (e) => (`[WARN] ${warn(e)}`));
 client.once('ready', () => {
 	console.clear()
 	console.log('    ___          _ __                 ');
 	console.log('   /   |  ____  (_) /__________  _  __');
-	console.log('  / /| | / __ \/ / __/ ___/ __ \| |/_/');
+	console.log('  / /| | / __ \\/ / __/ ___/ __ \\| |/_/');
 	console.log(' / ___ |/ / / / / /_/ /  / /_/ />  <  ');
-	console.log('/_/  |_/_/ /_/_/\__/_/   \____/_/|_|  ')
-	console.log(release + ", " + build)
+	console.log('/_/  |_/_/ /_/_/\\__/_/   \\____/_/|_|  ');
+	console.log(`${release}, ${build}`);
 	console.log("All Systems Go. | Anitrox by IDeletedSystem64 | ALL MY CODE KEEPS BLOWING UP!");
 });
 

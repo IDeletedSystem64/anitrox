@@ -19,7 +19,7 @@ module.exports = {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
       await message.channel.send({embed: {
         "title": "<a:ABlobCatHuggle:801232248035999784> Hug",
-        "description": "<@" + taggedUser + ">" + " You have been hugged by " + "<@" + message.author + ">!",
+        "description": `${taggedUser} You have been hugged by ${message.author}!`,
         "color": 8311585,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),

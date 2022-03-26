@@ -7,7 +7,7 @@ module.exports = {
     const user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
 
     await message.channel.send({embed: {
-      "title": ":frame_photo: " + user.username + "'s Beautiful Avatar!",
+      "title": `:frame_photo: ${user.username}'s Beautiful Avatar!`,
       "color": 9442302,
       "footer": {
         "icon_url": message.author.displayAvatarURL(),

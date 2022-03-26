@@ -18,7 +18,7 @@ module.exports = {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
       await message.channel.send({embed: {
         "title": "<a:LeafeonLick:806396195089154058> Lick",
-        "description": "<@" + taggedUser + "> You have been licked by <@" + message.author + ">!",
+        "description": `${taggedUser} You have been licked by ${message.author}!`,
         "color": 8311585,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),

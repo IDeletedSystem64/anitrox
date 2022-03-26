@@ -10,7 +10,7 @@ module.exports = {
     } else {
       await message.channel.send({embed: {
         "title": ":anger: Slap",
-        "description": "<@" + taggedUser + "> You have been slapped by <@" + message.author + ">!",
+        "description": `${taggedUser} You have been slapped by ${message.author}!`,
         "color": 9442302,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),

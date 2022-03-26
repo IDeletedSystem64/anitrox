@@ -17,7 +17,7 @@ module.exports = {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
       await message.channel.send({embed: {
         "title": "<:pats:801238281286713355> Pat",
-        "description": "<@" + taggedUser + "> You have been patted by <@" + message.author + ">!",
+        "description": `${taggedUser} You have been patted by ${message.author}!`,
         "color": 8311585,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),

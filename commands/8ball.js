@@ -32,7 +32,7 @@ module.exports = {
     } else {
       await message.channel.send({embed: {
         "title": ":8ball: Anitrox 8 Ball",
-        "description": "Your question: **" + question + "**",
+        "description": `Your question: **${question}**`,
         "color": 9442302,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),

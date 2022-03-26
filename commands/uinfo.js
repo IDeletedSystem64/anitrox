@@ -5,7 +5,7 @@ module.exports = {
   async execute(client, message, args, footerTxt) {
     const user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author
     await message.channel.send({embed: {
-      "title": "Everything you've ever wanted to know about " + user.username + "!",
+      "title": `Everything you've ever wanted to know about ${user.username}!`,
       "color": 9442302,
       "footer": {
         "icon_url": message.author.displayAvatarURL(),
@@ -41,7 +41,7 @@ module.exports = {
         },
         {
           "name": "User ID",
-          "value": "``" + user.id + "``"
+          "value": `\`${user.id}\``
         },
         {
           "name": "User Joined Discord",

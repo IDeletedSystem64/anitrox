@@ -11,7 +11,7 @@ module.exports = {
       "color": 9442302,
       "footer": {
         "icon_url": message.author.displayAvatarURL(),
-        "text": footerTxt + " | No mother it's just the northern lights"
+        "text": `${footerTxt} | No mother it's just the northern lights`
       },
       "fields": [
         {

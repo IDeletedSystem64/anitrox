@@ -8,7 +8,7 @@ module.exports = {
     } else {
       await message.channel.send({embed: {
         "title": ":cheese: Cheesed",
-        "description": "<@" + taggedUser + ">" + " You got cheesed by " + "<@" + message.author + ">!",
+        "description": `${taggedUser} You have been cheesed by ${message.author}!`,
         "color": 16312092,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),

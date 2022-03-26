@@ -20,7 +20,7 @@ module.exports = {
     } else {
       await message.channel.send({embed: {
         "title": ":heart: Cuddle",
-        "description": "<@" + taggedUser + ">" + " You have been cuddled by " + "<@" + message.author + ">!",
+        "description": `${taggedUser} You have been cuddled by ${message.author}!`,
         "color": 9442302,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),

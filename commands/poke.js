@@ -17,7 +17,7 @@ module.exports = {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
       await message.channel.send({embed: {
         "title": "👉 Poke!",
-        "description": "<@" + taggedUser + "> You have been poked by <@" + message.author + ">!",
+        "description": `${taggedUser} You have been poked by ${message.author}!`,
         "color": 8311585,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),

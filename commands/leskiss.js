@@ -29,7 +29,7 @@ module.exports = {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
       await message.channel.send({embed: {
         "title": ":heart: <:lesbian:803831629428686849> Kiss",
-        "description": "<@" + taggedUser + ">" + " You have been kissed by <@" + message.author + ">! <:lesbian:803831629428686849>",
+        "description": `${taggedUser} You have been kissed by ${message.author}!`,
         "color": 8311585,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),

@@ -10,7 +10,7 @@ module.exports = {
     } else {
       await message.channel.send({embed: {
         "title": "<a:SylvBonk:801185845847130113> Bonk",
-        "description": "<@" + taggedUser + ">" + " You have been bonked by <@" + message.author + ">!",
+        "description": `${taggedUser} You have been bonked by ${message.author}!`,
         "color": 9442302,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),

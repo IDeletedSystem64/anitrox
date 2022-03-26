@@ -19,7 +19,7 @@ module.exports = {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
       await message.channel.send({embed: {
         "title": ":heart: Kiss",
-        "description": "<@" + taggedUser + ">" + ", You have been kissed by <@" + message.author + ">!",
+        "description": `${taggedUser} You have been kissed by ${message.author}!`,
         "color": 9442302,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),

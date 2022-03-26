@@ -9,7 +9,7 @@ module.exports = {
   
     await message.channel.send({embed:{
       "title": ":ping_pong: Ping",
-      "description": "**Pong!** We pinged **" + pingLocation + "** and got " + client.ws.ping + " ms.",
+      "description": `**Pong!** We pinged **${pingLocation}** and got ${client.ws.ping} ms.`,
       "color": 9442302, 
       "footer": {
         "icon_url": message.author.displayAvatarURL(),

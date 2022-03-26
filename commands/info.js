@@ -58,7 +58,7 @@ module.exports = {
         },
         {
           "name": "<:memory:793536677737136178> Bot Memory Usage",
-          "value": (Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100) / 100) + " MiB",
+          "value": `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MiB`,
           "inline": true
         },
         {
@@ -68,7 +68,7 @@ module.exports = {
         },
         {
           "name": "Bot ID",
-          "value": "``" + client.user.id + "``",
+          "value": `\`${client.user.id}\``,
           "inline": true
         },
         {
@@ -81,12 +81,12 @@ module.exports = {
         },
         {
           "name": "<:cpu:793672442056802354> CPU Type",
-          "value": process.arch + ", " + cpu.model()
+          "value": `${process.arch}, ${cpu.model()}`
         },
 
         {
           "name": "<:hostos:793866961675223090> OS Type",
-          "value": process.platform + " / " + os.version()
+          "value": `${process.platform} / ${os.version()}`
         },
         {
           "name": "<:node:793537507018145813> Node.JS Version",
@@ -94,7 +94,7 @@ module.exports = {
         },
         {
           "name": "<:hostinfo:793529505263517747> Bot Ping",
-          "value": Math.round(client.ws.ping) + " ms",
+          "value": `${Math.round(client.ws.ping)} ms`,
           "inline": true
         },
         {
