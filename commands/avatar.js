@@ -1,23 +1,23 @@
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
-    name: "avatar",
-    description: "Gets a users avatar.",
-    execute(client, message, args) {
-      user = message.mentions.users.first()
-      if (!user) user = message.author
+  
+  name: "avatar",
+  description: "Gets a user's avatar.",
+  async execute(_0, message, _1, footerTxt) {
+    
+    const user = message.mentions.users.first() || message.author;
 
-    const {footerTxt} = require('../config.json');
-
-    const embed = {
-        "title": ":frame_photo: " + user.username + "'s Beautiful Avatar!",
-        "color": 9442302,
-        "footer": {
-          "icon_url": message.author.displayAvatarURL(),
-          "text": footerTxt
-        },
-        "image": {
-          "url": user.displayAvatarURL()
-        }
-      };
-      message.channel.send({ embed });
-    }
+    await message.channel.send(new MessageEmbed({
+      "title": ":frame_photo: " + user.username + "'s Beautiful Avatar!",
+      "color": 9442302,
+      "footer": {
+        "icon_url": message.author.displayAvatarURL(),
+        "text": footerTxt
+      },
+      "image": {
+        "url": user.displayAvatarURL()
+      }
+    }));
+  }
 }

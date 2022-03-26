@@ -1,21 +1,21 @@
+const { MessageEmbed } = require('discord.js');
+const { locations } = require('../config.json');
+
 module.exports = {
   name: "ping",
   description: "Gets bot ping",
-  execute(client, message) {
-  const {footerTxt, locations} = require('../config.json');
+  async execute(client, message, _, footerTxt) {
+    const index = Math.floor(Math.random() * locations.length);
+    const pingLocation = locations[index]
   
-  const index = Math.floor(Math.random() * (locations.length -1 ) + 1);
-  PingLocation = locations[index]
-  const embed = {
-  "title": ":ping_pong: Ping",
-  "description": "**Pong!** We pinged **" + PingLocation + "** and got " + client.ws.ping + " ms.",
-  "color": 9442302, 
-  "footer": {
-    "icon_url": message.author.displayAvatarURL(),
-    "text": footerTxt
-  }
-}
-  
-  message.channel.send({ embed });
+    await message.channel.send(new MessageEmbed({
+      "title": ":ping_pong: Ping",
+      "description": "**Pong!** We pinged **" + pingLocation + "** and got " + client.ws.ping + " ms.",
+      "color": 9442302, 
+      "footer": {
+        "icon_url": message.author.displayAvatarURL(),
+        "text": footerTxt
+      }
+    }));
   }
 };

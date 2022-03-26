@@ -1,8 +1,8 @@
+#!/usr/bin/env -S node
+
 const fs = require('fs');
 const Discord = require('discord.js');
-const { MessageActionRow, MessageButton } = require('discord.js')
 const { statuses, build, release, prefix, token, footerTxt } = require('./config.json');
-const os = require("os");
 
 console.log('Starting!')
 const client = new Discord.Client();
@@ -29,27 +29,28 @@ client.once('ready', () => {
 	console.log("All Systems Go. | Anitrox by IDeletedSystem64 | ALL MY CODE KEEPS BLOWING UP!");
 });
 
+
 setInterval(() => {
-	const index = Math.floor(Math.random() * (statuses.length - 1) + 1);
+  // Picks a status from the config file
+	const index = Math.floor(Math.random() * statuses.length);
 	client.user.setActivity(statuses[index]);
 }, 20000);
-// Picks a status from the config file
 
 // Begin Command Handler
-client.on('message', message => {
+client.on('message', async (message) => {
 
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
+
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
 	
 	if (!client.commands.has(command)) return;
 
 	try {
-		client.commands.get(command).execute(client, message, args, footerTxt, Discord);
+		await client.commands.get(command).execute(client, message, args, footerTxt);
 	} catch (error) {
-		console.stack
-		const usr = message.author;
-		const embed = {
+		console.stack;
+		message.channel.send(new Discord.MessageEmbed({
 			"title": "<:AnitroxError:809651936563429416> **Something went wrong!**",
 			"description": error.stack,
 			"color": 13632027,
@@ -57,9 +58,7 @@ client.on('message', message => {
 			  "icon_url": message.author.displayAvatarURL(),
 			  "text": footerTxt + " | Something went wrong! :("
 			}
-		};
-		  message.channel.send({ embed });
-// End Command Handler
+		}));
 	}
 });
 
