@@ -8,29 +8,22 @@ const gifchoices = [
 module.exports = {
 
   name: "lick",
-  description: "Licks an user!",
-  async execute(_0, message, _1, footer) {
+  description: "Licks a user!",
+  async execute(client, message, _, footerTxt) {
     const taggedUser = message.mentions.users.first();
 
     if(!taggedUser) {
-      await message.channel.send({embed: {
-        "title": "<:AnitroxError:809651936563429416> Error",
-        "color": 9442302,
-        "footer": footer,
-        "fields": [
-          {
-            "name": "Well that happened...",
-            "value": "You need to @mention an user!"
-          }
-        ]
-      }});
+      await message.channel.send(client.generateErrorMessage("You need to @mention a user!", message.author.displayAvatarURL()));
     } else {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
       await message.channel.send({embed: {
         "title": "<a:LeafeonLick:806396195089154058> Lick",
         "description": "<@" + taggedUser + "> You have been licked by <@" + message.author + ">!",
         "color": 8311585,
-        "footer": footer,
+        "footer": {
+          "icon_url": message.author.displayAvatarURL(),
+          "text": footerTxt
+        },
         "image": {
           "url": "https://cdn.discordapp.com/attachments/803658122299572255/805314244123951114/cef569820773b0f5d54ee34cfa18e1f8.gif"
         }

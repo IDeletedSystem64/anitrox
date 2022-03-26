@@ -9,20 +9,23 @@ module.exports = {
 
   name: "cuddle",
   description: "Cuddle an user!",
-  async execute(_0, message, _1, footer) {
+  async execute(client, message, _, footerTxt) {
 
     const taggedUser = message.mentions.users.first();
     const index = Math.floor(Math.random() * gifchoices.length);
     const gif = (gifchoices[index]);
 
     if(!taggedUser) {
-      await message.channel.send("<:AnitroxError:809651936563429416> You need to specify an user!");
+      await message.channel.send(client.generateErrorMessage("You need to @mention a user!", message.author.displayAvatarURL()));
     } else {
       await message.channel.send({embed: {
         "title": ":heart: Cuddle",
         "description": "<@" + taggedUser + ">" + " You have been cuddled by " + "<@" + message.author + ">!",
         "color": 9442302,
-        "footer": footer,
+        "footer": {
+          "icon_url": message.author.displayAvatarURL(),
+          "text": footerTxt
+        },
         "image": {
           "url": gif
         }

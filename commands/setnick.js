@@ -1,7 +1,7 @@
 module.exports = {
   name: 'setnick',
   description: 'Sets your nickname',
-  async execute(_, message, args, footer) {
+  async execute(client, message, args, footerTxt) {
   
     if (message.channel.permissionsFor(message.author).has("CHANGE_NICKNAME")) {
       const newnick = args.slice(0).join(" ")
@@ -11,7 +11,10 @@ module.exports = {
         await message.channel.send({embed: {
           "title": "<:AnitroxSuccess:809651936819019796> Nickname Changed",
           "color": 9442302,
-          "footer": footer,
+          "footer": {
+            "icon_url": message.author.displayAvatarURL(),
+            "text": footerTxt
+          },
           "fields": [
             {
               "name": "Changed nickname successfully!",
@@ -25,18 +28,10 @@ module.exports = {
           ]
         }});
       } catch (error) {
-        await message.channel.send({embed: {
-          "title": "<:AnitroxDenied:809651936642203668> Well that happened...",
-          "color": 13632027,
-          "footer": footer,
-          "fields": [
-            {
-              "name": "Failed to set nickname",
-              "value": "You need to have permission ``CHANGE_NICKNAME`` to change your nick!"
-            }
-          ]
-        }});
+        await message.channel.send(client.generateErrorMessage("Failed to set user nickname. Does the bot have the correct permissions?", message.author.displayAvatarURL()));
       };
-    };
+    } else {
+      await message.channel.send(client.generateErrorMessage("You need to have permission ``CHANGE_NICKNAME`` to change your nick!", message.author.displayAvatarURL()));
+    }
   }
 }

@@ -9,28 +9,21 @@ module.exports = {
 
   name: "nom",
   description: "Noms an user!",
-  async execute(_0, message, _1, footer) {
+  async execute(client, message, _, footerTxt) {
     const taggedUser = message.mentions.users.first(); 
 
     if(!taggedUser) {
-      await message.channel.send({embed: {
-        "title": "<:AnitroxError:809651936563429416> Error",
-        "color": 9442302,
-        "footer": footer,
-        "fields": [
-          {
-            "name": "Well that happened...",
-            "value": "You need to @mention an user!"
-          }
-        ]
-      }});
+      await message.channel.send(client.generateErrorMessage("You need to @mention a user!", message.author.displayAvatarURL()));
     } else {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
       await message.channel.send({embed: {
         "title": "<:BlobNomBlob:801241117919805510> Nom",
-        "description": "<@" + taggedUser + "> You have been nommed by <@" + messageAuthor + ">!",
+        "description": "<@" + taggedUser + "> You have been nommed by <@" + message.author + ">!",
         "color": 8311585,
-        "footer": footer,
+        "footer": {
+          "icon_url": message.author.displayAvatarURL(),
+          "text": footerTxt
+        },
         "image": {
           "url": gif
         }

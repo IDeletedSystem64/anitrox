@@ -4,7 +4,7 @@ module.exports = {
 
 	name: 'info',
 	description: 'Shows bot and host information',
-	async execute(client, message, _, footer) {
+	async execute(client, message, _, footerTxt) {
 
     function Uptime(uptime) {
       const totalSeconds = (uptime / 1000);
@@ -29,7 +29,10 @@ module.exports = {
       "title": "<:AnitroxInfo:809651936831733791> Information about Anitrox",
       "description": "Everything you've ever wanted to know about your favorite bot, Anitrox!",
       "color": 9442302,
-      "footer": footer,
+      "footer": {
+        "icon_url": message.author.displayAvatarURL(),
+        "text": footerTxt
+      },
       "thumbnail": {
         "url": client.user.displayAvatarURL()
       },

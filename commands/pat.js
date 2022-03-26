@@ -8,28 +8,21 @@ module.exports = {
 
   name: "pat",
   description: "Pats a user!",
-  async execute(_0, message, _1, footer) {
+  async execute(client, message, _, footerTxt) {
     const taggedUser = message.mentions.users.first();
     
     if(!taggedUser) {
-      await message.channel.send({embed: {
-        "title": "<:AnitroxError:809651936563429416> Error",
-        "color": 9442302,
-        "footer": footer,
-        "fields": [
-          {
-            "name": "Well that happened...",
-            "value": "You need to @mention an user!"
-          }
-        ]
-      }});
+      await message.channel.send(client.generateErrorMessage("You need to @mention a user!", message.author.displayAvatarURL()));
     } else {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
       await message.channel.send({embed: {
         "title": "<:pats:801238281286713355> Pat",
-        "description": "<@" + taggedUser + "> You have been patted by <@" + messageAuthor + ">!",
+        "description": "<@" + taggedUser + "> You have been patted by <@" + message.author + ">!",
         "color": 8311585,
-        "footer": footer,
+        "footer": {
+          "icon_url": message.author.displayAvatarURL(),
+          "text": footerTxt
+        },
         "image": {
           "url": gif
         }
