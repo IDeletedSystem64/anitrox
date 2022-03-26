@@ -2,10 +2,10 @@ module.exports = {
   name: "uinfo",
   description: "Gets info about an user, such as ID, Discord Join date and more",
   syntax: "<User>",
-  execute(client, message, args) {
-    const {footerTxt} = require('../config.json');
-    let user = message.mentions.users.first() || args[0]
-    if (!user) user = message.author
+  execute(client, message, args, footerTxt) {
+    console.log(args[0])
+    let user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author
+    // if (!user) user = message.author
     const embed = {
       "title": "Everything you've ever wanted to know about " + user.username + "!",
       "color": 9442302,
