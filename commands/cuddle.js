@@ -11,7 +11,7 @@ module.exports = {
 
   name: "cuddle",
   description: "Cuddle an user!",
-  async execute(_0, message, _1, footerTxt) {
+  async execute(_0, message, _1, footer) {
 
     const taggedUser = message.mentions.users.first();
     const index = Math.floor(Math.random() * gifchoices.length);
@@ -24,10 +24,7 @@ module.exports = {
         "title": ":heart: Cuddle",
         "description": "<@" + taggedUser + ">" + " You have been cuddled by " + "<@" + message.author + ">!",
         "color": 9442302,
-        "footer": {
-          "icon_url": message.author.displayAvatarURL(),
-          "text": footerTxt
-        },
+        "footer": footer,
         "image": {
           "url": gif
         }

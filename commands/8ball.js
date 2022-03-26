@@ -25,7 +25,7 @@ module.exports = {
   name: '8ball',
   description: 'Ask Anitrox a question, any question! and they will answer it!',
   syntax: ["[Question]"],
-  async execute(_, message, args, footerTxt) {
+  async execute(_, message, args, footer) {
     const answer = answers[Math.floor(Math.random() * Object.keys(answers).length)];
     const question = args.slice(0).join(" ")
     console.log(args);
@@ -35,21 +35,14 @@ module.exports = {
         "title": "<:AnitroxError:809651936563429416> **Something went wrong!**",
         "description": "You need to ask a question!",
         "color": 13632027,
-        "footer": {
-          "icon_url": message.author.displayAvatarURL(),
-          "text": footerTxt
-        }
+        "footer": footer
       }));
     } else {
       await message.channel.send(new MessageEmbed({
         "title": ":8ball: Anitrox 8 Ball",
         "description": "Your question: **" + question + "**",
         "color": 9442302,
-        "footer": {
-          "icon_url": message.author.displayAvatarURL(),
-          "text": footerTxt
-        },
-        
+        "footer": footer,
         "fields": [
           {
             "name": "🤔 My Answer",

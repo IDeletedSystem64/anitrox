@@ -1,10 +1,9 @@
 const { token } = require('../config.json');
-const Discord = require('discord.js');
 
 module.exports = {
   name: 'restart',
   description: '(Owner Only) Shuts down the bot.',
-  async execute(client, message, args) {
+  async execute(client, message) {
     if (message.author.id == 309427567004483586 || message.author.id == 475558313376088064) {
       await message.channel.send("<a:NyabotWorking:697147309531594843> Restarting...")
       try {

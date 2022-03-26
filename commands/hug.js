@@ -12,7 +12,7 @@ module.exports = {
 
   name: "hug",
   description: "Hugs a user!",
-  async execute(_0, message, _1, footerTxt) {
+  async execute(_0, message, _1, footer) {
     const taggedUser = message.mentions.users.first();
   
     if(!taggedUser) {
@@ -36,10 +36,7 @@ module.exports = {
         "title": "<a:ABlobCatHuggle:801232248035999784> Hug",
         "description": "<@" + taggedUser + ">" + " You have been hugged by " + "<@" + message.author + ">!",
         "color": 8311585,
-        "footer": {
-          "icon_url": message.author.displayAvatarURL(),
-          "text": footerTxt
-        },
+        "footer": footer,
         "image": {
           "url": gif
         }

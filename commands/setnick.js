@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   name: 'setnick',
   description: 'Sets your nickname',
-  async execute(_, message, args, footerTxt) {
+  async execute(_, message, args, footer) {
   
     if (message.channel.permissionsFor(message.author).has("CHANGE_NICKNAME")) {
       const newnick = args.slice(0).join(" ")
@@ -13,10 +13,7 @@ module.exports = {
         await message.channel.send(new MessageEmbed({
           "title": "<:AnitroxSuccess:809651936819019796> Nickname Changed",
           "color": 9442302,
-          "footer": {
-            "icon_url": "https://images-ext-2.discordapp.net/external/-qaO3jaZLojhEnjrHiKABdXD7gLWqFvdUqHdskNGWhE/https/media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-            "text": footerTxt
-          },
+          "footer": footer,
           "fields": [
             {
               "name": "Changed nickname successfully!",
@@ -33,10 +30,7 @@ module.exports = {
         await message.channel.send(new MessageEmbed({
           "title": "<:AnitroxDenied:809651936642203668> Well that happened...",
           "color": 13632027,
-          "footer": {
-            "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
-            "text": footerTxt
-          },
+          "footer": footer,
           "fields": [
             {
               "name": "Failed to set nickname",

@@ -4,6 +4,11 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { statuses, build, release, prefix, token, footerTxt } = require('./config.json');
 
+const embedFooter = {
+  "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
+  "text": footerTxt
+}
+
 console.log('Starting!')
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -17,7 +22,6 @@ for (const file of commandFiles) {
 
 client.on("error", (e) => console.log("[ERROR]" + error(e)));
 client.on("warn", (e) => ("[WARN]" + warn(e)));
-// Log errors to console.
 client.once('ready', () => {
 	console.clear()
 	console.log('    ___          _ __                 ');
@@ -47,17 +51,14 @@ client.on('message', async (message) => {
 	if (!client.commands.has(command)) return;
 
 	try {
-		await client.commands.get(command).execute(client, message, args, footerTxt);
+		await client.commands.get(command).execute(client, message, args, embedFooter);
 	} catch (error) {
 		console.stack;
 		message.channel.send(new Discord.MessageEmbed({
 			"title": "<:AnitroxError:809651936563429416> **Something went wrong!**",
 			"description": error.stack,
 			"color": 13632027,
-			"footer": {
-			  "icon_url": message.author.displayAvatarURL(),
-			  "text": footerTxt + " | Something went wrong! :("
-			}
+			"footer": footer
 		}));
 	}
 });

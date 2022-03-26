@@ -11,17 +11,14 @@ module.exports = {
 
   name: "snuggle",
   description: "Snuggle an user!",
-  async execute(_0, message, _1, footerTxt) {
+  async execute(_0, message, _1, footer) {
     const taggedUser = message.mentions.users.first();
     
     if(!taggedUser) {
       await message.channel.send(new MessageEmbed({
         "title": "<:AnitroxError:809651936563429416> Error",
         "color": 13632027,
-        "footer": {
-          "icon_url": message.author.displayAvatarURL(),
-          "text": footerTxt
-        },
+        "footer": footer,
         "fields": [
           {
             "name": "Well that happened...",
@@ -34,10 +31,7 @@ module.exports = {
         "title": "<:BlobSnuggleCat:806759753450782731> Snuggle",
         "description": "<@" + taggedUser + ">" + " You have been snuggled by " + "<@" + messageAuthor + ">!",
         "color": 9442302,
-        "footer": {
-          "icon_url": message.author.displayAvatarURL(),
-          "text": footerTxt
-        },
+        "footer": footer,
         "image": {
           "url": gif
         }

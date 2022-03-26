@@ -4,7 +4,7 @@ module.exports = {
 	name: 'reload',
 	description: 'Reloads a command',
 	args: true,
-	async execute(client, message, args, footerTxt) {
+	async execute(client, message, args, footer) {
 		if (message.author.id == 309427567004483586 || message.author.id == 475558313376088064) {
       const commandName = args[0].toLowerCase();
       const command = message.client.commands.get(commandName)
@@ -29,10 +29,7 @@ module.exports = {
       message.channel.send(new MessageEmbed({
         "title": "<:NyabotDenied:697145462565896194> **Access is denied**",
         "color": 13632027,
-        "footer": {
-          "icon_url": "https://cdn.discordapp.com/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-          "text": footerTxt
-        },
+        "footer": footer,
         "fields": [
           {
           "name": "**What Happened?**",

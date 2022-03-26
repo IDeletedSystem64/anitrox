@@ -22,17 +22,14 @@ module.exports = {
     
   name: "leskiss",
   description: "Lesbian kiss <:lesbian:803831629428686849>",
-  async execute(_0, message, _1, footerTxt) {
+  async execute(_0, message, _1, footer) {
     const taggedUser = message.mentions.users.first();
     
     if(!taggedUser) {
       await message.channel.send(new MessageEmbed({
         "title": "<:AnitroxError:809651936563429416> Error",
         "color": 9442302,
-        "footer": {
-          "icon_url": message.author.displayAvatarURL(),
-          "text": footerTxt
-        },
+        "footer": footer,
         "fields": [
           {
             "name": "Well that happened...",
@@ -46,10 +43,7 @@ module.exports = {
         "title": ":heart: <:lesbian:803831629428686849> Kiss",
         "description": "<@" + taggedUser + ">" + " You have been kissed by <@" + message.author + ">! <:lesbian:803831629428686849>",
         "color": 8311585,
-        "footer": {
-          "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-          "text": "Made with ❤ in Illinois | Anitrox © IDeletedSystem64 2018-2021"
-        },
+        "footer": footer,
         "image": {
           "url": gif
         }

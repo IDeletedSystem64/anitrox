@@ -5,15 +5,12 @@ module.exports = {
 	name: 'invite',
 	description: 'Add Anitrox to your beautiful server!',
 	syntax: [],
-	async execute(_0, message, _1, footerTxt) {
+	async execute(_0, message, _1, footer) {
     await message.channel.send(new MessageEmbed({
       "title": "Add Anitrox to your Server!",
       "description": "Weather you want stable, or that squeaky clean fresh PTB build, we gotchu.",
       "color": 9442302,
-      "footer": {
-        "icon_url": message.author.displayAvatarURL(),
-        "text": footerTxt
-      },
+      "footer": footer,
       "thumbnail": {
         "url": "https://cdn.discordapp.com/attachments/803658122299572255/814352905394061322/anitroxaddsrvr.png"
       },
@@ -30,7 +27,6 @@ module.exports = {
           "name": "Need help?",
           "value": "Come join the Anitrox Support Server, for support and much more!\n [Anitrox Support Server](https://discord.gg/grebRGsBZ3)"  
         }
-
       ]
     }));
 	},

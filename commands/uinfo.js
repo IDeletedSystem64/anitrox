@@ -4,16 +4,13 @@ module.exports = {
   name: "uinfo",
   description: "Gets info about an user, such as ID, Discord Join date and more",
   syntax: "<User>",
-  async execute(client, message, args, footerTxt) {
+  async execute(client, message, args, footer) {
     console.log(args[0])
     const user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author
     await message.channel.send(new MessageEmbed({
       "title": "Everything you've ever wanted to know about " + user.username + "!",
       "color": 9442302,
-      "footer": {
-        "icon_url": message.author.displayAvatarURL(),
-        "text": footerTxt
-      },
+      "footer": footer,
       "thumbnail": {
         "url": user.displayAvatarURL()
       },
