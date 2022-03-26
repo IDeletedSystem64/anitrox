@@ -1,5 +1,3 @@
-const { MessageEmbed, Message } = require("discord.js");
-
 const gifchoices = [
   "https://cdn.discordapp.com/attachments/803658122299572255/805314244123951114/cef569820773b0f5d54ee34cfa18e1f8.gif",
   "https://cdn.lowgif.com/full/2027501b8fa5225c-.gif",
@@ -15,7 +13,7 @@ module.exports = {
     const taggedUser = message.mentions.users.first();
 
     if(!taggedUser) {
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": "<:AnitroxError:809651936563429416> Error",
         "color": 9442302,
         "footer": footer,
@@ -25,10 +23,10 @@ module.exports = {
             "value": "You need to @mention an user!"
           }
         ]
-      }));
+      }});
     } else {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": "<a:LeafeonLick:806396195089154058> Lick",
         "description": "<@" + taggedUser + "> You have been licked by <@" + message.author + ">!",
         "color": 8311585,
@@ -36,7 +34,7 @@ module.exports = {
         "image": {
           "url": "https://cdn.discordapp.com/attachments/803658122299572255/805314244123951114/cef569820773b0f5d54ee34cfa18e1f8.gif"
         }
-      }));
+      }});
     }
   }
 }

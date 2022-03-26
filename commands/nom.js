@@ -1,5 +1,3 @@
-const { MessageEmbed } = require('discord.js');
-
 const gifchoices = [
   "https://i.imgur.com/Ns1RBzX.gif",
   "https://cdn.lowgif.com/full/2027501b8fa5225c-.gif",
@@ -15,7 +13,7 @@ module.exports = {
     const taggedUser = message.mentions.users.first(); 
 
     if(!taggedUser) {
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": "<:AnitroxError:809651936563429416> Error",
         "color": 9442302,
         "footer": footer,
@@ -25,10 +23,10 @@ module.exports = {
             "value": "You need to @mention an user!"
           }
         ]
-      }));
+      }});
     } else {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": "<:BlobNomBlob:801241117919805510> Nom",
         "description": "<@" + taggedUser + "> You have been nommed by <@" + messageAuthor + ">!",
         "color": 8311585,
@@ -36,7 +34,7 @@ module.exports = {
         "image": {
           "url": gif
         }
-      }));
+      }});
     }
   }
 }

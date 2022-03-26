@@ -1,5 +1,3 @@
-const { MessageEmbed } = require("discord.js");
-
 const gifchoices = [
   "https://cdn.discordapp.com/attachments/803658122299572255/807671954055626812/kiss5.gif",
   "https://cdn.discordapp.com/attachments/803658122299572255/807671956236140554/kiss2.gif",
@@ -16,7 +14,7 @@ module.exports = {
     const taggedUser = message.mentions.users.first();
     
     if(!taggedUser) {
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": "<:AnitroxError:809651936563429416> Error",
         "color": 13632027,
         "footer": footer,
@@ -26,10 +24,10 @@ module.exports = {
             "value": "You need to @mention an user!"
           }
         ]
-      }));
+      }});
     } else {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": ":heart: Kiss",
         "description": "<@" + taggedUser + ">" + ", You have been kissed by <@" + message.author + ">!",
         "color": 9442302,
@@ -37,7 +35,7 @@ module.exports = {
         "image": {
           "url": gif
         }
-      }));
+      }});
     }
   }
 }

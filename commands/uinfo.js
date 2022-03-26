@@ -1,5 +1,3 @@
-const { MessageEmbed } = require("discord.js");
-
 module.exports = {
   name: "uinfo",
   description: "Gets info about an user, such as ID, Discord Join date and more",
@@ -7,7 +5,7 @@ module.exports = {
   async execute(client, message, args, footer) {
     console.log(args[0])
     const user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author
-    await message.channel.send(new MessageEmbed({
+    await message.channel.send({embed: {
       "title": "Everything you've ever wanted to know about " + user.username + "!",
       "color": 9442302,
       "footer": footer,
@@ -49,6 +47,6 @@ module.exports = {
           inline: true
         },
       ]
-    }));
+    }});
   }
 }

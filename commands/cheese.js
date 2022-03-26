@@ -1,5 +1,3 @@
-const { MessageEmbed } = require("discord.js");
-
 module.exports = {
   name: "cheese",
   description: "Cheese an user, or run just ``n!cheese`` for a surprise :eyes:",
@@ -8,7 +6,7 @@ module.exports = {
     if(!taggedUser) {
       await message.channel.send("*slams cheese on desk* Cheese. https://www.youtube.com/watch?v=Or4IE8fkpn4");
     } else {
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": ":cheese: Cheesed",
         "description": "<@" + taggedUser + ">" + " You got cheesed by " + "<@" + message.author + ">!",
         "color": 16312092,
@@ -16,7 +14,7 @@ module.exports = {
         "image": {
           "url": "https://cdn.discordapp.com/attachments/803658122299572255/812867714368536636/R06325af354168febcafd96b8328b7590.png"
         }
-      }));
+      }});
     }
   }
 }

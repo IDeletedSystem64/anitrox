@@ -1,5 +1,3 @@
-const { MessageEmbed } = require("discord.js");
-
 module.exports = {
   name: 'setnick',
   description: 'Sets your nickname',
@@ -10,7 +8,7 @@ module.exports = {
 
       try {
         await message.member.setNickname(newnick, "Nickname change requested by the server member. If you don't want users to be able to change their nickname disable 'CHANGE_NICKNAME' via Change Nickname in Roles.")
-        await message.channel.send(new MessageEmbed({
+        await message.channel.send({embed: {
           "title": "<:AnitroxSuccess:809651936819019796> Nickname Changed",
           "color": 9442302,
           "footer": footer,
@@ -25,9 +23,9 @@ module.exports = {
               "inline": true
             }
           ]
-        }));
+        }});
       } catch (error) {
-        await message.channel.send(new MessageEmbed({
+        await message.channel.send({embed: {
           "title": "<:AnitroxDenied:809651936642203668> Well that happened...",
           "color": 13632027,
           "footer": footer,
@@ -37,7 +35,7 @@ module.exports = {
               "value": "You need to have permission ``CHANGE_NICKNAME`` to change your nick!"
             }
           ]
-        }));
+        }});
       };
     };
   }

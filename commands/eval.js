@@ -1,4 +1,3 @@
-const { MessageEmbed } = require("discord.js");
 const { inspect } = require("util");
 
 module.exports = {
@@ -12,7 +11,7 @@ module.exports = {
         const evaled = inspect(eval(code));
         await message.channel.send(evaled, {code:"xl"});
       } catch (error) {
-        await message.channel.send(new MessageEmbed({
+        await message.channel.send({embed: {
           "title": "<:NyabotError:697145462347661412> **Well that happened...**",
           "color": 13632027,
           "footer": footer,
@@ -26,7 +25,7 @@ module.exports = {
             "value": error.message
             }
           ]
-        }));
+        }});
       }
     };
   }

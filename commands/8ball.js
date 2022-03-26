@@ -1,5 +1,3 @@
-const { MessageEmbed } = require('discord.js');
-
 const answers = [
   "Heck no!",
   "Are you crazy!? No!",
@@ -31,14 +29,14 @@ module.exports = {
     console.log(args);
 
     if (!question) {
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": "<:AnitroxError:809651936563429416> **Something went wrong!**",
         "description": "You need to ask a question!",
         "color": 13632027,
         "footer": footer
-      }));
+      }});
     } else {
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": ":8ball: Anitrox 8 Ball",
         "description": "Your question: **" + question + "**",
         "color": 9442302,
@@ -49,7 +47,7 @@ module.exports = {
             "value": answer
           }
         ]
-      }));
+      }});
     }
   }
 }

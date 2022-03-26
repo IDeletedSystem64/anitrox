@@ -1,5 +1,3 @@
-const { MessageEmbed } = require("discord.js");
-
 module.exports = {
 	name: 'reload',
 	description: 'Reloads a command',
@@ -26,7 +24,7 @@ module.exports = {
         }
       }
     } else {
-      message.channel.send(new MessageEmbed({
+      message.channel.send({embed: {
         "title": "<:NyabotDenied:697145462565896194> **Access is denied**",
         "color": 13632027,
         "footer": footer,
@@ -36,7 +34,7 @@ module.exports = {
           "value": "You don't have the appropriate permissions to run this command!"
           }
         ]
-      }));
+      }});
 		}
 	}
 };

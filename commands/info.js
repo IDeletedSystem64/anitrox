@@ -1,4 +1,3 @@
-const { MessageEmbed } = require('discord.js');
 const {build, release} = require('../config.json');
 
 module.exports = {
@@ -26,7 +25,7 @@ module.exports = {
     const os = require("os");
     const osu = require('node-os-utils');
     const cpu = osu.cpu;
-    await message.channel.send(new MessageEmbed({
+    await message.channel.send({embed: {
       "title": "<:AnitroxInfo:809651936831733791> Information about Anitrox",
       "description": "Everything you've ever wanted to know about your favorite bot, Anitrox!",
       "color": 9442302,
@@ -101,6 +100,6 @@ module.exports = {
         }
 
       ]
-    }));
+    }});
   }
 };

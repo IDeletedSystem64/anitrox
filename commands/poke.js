@@ -1,5 +1,3 @@
-const { MessageEmbed } = require("discord.js");
-
 const gifchoices = [
   "https://i.pinimg.com/originals/b4/95/fb/b495fb19f4b9a1b04f48297b676c497b.gif",
   "https://i.imgur.com/H7Ok5tn.gif",
@@ -14,7 +12,7 @@ module.exports = {
     const taggedUser = message.mentions.users.first();
     
     if(!taggedUser) {
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": "<:AnitroxError:809651936563429416> Error",
         "color": 9442302,
         "footer": footer,
@@ -24,10 +22,10 @@ module.exports = {
             "value": "You need to @mention an user!"
           }
         ]
-      }));
+      }});
     } else {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": "👉 Poke!",
         "description": "<@" + taggedUser + "> You have been poked by <@" + message.author + ">!",
         "color": 8311585,
@@ -35,7 +33,7 @@ module.exports = {
         "image": {
           "url": gif
         }
-      }));
+      }});
     }     
   }
 }

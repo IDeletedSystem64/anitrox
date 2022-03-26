@@ -34,10 +34,10 @@ client.once('ready', () => {
 });
 
 
-setInterval(() => {
+setInterval(async () => {
   // Picks a status from the config file
 	const index = Math.floor(Math.random() * statuses.length);
-	client.user.setActivity(statuses[index]);
+	await client.user.setActivity(statuses[index]);
 }, 20000);
 
 // Begin Command Handler

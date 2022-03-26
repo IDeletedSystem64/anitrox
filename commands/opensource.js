@@ -1,10 +1,8 @@
-const { MessageEmbed } = require("discord.js");
-
 module.exports = {
     name: 'opensource',
     description: 'Attributions to open source components used by Anitrox',
     async execute(_0, message, _1, footer){
-    await message.channel.send(new MessageEmbed({
+    await message.channel.send({embed: {
       "title": "Component Attribution",
       "description": "Some parts of Anitrox are using open source code, and their attributions are avaliable here!",
       "color": 52508,
@@ -26,6 +24,6 @@ module.exports = {
           "value": "Using and supporting the Anitrox Project, thank you! ❤"
         }
       ]
-    }));
+    }});
   }
 }

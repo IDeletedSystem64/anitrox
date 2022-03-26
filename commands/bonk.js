@@ -1,5 +1,3 @@
-const { MessageEmbed } = require("discord.js");
-
 module.exports = {
 
   name: "bonk",
@@ -8,7 +6,7 @@ module.exports = {
     const taggedUser = message.mentions.users.first();
     
     if(!taggedUser) {
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": "<:AnitroxError:809651936563429416> Error",
         "color": 13632027,
         "footer": {
@@ -21,9 +19,9 @@ module.exports = {
             "value": "You need to @mention an user!"
           }
         ]
-      }));
+      }});
     } else {
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": "<a:SylvBonk:801185845847130113> Bonk",
         "description": "<@" + taggedUser + ">" + " You have been bonked by <@" + message.author + ">!",
         "color": 9442302,
@@ -31,7 +29,7 @@ module.exports = {
         "image": {
           "url": "https://cdn.discordapp.com/attachments/793537380330111028/801194481549312060/HappyBONK.gif"
         }
-      }));
+      }});
     }
   }
 }

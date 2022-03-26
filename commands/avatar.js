@@ -1,5 +1,3 @@
-const { MessageEmbed } = require('discord.js');
-
 module.exports = {
 
   name: "avatar",
@@ -8,13 +6,13 @@ module.exports = {
     
     const user = message.mentions.users.first() || message.author;
 
-    await message.channel.send(new MessageEmbed({
+    await message.channel.send({embed: {
       "title": ":frame_photo: " + user.username + "'s Beautiful Avatar!",
       "color": 9442302,
       "footer": footer,
       "image": {
         "url": user.displayAvatarURL()
       }
-    }));
+    }});
   }
 }

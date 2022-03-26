@@ -1,5 +1,3 @@
-const { MessageEmbed } = require("discord.js");
-
 const gifchoices = [
   "https://cdn.discordapp.com/attachments/803658122299572255/803708174293008474/tenor.gif",
   "https://community.gamepress.gg/uploads/default/original/3X/0/a/0a762099c5ad6de9ca5f13dd22a7e45884a99eb3.gif",
@@ -14,7 +12,7 @@ module.exports = {
     const taggedUser = message.mentions.users.first();
     
     if(!taggedUser) {
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": "<:AnitroxError:809651936563429416> Error",
         "color": 9442302,
         "footer": footer,
@@ -24,10 +22,10 @@ module.exports = {
             "value": "You need to @mention an user!"
           }
         ]
-      }));
+      }});
     } else {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
-      await message.channel.send(new MessageEmbed({
+      await message.channel.send({embed: {
         "title": "<:pats:801238281286713355> Pat",
         "description": "<@" + taggedUser + "> You have been patted by <@" + messageAuthor + ">!",
         "color": 8311585,
@@ -35,7 +33,7 @@ module.exports = {
         "image": {
           "url": gif
         }
-      }));
+      }});
     }
   }
 }
