@@ -2,10 +2,10 @@ const { inspect } = require("util");
 
 module.exports = {
 
-	name: 'eval',
-	description: 'Runs js code',
-	async execute(_, message, args, footerTxt) {
-		if (message.author.id == 309427567004483586 || message.author.id == 475558313376088064) {
+  name: 'eval',
+  description: 'Runs js code',
+  async execute(_, message, args, footerTxt) {
+    if (message.author.id == 309427567004483586 || message.author.id == 475558313376088064) {
       try {
         const code = args.join(" ");
         const evaled = inspect(eval(code));

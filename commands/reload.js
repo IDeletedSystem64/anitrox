@@ -1,8 +1,8 @@
 module.exports = {
-	name: 'reload',
-	description: 'Reloads a command',
-	async execute(client, message, args, footerTxt) {
-		if (message.author.id == 309427567004483586 || message.author.id == 475558313376088064) {
+  name: 'reload',
+  description: 'Reloads a command',
+  async execute(client, message, args, footerTxt) {
+    if (message.author.id == 309427567004483586 || message.author.id == 475558313376088064) {
       if (!args.length) {
         await message.channel.send(client.generateErrorMessage("You forgot to provide anything to reload, you pillock",message.author.displayAvatarURL()));
       }
@@ -43,6 +43,6 @@ module.exports = {
           }
         ]
       }});
-		}
-	}
+    }
+  }
 };

@@ -2,9 +2,9 @@ const {build, release} = require('../config.json');
 
 module.exports = {
 
-	name: 'info',
-	description: 'Shows bot and host information',
-	async execute(client, message, _, footerTxt) {
+  name: 'info',
+  description: 'Shows bot and host information',
+  async execute(client, message, _, footerTxt) {
 
     function Uptime(uptime) {
       const totalSeconds = (uptime / 1000);
