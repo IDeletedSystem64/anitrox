@@ -1,8 +1,8 @@
+#!/usr/bin/env -S node
+
 const fs = require('fs');
 const Discord = require('discord.js');
-const { MessageActionRow, MessageButton } = require('discord.js')
 const { statuses, build, release, prefix, token, footerTxt } = require('./config.json');
-const os = require("os");
 
 console.log('Starting!')
 const client = new Discord.Client();
@@ -15,51 +15,64 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-client.on("error", (e) => console.log("[ERROR]" + error(e)));
-client.on("warn", (e) => ("[WARN]" + warn(e)));
-// Log errors to console.
+client.generateErrorMessage = (errorMsg, messageAuthorURL) => ({embed: {
+  "title": "<:AnitroxError:809651936563429416> Error",
+  "color": 13632027,
+  "footer": {
+    "icon_url": messageAuthorURL,
+    "text": footerTxt
+  },
+  "fields": [
+    {
+      "name": "Well that happened...",
+      "value": errorMsg
+    }
+  ]
+}})
+
+client.on("error", (e) => console.log(`[ERROR] ${error(e)}`));
+client.on("warn", (e) => (`[WARN] ${warn(e)}`));
 client.once('ready', () => {
 	console.clear()
 	console.log('    ___          _ __                 ');
 	console.log('   /   |  ____  (_) /__________  _  __');
-	console.log('  / /| | / __ \/ / __/ ___/ __ \| |/_/');
+	console.log('  / /| | / __ \\/ / __/ ___/ __ \\| |/_/');
 	console.log(' / ___ |/ / / / / /_/ /  / /_/ />  <  ');
-	console.log('/_/  |_/_/ /_/_/\__/_/   \____/_/|_|  ')
-	console.log(release + ", " + build)
+	console.log('/_/  |_/_/ /_/_/\\__/_/   \\____/_/|_|  ');
+	console.log(`${release}, ${build}`);
 	console.log("All Systems Go. | Anitrox by IDeletedSystem64 | ALL MY CODE KEEPS BLOWING UP!");
 });
 
-setInterval(() => {
-	const index = Math.floor(Math.random() * (statuses.length - 1) + 1);
-	client.user.setActivity(statuses[index]);
+
+setInterval(async () => {
+  // Picks a status from the config file
+	const index = Math.floor(Math.random() * statuses.length);
+	await client.user.setActivity(statuses[index]);
 }, 20000);
-// Picks a status from the config file
 
 // Begin Command Handler
-client.on('message', message => {
+client.on('message', async (message) => {
 
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
+
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
 	
 	if (!client.commands.has(command)) return;
 
 	try {
-		client.commands.get(command).execute(client, message, args, footerTxt, Discord);
+		await client.commands.get(command).execute(client, message, args, footerTxt);
 	} catch (error) {
-		console.stack
-		const usr = message.author;
-		const embed = {
+		console.stack;
+		message.channel.send({embed: {
 			"title": "<:AnitroxError:809651936563429416> **Something went wrong!**",
 			"description": error.stack,
 			"color": 13632027,
-			"footer": {
-			  "icon_url": message.author.displayAvatarURL(),
-			  "text": footerTxt + " | Something went wrong! :("
-			}
-		};
-		  message.channel.send({ embed });
-// End Command Handler
+      "footer": {
+        "icon_url": message.author.displayAvatarURL(),
+        "text": footerTxt
+      },
+		}});
 	}
 });
 
