@@ -1,22 +1,21 @@
 const { inspect } = require("util");
-
 module.exports = {
 
 	name: 'eval',
-	description: 'Runs js code',
-	async execute(_, message, args, footerTxt) {
-		if (message.author.id == 309427567004483586 || message.author.id == 475558313376088064) {
+	description: 'Executes JS code',
+	async execute(_, message, args, config) {
+		if (message.author.id == config.ownerID) {
       try {
         const code = args.join(" ");
         const evaled = inspect(eval(code));
         await message.channel.send(evaled, {code:"xl"});
       } catch (error) {
         await message.channel.send({embed: {
-          "title": "<:NyabotError:697145462347661412> **Well that happened...**",
+          "title": "<:AnitroxError:809651936563429416> **Something went wrong! **",
           "color": 13632027,
           "footer": {
             "icon_url": message.author.displayAvatarURL(),
-            "text": footerTxt
+            "text": config.footerTxt
           },
           "fields": [
             {
