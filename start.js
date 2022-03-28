@@ -20,7 +20,7 @@ client.generateErrorMessage = (errorMsg, messageAuthorURL) => ({embed: {
   "color": 13632027,
   "footer": {
     "icon_url": messageAuthorURL,
-    "text": footerTxt
+    "text": config.footerTxt
   },
   "fields": [
     {
@@ -41,21 +41,22 @@ client.once('ready', () => {
 	console.log('/_/  |_/_/ /_/_/\\__/_/   \\____/_/|_|  ');
 	console.log(`${config.release}, ${config.build}`);
 	console.log("Bot online. | Anitrox by IDeletedSystem64 | ALL MY CODE KEEPS BLOWING UP!");
+	// Statuses
+	setInterval(async () => {
+		// Picks a status from the config file
+		  const index = Math.floor(Math.random() * config.statuses.length);
+		  await client.user.setActivity(config.statuses[index]);
+	  }, 20000);
+	  
 });
 
-
-setInterval(async () => {
-  // Picks a status from the config file
-	const index = Math.floor(Math.random() * config.statuses.length);
-	await client.user.setActivity(statuses[index]);
-}, 20000);
 
 // Begin Command Handler
 client.on('message', async (message) => {
 
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
+	if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
-	const args = message.content.slice(prefix.length).split(/ +/);
+	const args = message.content.slice(config.prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
 	
 	if (!client.commands.has(command)) return;
