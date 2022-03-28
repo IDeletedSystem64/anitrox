@@ -1,8 +1,8 @@
 module.exports = {
 	name: 'reload',
 	description: 'Reloads a command',
-	async execute(client, message, args, footerTxt) {
-		if (message.author.id == 309427567004483586 || message.author.id == 475558313376088064) {
+	async execute(client, message, args, config) {
+		if (message.author.id = config.ownerID) {
       if (!args.length) {
         await message.channel.send(client.generateErrorMessage("You forgot to provide anything to reload, you pillock",message.author.displayAvatarURL()));
       }
@@ -19,7 +19,7 @@ module.exports = {
           try {
             const newCommand = require(`./${command.name}.js`);
             client.commands.set(newCommand.name, newCommand);
-            await message.channel.send(`<:NyabotSuccess:697211376740859914> **Reloaded \`${command.name}\` successfully!**`);
+            await message.channel.send(`<:AnitroxSuccess:809651936819019796>  **Reloaded \`${command.name}\` successfully!**`);
             console.log(`User reloaded ${command.name}.`)
           } catch (error) {
             console.error(error);
@@ -30,7 +30,7 @@ module.exports = {
 
     } else {
       message.channel.send({embed: {
-        "title": "<:NyabotDenied:697145462565896194> **Access is denied**",
+        "title": "<:AnitroxDenied:809651936642203668> **403 Forbidden**",
         "color": 13632027,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),
