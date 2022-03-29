@@ -1,7 +1,7 @@
 module.exports = {
   name: 'setnick',
   description: 'Sets your nickname',
-  async execute(client, message, args, footerTxt) {
+  async execute(client, message, args, config) {
   
     if (message.channel.permissionsFor(message.author).has("CHANGE_NICKNAME")) {
       const newnick = args.slice(0).join(" ")
@@ -13,7 +13,7 @@ module.exports = {
           "color": 9442302,
           "footer": {
             "icon_url": message.author.displayAvatarURL(),
-            "text": footerTxt
+            "text": config.footerTxt
           },
           "fields": [
             {

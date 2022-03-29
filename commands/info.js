@@ -4,7 +4,7 @@ module.exports = {
 
   name: 'info',
   description: 'Shows bot and host information',
-  async execute(client, message, _, footerTxt) {
+  async execute(client, message, _, config) {
 
     function Uptime(uptime) {
       const totalSeconds = (uptime / 1000);
@@ -31,7 +31,7 @@ module.exports = {
       "color": 9442302,
       "footer": {
         "icon_url": message.author.displayAvatarURL(),
-        "text": footerTxt
+        "text": config.footerTxt
       },
       "thumbnail": {
         "url": client.user.displayAvatarURL()

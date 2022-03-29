@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const Discord = require('discord.js');
-// const { statuses, build, release, prefix, token, footerTxt } = require('./config.json');
 const config = require('./config.json');
 console.log('Starting!')
 const client = new Discord.Client();

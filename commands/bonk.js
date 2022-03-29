@@ -2,7 +2,7 @@ module.exports = {
 
   name: "bonk",
   description: "Bonks a user!",
-  async execute(client, message, _, footerTxt) {
+  async execute(client, message, _, config) {
     const taggedUser = message.mentions.users.first();
     
     if(!taggedUser) {
@@ -14,7 +14,7 @@ module.exports = {
         "color": 9442302,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),
-          "text": footerTxt
+          "text": config.footerTxt
         },
         "image": {
           "url": "https://cdn.discordapp.com/attachments/793537380330111028/801194481549312060/HappyBONK.gif"

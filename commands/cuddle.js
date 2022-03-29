@@ -9,7 +9,7 @@ module.exports = {
 
   name: "cuddle",
   description: "Cuddle an user!",
-  async execute(client, message, _, footerTxt) {
+  async execute(client, message, _, config) {
 
     const taggedUser = message.mentions.users.first();
     const index = Math.floor(Math.random() * gifchoices.length);
@@ -24,7 +24,7 @@ module.exports = {
         "color": 9442302,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),
-          "text": footerTxt
+          "text": config.footerTxt
         },
         "image": {
           "url": gif

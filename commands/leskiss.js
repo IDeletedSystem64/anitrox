@@ -20,7 +20,7 @@ module.exports = {
     
   name: "leskiss",
   description: "Lesbian kiss <:lesbian:803831629428686849>",
-  async execute(client, message, _, footerTxt) {
+  async execute(client, message, _, config) {
     const taggedUser = message.mentions.users.first();
     
     if(!taggedUser) {
@@ -33,7 +33,7 @@ module.exports = {
         "color": 8311585,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),
-          "text": footerTxt
+          "text": config.footerTxt
         },
         "image": {
           "url": gif
