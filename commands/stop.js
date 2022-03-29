@@ -1,32 +1,29 @@
 module.exports = {
-    name: "stop",
-    description: "Stops the bot",
-    execute(client, message, args) {
-        if (message.author.id == 309427567004483586) {
-        const embed = {
-                "title": "<a:AnitroxWorking:697147309531594843> **Shutting Down...**",
-                "description": "See you next time!",
-                "color": 9442302,
-                "footer": {
-                  "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-                  "text": "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
-                }
-              };
-            message.channel.send({ embed });
-            setTimeout(function(){ 
-              client.destroy()
-           }, 5000);
-        } else {
-            const denied = {
-                "title": ":AnitroxDenied: Access Denied",
-                "description": "You need to be the bot owner to execute this command!",
-                "color": 13632027,
-                "footer": {
-                  "icon_url": "https://media.discordapp.net/attachments/549707869138714635/793524910172667964/Screenshot_26.png",
-                  "text": "Made with ❤ in Illinois | Anitrox © 2018-2021 IDeletedSystem64"
-                }
-              };
-              message.channel.send({ denied });
-            }
-        }
+  name: "stop",
+  description: "IT'S TIME TO STOP!... the bot",
+  async execute(_, message, config) {
+    if (message.author.id == config.ownerID) {
+      await message.channel.send({embed: {
+        "title": "<a:AnitroxWorking:697147309531594843> **Shutting Down...**",
+        "description": "See you next time!",
+        "color": 9442302,
+        "footer": {
+          "icon_url": message.author.displayAvatarURL(),
+          "text": config.footerTxt
+        },
+      }});
+      console.log("The bot is shutting down! Bye bye!")
+      process.exit();
+    } else {
+      await message.channel.send({embed: {
+        "title": "<:AnitroxDenied:809651936642203668> 403 Forbidden",
+        "description": "You need to be the bot owner to execute this command!",
+        "color": 13632027,
+        "footer": {
+          "icon_url": message.author.displayAvatarURL(),
+          "text": config.footerTxt
+        },
+      }});
     }
+  }
+}
