@@ -1,5 +1,3 @@
-const { token } = require('../config.json');
-
 module.exports = {
   name: 'restart',
   description: '(Owner Only) Shuts down the bot.',
@@ -8,7 +6,7 @@ module.exports = {
       await message.channel.send("<a:NyabotWorking:697147309531594843> Restarting...")
       try {
         client.destroy();
-        await client.login(token);
+        await client.login(config.token);
         await message.channel.send("<:NyabotSuccess:697211376740859914> Restart Successful")
         console.log("All systems go")
       } catch(e) {console.log(e);}

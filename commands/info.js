@@ -1,5 +1,3 @@
-const {build, release} = require('../config.json');
-
 module.exports = {
 
   name: 'info',
@@ -43,12 +41,12 @@ module.exports = {
         },
         {
           "name": "Release Type",
-          "value": release,
+          "value": config.release,
           "inline": true
         },
         {
           "name": "Release Version",
-          "value": build,
+          "value": config.build,
           "inline": true
         },
         {
