@@ -2,8 +2,8 @@
 
 const fs = require('fs');
 const Discord = require('discord.js');
-const { statuses, build, release, prefix, token, footerTxt } = require('./config.json');
-
+// const { statuses, build, release, prefix, token, footerTxt } = require('./config.json');
+const config = require('./config.json');
 console.log('Starting!')
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -20,11 +20,11 @@ client.generateErrorMessage = (errorMsg, messageAuthorURL) => ({embed: {
   "color": 13632027,
   "footer": {
     "icon_url": messageAuthorURL,
-    "text": footerTxt
+    "text": config.footerTxt
   },
   "fields": [
     {
-      "name": "Well that happened...",
+      "name": "Something went wrong!",
       "value": errorMsg
     }
   ]
@@ -33,47 +33,48 @@ client.generateErrorMessage = (errorMsg, messageAuthorURL) => ({embed: {
 client.on("error", (e) => console.log(`[ERROR] ${error(e)}`));
 client.on("warn", (e) => (`[WARN] ${warn(e)}`));
 client.once('ready', () => {
-    console.clear()
-    console.log('    ___          _ __                 ');
-    console.log('   /   |  ____  (_) /__________  _  __');
-    console.log('  / /| | / __ \\/ / __/ ___/ __ \\| |/_/');
-    console.log(' / ___ |/ / / / / /_/ /  / /_/ />  <  ');
-    console.log('/_/  |_/_/ /_/_/\\__/_/   \\____/_/|_|  ');
-    console.log(`${release}, ${build}`);
-    console.log("All Systems Go. | Anitrox by IDeletedSystem64 | ALL MY CODE KEEPS BLOWING UP!");
+	console.clear()
+	console.log('    ___          _ __                 ');
+	console.log('   /   |  ____  (_) /__________  _  __');
+	console.log('  / /| | / __ \\/ / __/ ___/ __ \\| |/_/');
+	console.log(' / ___ |/ / / / / /_/ /  / /_/ />  <  ');
+	console.log('/_/  |_/_/ /_/_/\\__/_/   \\____/_/|_|  ');
+	console.log(`${config.release}, ${config.build}`);
+	console.log("Bot online. | Anitrox by IDeletedSystem64 | ALL MY CODE KEEPS BLOWING UP!");
+	// Statuses
+	setInterval(async () => {
+		// Picks a status from the config file
+		  const index = Math.floor(Math.random() * config.statuses.length);
+		  await client.user.setActivity(config.statuses[index]);
+	  }, 20000);
+	  
 });
 
-
-setInterval(async () => {
-  // Picks a status from the config file
-    const index = Math.floor(Math.random() * statuses.length);
-    await client.user.setActivity(statuses[index]);
-}, 20000);
 
 // Begin Command Handler
 client.on('message', async (message) => {
 
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+	if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
-    
-    if (!client.commands.has(command)) return;
+	const args = message.content.slice(config.prefix.length).split(/ +/);
+	const command = args.shift().toLowerCase();
+	
+	if (!client.commands.has(command)) return;
 
-    try {
-        await client.commands.get(command).execute(client, message, args, footerTxt);
-    } catch (error) {
-        console.stack;
-        message.channel.send({embed: {
-            "title": "<:AnitroxError:809651936563429416> **Something went wrong!**",
-            "description": error.stack,
-            "color": 13632027,
+	try {
+		await client.commands.get(command).execute(client, message, args, config);
+	} catch (error) {
+		console.stack;
+		message.channel.send({embed: {
+			"title": "<:AnitroxError:809651936563429416> **Something went wrong!**",
+			"description": error.stack,
+			"color": 13632027,
       "footer": {
         "icon_url": message.author.displayAvatarURL(),
-        "text": footerTxt
+        "text": config.footerTxt
       },
         }});
     }
 });
 
-client.login(token);
+client.login(config.token);

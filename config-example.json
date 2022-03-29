@@ -21,17 +21,37 @@
     "VLC Media Player",
     "Chromium"
   ],
-  "locations": [
-  "Microsoft",
-  "LinusTechTips",
-  "Linus Torvalds",
-  "borkeonv2",
-  "Google",
-  "192.168.1.1",
-  "127.0.0.1",
-  "Sophie's computer",
-  "Mars",
-  "Elon Musk",
-  "TMC Software"
+    "locations": [
+    "Microsoft",
+    "LinusTechTips",
+    "Linus Torvalds",
+    "borkeonv2",
+    "Google",
+    "192.168.1.1",
+    "127.0.0.1",
+    "Sophie's computer",
+    "Mars",
+    "Elon Musk",
+    "TMC Software"
+  ],
+  "answers": [
+    "Heck no!",
+    "Are you crazy!? No!",
+    "Don't even think about it.",
+    "No! You might bork something!",
+    "Heck yeah",
+    "I don't think so.",
+    "Let me think about it first. No.",
+    "Let me think about it first. Yeah",
+    "Let me think about it first. Maybe",
+    "I don't know man",
+    "Maybe",
+    "I'm not sure",
+    "Ask again",
+    "YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!!!",
+    "Definitely!",
+    "Go for it! :smile:",
+    "Good idea!",
+    "Sure"
   ]
   }
