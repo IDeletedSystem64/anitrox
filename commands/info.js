@@ -12,10 +12,10 @@ module.exports = {
       const minutes = parseInt((totalSeconds % 3600) / 60);
       const seconds = parseInt(totalSeconds % 60);
 
-      const daystring = days + (days === 1 ? " day" : " days");
-      const hourstring = hours + (hours === 1 ? " hour" : " hours");
-      const minutetring = minutes + (minutes === 1 ? " minute" : " minutes");
-      const secondstring = seconds + (seconds === 1 ? " second" : " seconds");
+      const daystring = days + (days === 1 ? "day" : "days");
+      const hourstring = hours + (hours === 1 ? "day" : "days");
+      const minutetring = minutes + (minutes === 1 ? "day" : "days");
+      const secondstring = seconds + (seconds === 1 ? "day" : "days");
 
       return `${daystring}**, **${hourstring}**, **${minutetring}**, **${secondstring}`;
     }
