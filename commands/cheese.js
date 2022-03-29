@@ -1,7 +1,7 @@
 module.exports = {
   name: "cheese",
   description: "Cheese an user, or run just ``n!cheese`` for a surprise :eyes:",
-  async execute(_0, message, _1, footerTxt) {
+  async execute(_0, message, _1, config) {
     const taggedUser = message.mentions.users.first();
     if(!taggedUser) {
       await message.channel.send("*slams cheese on desk*\n**Cheese.** https://www.youtube.com/watch?v=Or4IE8fkpn4");
@@ -12,7 +12,7 @@ module.exports = {
         "color": 16312092,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),
-          "text": footerTxt
+          "text": config.footerTxt
         },
         "image": {
           "url": "https://cdn.discordapp.com/attachments/803658122299572255/812867714368536636/R06325af354168febcafd96b8328b7590.png"

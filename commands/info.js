@@ -1,10 +1,8 @@
-const {build, release} = require('../config.json');
-
 module.exports = {
 
-	name: 'info',
-	description: 'Shows bot and host information',
-	async execute(client, message, _, footerTxt) {
+  name: 'info',
+  description: 'Shows bot and host information',
+  async execute(client, message, _, config) {
 
     function Uptime(uptime) {
       const totalSeconds = (uptime / 1000);
@@ -31,7 +29,7 @@ module.exports = {
       "color": 9442302,
       "footer": {
         "icon_url": message.author.displayAvatarURL(),
-        "text": footerTxt
+        "text": config.footerTxt
       },
       "thumbnail": {
         "url": client.user.displayAvatarURL()
@@ -43,12 +41,12 @@ module.exports = {
         },
         {
           "name": "Release Type",
-          "value": release,
+          "value": config.release,
           "inline": true
         },
         {
           "name": "Release Version",
-          "value": build,
+          "value": config.build,
           "inline": true
         },
         {

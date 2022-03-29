@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const Discord = require('discord.js');
-// const { statuses, build, release, prefix, token, footerTxt } = require('./config.json');
 const config = require('./config.json');
 console.log('Starting!')
 const client = new Discord.Client();
@@ -11,8 +10,8 @@ client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
+    const command = require(`./commands/${file}`);
+    client.commands.set(command.name, command);
 }
 
 client.generateErrorMessage = (errorMsg, messageAuthorURL) => ({embed: {
@@ -73,8 +72,8 @@ client.on('message', async (message) => {
         "icon_url": message.author.displayAvatarURL(),
         "text": config.footerTxt
       },
-		}});
-	}
+        }});
+    }
 });
 
 client.login(config.token);

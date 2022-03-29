@@ -1,7 +1,7 @@
 module.exports = {
   name: "stop",
   description: "IT'S TIME TO STOP!... the bot",
-  async execute(client, message, config) {
+  async execute(_, message, config) {
     if (message.author.id == config.ownerID) {
       await message.channel.send({embed: {
         "title": "<a:AnitroxWorking:697147309531594843> **Shutting Down...**",

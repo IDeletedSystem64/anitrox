@@ -9,7 +9,7 @@ module.exports = {
 
   name: "lick",
   description: "Licks a user!",
-  async execute(client, message, _, footerTxt) {
+  async execute(client, message, _, config) {
     const taggedUser = message.mentions.users.first();
 
     if(!taggedUser) {
@@ -22,7 +22,7 @@ module.exports = {
         "color": 8311585,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),
-          "text": footerTxt
+          "text": config.footerTxt
         },
         "image": {
           "url": "https://cdn.discordapp.com/attachments/803658122299572255/805314244123951114/cef569820773b0f5d54ee34cfa18e1f8.gif"

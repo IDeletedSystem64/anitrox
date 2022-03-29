@@ -1,14 +1,14 @@
 module.exports = {
     name: 'opensource',
     description: 'Attributions to open source components used by Anitrox',
-    async execute(_0, message, _1, footerTxt){
+    async execute(_0, message, _1, config){
     await message.channel.send({embed: {
       "title": "Component Attribution",
       "description": "Some parts of Anitrox are using open source code, and their attributions are avaliable here!",
       "color": 52508,
       "footer": {
         "icon_url": message.author.displayAvatarURL(),
-        "text": footerTxt
+        "text": config.footerTxt
       },
       "thumbnail": {
         "url": "https://cdn.discordapp.com/attachments/803658122299572255/838854256471703602/793885335498522685.png"

@@ -34,7 +34,7 @@ module.exports = {
         "color": 13632027,
         "footer": {
           "icon_url": message.author.displayAvatarURL(),
-          "text": footerTxt
+          "text": config.footerTxt
         },
         "fields": [
           {
@@ -43,6 +43,6 @@ module.exports = {
           }
         ]
       }});
-		}
-	}
+    }
+  }
 };

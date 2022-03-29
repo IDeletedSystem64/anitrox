@@ -1,7 +1,7 @@
 module.exports = {
   name: "ping",
   description: "Gets bot ping",
-  async execute(client, message, args, config) {
+  async execute(client, message, _, config) {
       const index = Math.floor(Math.random() * config.locations.length);
       const location = config.locations[index]
   
