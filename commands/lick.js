@@ -9,6 +9,7 @@ module.exports = {
 
   name: require('path').parse(__filename).name,
   description: "Licks a user!",
+  
   async execute(client, message, _, config) {
     const taggedUser = message.mentions.users.first();
 
