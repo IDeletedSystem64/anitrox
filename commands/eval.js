@@ -3,7 +3,7 @@ module.exports = {
 
 	name: 'eval',
 	description: 'Executes JS code',
-	async execute(client, message, args, config) {
+	async execute(_, message, args, config) {
 		if (message.author.id == config.ownerID) {
       try {
         const code = args.join(" ");
