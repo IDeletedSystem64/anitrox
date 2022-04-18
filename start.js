@@ -55,7 +55,7 @@ client.on('message', async (message) => {
 
 	if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
-	const args = message.content.slice(config.prefix.length).split(/ +/);
+	const args = message.content.slice(config.prefix.length).split(/\s+/);
 	const command = args.shift().toLowerCase();
 	
 	if (!client.commands.has(command)) return;
