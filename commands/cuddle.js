@@ -7,10 +7,10 @@ const gifchoices = [
 
 module.exports = {
 
-  name: "cuddle",
+  name: require('path').parse(__filename).name,
   description: "Cuddle an user!",
-  async execute(client, message, _, config) {
 
+  async execute(client, message, _, config) {
     const taggedUser = message.mentions.users.first();
     const index = Math.floor(Math.random() * gifchoices.length);
     const gif = (gifchoices[index]);

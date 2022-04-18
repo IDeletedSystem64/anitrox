@@ -1,8 +1,10 @@
 const { inspect } = require("util");
+
 module.exports = {
 
-	name: 'eval',
+	name: require('path').parse(__filename).name,
 	description: 'Executes JS code',
+
 	async execute(_, message, args, config) {
 		if (message.author.id == config.ownerID) {
       try {

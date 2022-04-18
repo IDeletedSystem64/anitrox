@@ -1,7 +1,9 @@
 module.exports = {
-  name: '8ball',
+
+  name: require('path').parse(__filename).name,
   description: 'Ask Anitrox a question, any question! and they will answer it!',
   syntax: ["[Question]"],
+  
   async execute(client, message, args, config) {
     const index = Math.floor(Math.random() * config.answers.length);
     const answer = config.answers[index]

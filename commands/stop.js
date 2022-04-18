@@ -1,6 +1,8 @@
 module.exports = {
-  name: "stop",
+
+  name: require('path').parse(__filename).name,
   description: "IT'S TIME TO STOP!... the bot",
+  
   async execute(_0, message, _1, config) {
     if (message.author.id == config.ownerID) {
       await message.channel.send({embed: {

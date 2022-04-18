@@ -1,11 +1,13 @@
 module.exports = {
-  name: 'choose',
+
+  name: require('path').parse(__filename).name,
   description: "Give some lines of input, and get one back at random",
+
   async execute(client, message, _, config) {
     var strarr = message.content.split(/\s*\n\s*/);
     strarr[0] = strarr[0].slice(this.name.length + config.prefix.length);
-    console.log(strarr);
     const answer = strarr[Math.floor(Math.random() * strarr.length)];
+    
     if (answer === "") {
       await message.channel.send(client.generateErrorMessage("You need to provide some input!", message.author.displayAvatarURL()));
     } else {

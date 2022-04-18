@@ -1,28 +1,29 @@
+function Uptime(uptime) {
+  const totalSeconds = (uptime / 1000);
+
+  const days = parseInt(totalSeconds / 86400);
+  const hours = parseInt((totalSeconds % 86400) / 3600);
+  const minutes = parseInt((totalSeconds % 3600) / 60);
+  const seconds = parseInt(totalSeconds % 60);
+
+  const daystring = days + (days === 1 ? " day" : " days");
+  const hourstring = hours + (hours === 1 ? " hour" : " hours");
+  const minutetring = minutes + (minutes === 1 ? " minute" : " minutes");
+  const secondstring = seconds + (seconds === 1 ? " second" : " seconds");
+
+  return `${daystring}**, **${hourstring}**, **${minutetring}**, **${secondstring}`;
+}
+
 module.exports = {
 
-  name: 'info',
+  name: require('path').parse(__filename).name,
   description: 'Shows bot and host information',
+
   async execute(client, message, _, config) {
-
-    function Uptime(uptime) {
-      const totalSeconds = (uptime / 1000);
-
-      const days = parseInt(totalSeconds / 86400);
-      const hours = parseInt((totalSeconds % 86400) / 3600);
-      const minutes = parseInt((totalSeconds % 3600) / 60);
-      const seconds = parseInt(totalSeconds % 60);
-
-      const daystring = days + (days === 1 ? " day" : " days");
-      const hourstring = hours + (hours === 1 ? " hour" : " hours");
-      const minutetring = minutes + (minutes === 1 ? " minute" : " minutes");
-      const secondstring = seconds + (seconds === 1 ? " second" : " seconds");
-
-      return `${daystring}**, **${hourstring}**, **${minutetring}**, **${secondstring}`;
-    }
-
     const os = require("os");
     const osu = require('node-os-utils');
     const cpu = osu.cpu;
+    
     await message.channel.send({embed: {
       "title": "<:AnitroxInfo:809651936831733791> Information about Anitrox",
       "description": "Everything you've ever wanted to know about your favorite bot, Anitrox!",
