@@ -18,8 +18,9 @@ const gifchoices = [
 
 module.exports = {
     
-  name: "leskiss",
+  name: require('path').parse(__filename).name,
   description: "Lesbian kiss <:lesbian:803831629428686849>",
+  
   async execute(client, message, _, config) {
     const taggedUser = message.mentions.users.first();
     

@@ -1,7 +1,8 @@
 module.exports = {
-
-  name: "bonk",
+  
+  name: require('path').parse(__filename).name,
   description: "Bonks a user!",
+
   async execute(client, message, _, config) {
     const taggedUser = message.mentions.users.first();
     

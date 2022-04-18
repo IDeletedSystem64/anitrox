@@ -8,8 +8,9 @@ const gifchoices = [
 
 module.exports = {
 
-  name: "hug",
+  name: require('path').parse(__filename).name,
   description: "Hugs a user!",
+  
   async execute(client, message, _, config) {
     const taggedUser = message.mentions.users.first();
   

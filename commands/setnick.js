@@ -1,11 +1,11 @@
 module.exports = {
-  name: 'setnick',
+
+  name: require('path').parse(__filename).name,
   description: 'Sets your nickname',
+
   async execute(client, message, args, config) {
-  
     if (message.channel.permissionsFor(message.author).has("CHANGE_NICKNAME")) {
       const newnick = args.slice(0).join(" ")
-
       try {
         await message.member.setNickname(newnick, "Nickname change requested by the server member. If you don't want users to be able to change their nickname disable 'CHANGE_NICKNAME' via Change Nickname in Roles.")
         await message.channel.send({embed: {

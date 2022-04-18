@@ -1,8 +1,11 @@
 module.exports = {
-  name: "cheese",
+
+  name: require('path').parse(__filename).name,
   description: "Cheese an user, or run just ``n!cheese`` for a surprise :eyes:",
+
   async execute(_0, message, _1, config) {
     const taggedUser = message.mentions.users.first();
+    
     if(!taggedUser) {
       await message.channel.send("*slams cheese on desk*\n**Cheese.** https://www.youtube.com/watch?v=Or4IE8fkpn4");
     } else {

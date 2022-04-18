@@ -1,7 +1,9 @@
 module.exports = {
-  name: "stop",
+
+  name: require('path').parse(__filename).name,
   description: "IT'S TIME TO STOP!... the bot",
-  async execute(_, message, args, config) {
+  
+  async execute(_0, message, _1, config) {
     if (message.author.id == config.ownerID) {
       await message.channel.send({embed: {
         "title": "<a:AnitroxWorking:697147309531594843> **Shutting Down...**",

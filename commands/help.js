@@ -1,6 +1,6 @@
 module.exports = {
     
-  name: 'help',
+  name: require('path').parse(__filename).name,
   description: 'Get help on anything from commands, to what the bot does! just not your homework..',
   syntax: '<Command>',
 

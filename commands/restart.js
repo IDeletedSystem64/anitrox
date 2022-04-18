@@ -1,7 +1,9 @@
 module.exports = {
-  name: 'restart',
+
+  name: require('path').parse(__filename).name,
   description: 'Restarts the bot',
-  async execute(client, message, args, config) {
+  
+  async execute(client, message, _, config) {
     if (message.author.id == config.ownerID) {
       console.log("Anitrox is restarting now!")
       await message.channel.send("<a:NyabotWorking:697147309531594843> Restarting...")

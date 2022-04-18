@@ -1,6 +1,8 @@
 module.exports = {
-    name: 'opensource',
-    description: 'Attributions to open source components used by Anitrox',
+
+  name: require('path').parse(__filename).name,
+  description: 'Attributions to open source components used by Anitrox',
+  
     async execute(_0, message, _1, config){
     await message.channel.send({embed: {
       "title": "Component Attribution",

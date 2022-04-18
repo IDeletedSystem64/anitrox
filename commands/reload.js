@@ -1,6 +1,8 @@
 module.exports = {
-	name: 'reload',
+
+	name: require('path').parse(__filename).name,
 	description: 'Reloads a command',
+
 	async execute(client, message, args, config) {
 		if (message.author.id = config.ownerID) {
       if (!args.length) {
