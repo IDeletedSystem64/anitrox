@@ -10,7 +10,7 @@ module.exports = {
     const question = args.slice(0).join(" ")
 
     if (!question) {
-      await message.channel.send(client.generateErrorMessage("You need to ask a question!", message.author.displayAvatarURL));
+      await message.channel.send(client.generateErrorMessage("You need to ask a question!"));
     } else {
       await message.channel.send({embeds: [{
         "title": ":8ball: 8Ball",

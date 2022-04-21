@@ -18,7 +18,7 @@ module.exports = {
           "fields": [
             {
               "name": "Changed nickname successfully!",
-              "value": "You need to have permission ``CHANGE_NICKNAME`` to change your nick!"
+              "value": `New Nickname: ${newnick}`
             },
             {
               "name": "New Nickname",

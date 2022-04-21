@@ -9,7 +9,7 @@ module.exports = {
     if (head) options.push(head);
 
     if (!options.length) {
-      await message.channel.send(client.generateErrorMessage("You need to provide some input!", message.author.displayAvatarURL()));
+      await message.channel.send(client.generateErrorMessage("You need to provide some input!"));
     } else {
       const answer = options[Math.floor(Math.random() * options.length)];
       await message.channel.send({embeds: [{

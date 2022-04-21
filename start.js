@@ -18,7 +18,7 @@ client.generateErrorMessage = (errorMsg, messageAuthorURL) => ({embeds: [{
   "title": "<:AnitroxError:809651936563429416> Error",
   "color": 13632027,
   "footer": {
-    "icon_url": messageAuthorURL,
+    "icon_url": message.author.displayAvatarURL(),
     "text": config.footerTxt
   },
   "fields": [

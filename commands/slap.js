@@ -7,7 +7,7 @@ module.exports = {
     const taggedUser = message.mentions.users.first();
 
     if(!taggedUser) {
-      await message.channel.send(client.generateErrorMessage("You need to @mention a user!", message.author.displayAvatarURL()));
+      await message.channel.send(client.generateErrorMessage("You need to @mention a user!"));
     } else {
       await message.channel.send({embeds: [{
         "title": ":anger: Slap",
