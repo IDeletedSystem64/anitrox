@@ -1,27 +1,29 @@
 module.exports = {
 
   name: require('path').parse(__filename).name,
-  description: "Give some lines of input, and get one back at random",
+  description: 'Give some lines of input, and get one back at random',
 
-  async execute(client, message, _, config) {
+  async execute (client, message, _, config) {
     const avatarURL = message.author.displayAvatarURL();
-    var [head, ...options] = message.content.split(/\s*\n\s*/);
+    let [head, ...options] = message.content.split(/\s*\n\s*/);
     head = head.slice(this.name.length + config.prefix.length);
     if (head) options.push(head);
 
     if (!options.length) {
-      await message.channel.send(client.generateErrorMessage("You need to provide some input!", avatarURL));
+      await message.channel.send(client.generateErrorMessage('You need to provide some input!', avatarURL));
     } else {
       const answer = options[Math.floor(Math.random() * options.length)];
-      await message.channel.send({embeds: [{
-        "title": "I have made my decision:",
-        "description": answer,
-        "color": 8311585,
-        "footer": {
-          "icon_url": avatarURL,
-          "text": config.footerTxt
-        },
-      }]});      
+      await message.channel.send({
+        embeds: [{
+          title: 'I have made my decision:',
+          description: answer,
+          color: 8311585,
+          footer: {
+            icon_url: avatarURL,
+            text: config.footerTxt
+          }
+        }]
+      });
     }
   }
-}
+};
