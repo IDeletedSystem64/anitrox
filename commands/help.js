@@ -5,7 +5,7 @@ module.exports = {
   syntax: '<Command>',
 
   async execute(_0, message, _1, config) {
-    await message.channel.send({embed: {
+    await message.channel.send({embeds: [{
       "title": "HELP! SEYMOUR! THE BOT IS ON FIRE!",
       "description": "Get help on anything from commands, to what the bot does! just not your homework..",
       "color": 9442302,
@@ -23,6 +23,6 @@ module.exports = {
           "value": "Join the [support server!](https://discord.gg/grebRGsBZ3)"
         }
       ]
-    }});
+    }]});
   }
 }

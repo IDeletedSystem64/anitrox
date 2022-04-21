@@ -9,7 +9,7 @@ module.exports = {
     if(!taggedUser) {
       await message.channel.send(client.generateErrorMessage("You need to @mention a user!", message.author.displayAvatarURL()));
     } else {
-      await message.channel.send({embed: {
+      await message.channel.send({embeds: [{
         "title": ":anger: Slap",
         "description": `${taggedUser} You have been slapped by ${message.author}!`,
         "color": 9442302,
@@ -20,7 +20,7 @@ module.exports = {
         "image": {
           "url": "https://media1.tenor.com/images/b6d8a83eb652a30b95e87cf96a21e007/tenor.gif?itemid=10426943"
         }
-      }});
+      }]});
     }      
   }
 }

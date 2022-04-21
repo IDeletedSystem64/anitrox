@@ -16,7 +16,7 @@ module.exports = {
       await message.channel.send(client.generateErrorMessage("You need to @mention a user!", message.author.displayAvatarURL()));
     } else {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
-      await message.channel.send({embed: {
+      await message.channel.send({embeds: [{
         "title": "👉 Poke!",
         "description": `${taggedUser} You have been poked by ${message.author}!`,
         "color": 8311585,
@@ -27,7 +27,7 @@ module.exports = {
         "image": {
           "url": gif
         }
-      }});
+      }]});
     }     
   }
 }

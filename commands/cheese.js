@@ -9,7 +9,7 @@ module.exports = {
     if(!taggedUser) {
       await message.channel.send("*slams cheese on desk*\n**Cheese.** https://www.youtube.com/watch?v=Or4IE8fkpn4");
     } else {
-      await message.channel.send({embed: {
+      await message.channel.send({embeds: [{
         "title": ":cheese: Cheesed",
         "description": `${taggedUser} You have been cheesed by ${message.author}!`,
         "color": 16312092,
@@ -20,7 +20,7 @@ module.exports = {
         "image": {
           "url": "https://cdn.discordapp.com/attachments/803658122299572255/812867714368536636/R06325af354168febcafd96b8328b7590.png"
         }
-      }});
+      }]});
     }
   }
 }

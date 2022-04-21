@@ -18,7 +18,7 @@ module.exports = {
     if(!taggedUser) {
       await message.channel.send(client.generateErrorMessage("You need to @mention a user!", message.author.displayAvatarURL()));
     } else {
-      await message.channel.send({embed: {
+      await message.channel.send({embeds: [{
         "title": ":heart: Cuddle",
         "description": `${taggedUser} You have been cuddled by ${message.author}!`,
         "color": 9442302,
@@ -29,7 +29,7 @@ module.exports = {
         "image": {
           "url": gif
         }
-      }});
+      }]});
     }
   }
 }

@@ -4,7 +4,7 @@ module.exports = {
   description: 'Attributions to open source components used by Anitrox',
   
     async execute(_0, message, _1, config){
-    await message.channel.send({embed: {
+    await message.channel.send({embeds: [{
       "title": "Component Attribution",
       "description": "Some parts of Anitrox are using open source code, and their attributions are avaliable here!",
       "color": 52508,
@@ -29,6 +29,6 @@ module.exports = {
           "value": "Using and supporting the Anitrox Project, thank you! ❤"
         }
       ]
-    }});
+    }]});
   }
 }

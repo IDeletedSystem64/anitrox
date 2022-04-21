@@ -53,5 +53,9 @@
     "Go for it! :smile:",
     "Good idea!",
     "Sure"
+  ],
+  "intents": [
+    "GUILDS",
+    "GUILD_MESSAGES"
   ]
   }

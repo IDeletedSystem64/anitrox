@@ -12,7 +12,7 @@ module.exports = {
       await message.channel.send(client.generateErrorMessage("You need to provide some input!", message.author.displayAvatarURL()));
     } else {
       const answer = options[Math.floor(Math.random() * options.length)];
-      await message.channel.send({embed: {
+      await message.channel.send({embeds: [{
         "title": "I have made my decision:",
         "description": answer,
         "color": 8311585,
@@ -20,7 +20,7 @@ module.exports = {
           "icon_url": message.author.displayAvatarURL(),
           "text": config.footerTxt
         },
-      }});      
+      }]});      
     }
   }
 }

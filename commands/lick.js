@@ -17,7 +17,7 @@ module.exports = {
       await message.channel.send(client.generateErrorMessage("You need to @mention a user!", message.author.displayAvatarURL()));
     } else {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
-      await message.channel.send({embed: {
+      await message.channel.send({embeds: [{
         "title": "<a:LeafeonLick:806396195089154058> Lick",
         "description": `${taggedUser} You have been licked by ${message.author}!`,
         "color": 8311585,
@@ -28,7 +28,7 @@ module.exports = {
         "image": {
           "url": "https://cdn.discordapp.com/attachments/803658122299572255/805314244123951114/cef569820773b0f5d54ee34cfa18e1f8.gif"
         }
-      }});
+      }]});
     }
   }
 }

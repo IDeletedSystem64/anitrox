@@ -18,7 +18,7 @@ module.exports = {
       await message.channel.send(client.generateErrorMessage("You need to @mention a user!", message.author.displayAvatarURL()));
     } else {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
-      await message.channel.send({embed: {
+      await message.channel.send({embeds: [{
         "title": ":heart: Kiss",
         "description": `${taggedUser} You have been kissed by ${message.author}!`,
         "color": 9442302,
@@ -29,7 +29,7 @@ module.exports = {
         "image": {
           "url": gif
         }
-      }});
+      }]});
     }
   }
 }

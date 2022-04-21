@@ -7,7 +7,7 @@ module.exports = {
   async execute(client, message, args, config) {
     const user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author
     
-    await message.channel.send({embed: {
+    await message.channel.send({embeds: [{
       "title": `Everything you've ever wanted to know about ${user.username}!`,
       "color": 9442302,
       "footer": {
@@ -52,6 +52,6 @@ module.exports = {
           inline: true
         },
       ]
-    }});
+    }]});
   }
 }

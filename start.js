@@ -4,7 +4,7 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const config = require('./config.json');
 console.log('Starting!')
-const client = new Discord.Client();
+const client = new Discord.Client({ intents: config.intents.map(intent => eval(`Discord.Intents.FLAGS.${intent}`))});
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -14,7 +14,7 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-client.generateErrorMessage = (errorMsg, messageAuthorURL) => ({embed: {
+client.generateErrorMessage = (errorMsg, messageAuthorURL) => ({embeds: [{
   "title": "<:AnitroxError:809651936563429416> Error",
   "color": 13632027,
   "footer": {
@@ -27,7 +27,7 @@ client.generateErrorMessage = (errorMsg, messageAuthorURL) => ({embed: {
       "value": errorMsg
     }
   ]
-}})
+}]})
 
 client.on("error", (e) => console.log(`[ERROR] ${error(e)}`));
 client.on("warn", (e) => (`[WARN] ${warn(e)}`));
@@ -51,7 +51,7 @@ client.once('ready', () => {
 
 
 // Begin Command Handler
-client.on('message', async (message) => {
+client.on('messageCreate', async (message) => {
 
   if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
@@ -64,7 +64,7 @@ client.on('message', async (message) => {
     await client.commands.get(command).execute(client, message, args, config);
   } catch (error) {
     console.stack;
-    message.channel.send({embed: {
+    message.channel.send({embeds: [{
       "title": "<:AnitroxError:809651936563429416> **Something went wrong!**",
       "description": error.stack,
       "color": 13632027,
@@ -72,7 +72,7 @@ client.on('message', async (message) => {
         "icon_url": message.author.displayAvatarURL(),
         "text": config.footerTxt
       },
-    }});
+    }]});
   }
 });
 

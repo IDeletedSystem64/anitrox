@@ -5,7 +5,7 @@ module.exports = {
   syntax: [],
   
   async execute(_0, message, _1, config) {
-    await message.channel.send({embed: {
+    await message.channel.send({embeds: [{
       "title": "Add Anitrox to your Server!",
       "description": "Weather you want stable, or that squeaky clean fresh PTB build, we gotchu.",
       "color": 9442302,
@@ -30,6 +30,6 @@ module.exports = {
           "value": "Come join the Anitrox Support Server, for support and much more!\n [Anitrox Support Server](https://discord.gg/grebRGsBZ3)"  
         }
       ]
-    }});
+    }]});
   },
 };

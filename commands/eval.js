@@ -12,7 +12,7 @@ module.exports = {
         const evaled = inspect(eval(code));
         await message.channel.send(evaled, {code:"xl"});
       } catch (error) {
-        await message.channel.send({embed: {
+        await message.channel.send({embeds: [{
           "title": "<:AnitroxError:809651936563429416> **Something went wrong! **",
           "color": 13632027,
           "footer": {
@@ -29,7 +29,7 @@ module.exports = {
             "value": error.message
             }
           ]
-        }});
+        }]});
       }
     };
   }

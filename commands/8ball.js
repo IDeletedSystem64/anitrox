@@ -12,7 +12,7 @@ module.exports = {
     if (!question) {
       await message.channel.send(client.generateErrorMessage("You need to ask a question!", message.author.displayAvatarURL));
     } else {
-      await message.channel.send({embed: {
+      await message.channel.send({embeds: [{
         "title": ":8ball: 8Ball",
         "description": `Your amazing question: **${question}**`,
         "color": 9442302,
@@ -26,7 +26,7 @@ module.exports = {
             "value": `${answer}`
           }
         ]
-      }});
+      }]});
     }
   }
 }

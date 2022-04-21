@@ -5,7 +5,7 @@ module.exports = {
   
   async execute(_0, message, _1, config) {
     if (message.author.id == config.ownerID) {
-      await message.channel.send({embed: {
+      await message.channel.send({embeds: [{
         "title": "<a:AnitroxWorking:697147309531594843> **Shutting Down...**",
         "description": "See you next time!",
         "color": 9442302,
@@ -13,11 +13,11 @@ module.exports = {
           "icon_url": message.author.displayAvatarURL(),
           "text": config.footerTxt
         },
-      }});
+      }]});
       console.log("The bot is shutting down! Bye bye!")
       process.exit();
     } else {
-      await message.channel.send({embed: {
+      await message.channel.send({embeds: [{
         "title": "<:AnitroxDenied:809651936642203668> 403 Forbidden",
         "description": "You need to be the bot owner to execute this command!",
         "color": 13632027,
@@ -25,7 +25,7 @@ module.exports = {
           "icon_url": message.author.displayAvatarURL(),
           "text": config.footerTxt
         },
-      }});
+      }]});
     }
   }
 }

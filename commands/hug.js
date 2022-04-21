@@ -18,7 +18,7 @@ module.exports = {
       await message.channel.send(client.generateErrorMessage("You need to @mention a user!", message.author.displayAvatarURL()));
     } else {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
-      await message.channel.send({embed: {
+      await message.channel.send({embeds: [{
         "title": "<a:ABlobCatHuggle:801232248035999784> Hug",
         "description": `${taggedUser} You have been hugged by ${message.author}!`,
         "color": 8311585,
@@ -29,7 +29,7 @@ module.exports = {
         "image": {
           "url": gif
         }
-      }});
+      }]});
     }
   }
 }

@@ -31,7 +31,7 @@ module.exports = {
       });
 
     } else {
-      message.channel.send({embed: {
+      message.channel.send({embeds: [{
         "title": "<:AnitroxDenied:809651936642203668> **403 Forbidden**",
         "color": 13632027,
         "footer": {
@@ -44,7 +44,7 @@ module.exports = {
           "value": "You don't have the appropriate permissions to run this command!"
           }
         ]
-      }});
+      }]});
     }
   }
 };

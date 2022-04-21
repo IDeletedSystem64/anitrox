@@ -24,7 +24,7 @@ module.exports = {
     const osu = require('node-os-utils');
     const cpu = osu.cpu;
     
-    await message.channel.send({embed: {
+    await message.channel.send({embeds: [{
       "title": "<:AnitroxInfo:809651936831733791> Information about Anitrox",
       "description": "Everything you've ever wanted to know about your favorite bot, Anitrox!",
       "color": 9442302,
@@ -102,6 +102,6 @@ module.exports = {
         }
 
       ]
-    }});
+    }]});
   }
 };
