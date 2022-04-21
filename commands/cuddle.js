@@ -16,7 +16,7 @@ module.exports = {
     const gif = (gifchoices[index]);
 
     if(!taggedUser) {
-      await message.channel.send(client.generateErrorMessage("You need to @mention a user!", message.author.displayAvatarURL()));
+      await message.channel.send(client.generateErrorMessage("You need to @mention a user!"));
     } else {
       await message.channel.send({embed: {
         "title": ":heart: Cuddle",
