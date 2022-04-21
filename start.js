@@ -14,11 +14,11 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-client.generateErrorMessage = (errorMsg, messageAuthorURL) => ({embeds: [{
+client.generateErrorMessage = (errorMsg, avatarURL) => ({embeds: [{
   "title": "<:AnitroxError:809651936563429416> Error",
   "color": 13632027,
   "footer": {
-    "icon_url": message.author.displayAvatarURL(),
+    "icon_url": avatarURL,
     "text": config.footerTxt
   },
   "fields": [

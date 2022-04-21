@@ -12,9 +12,10 @@ module.exports = {
   
   async execute(client, message, _, config) {
     const taggedUser = message.mentions.users.first();
+    const avatarURL = message.author.displayAvatarURL();
     
     if(!taggedUser) {
-      await message.channel.send(client.generateErrorMessage("You need to @mention a user!"));
+      await message.channel.send(client.generateErrorMessage("You need to @mention a user!", avatarURL));
     } else {
       const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
       await message.channel.send({embeds: [{
@@ -22,7 +23,7 @@ module.exports = {
         "description": `${taggedUser} You have been snuggled by ${message.author}!`,
         "color": 9442302,
         "footer": {
-          "icon_url": message.author.displayAvatarURL(),
+          "icon_url": avatarURL,
           "text": config.footerTxt
         },
         "image": {

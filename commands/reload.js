@@ -4,9 +4,10 @@ module.exports = {
 	description: 'Reloads a command',
 
 	async execute(client, message, args, config) {
+    const avatarURL = message.author.displayAvatarURL();
 		if (message.author.id = config.ownerID) {
       if (!args.length) {
-        await message.channel.send(client.generateErrorMessage("You forgot to provide anything to reload, you pillock",message.author.displayAvatarURL()));
+        await message.channel.send(client.generateErrorMessage("You forgot to provide anything to reload, you pillock", avatarURL));
       }
       args.forEach(async (arg) => {
         const commandName = arg.toLowerCase();
@@ -14,7 +15,7 @@ module.exports = {
           || message.client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
         if (!command) {
-          await message.channel.send(client.generateErrorMessage(`There is no command with name or alias \`${commandName}\`, ${message.author}!`,message.author.displayAvatarURL()));
+          await message.channel.send(client.generateErrorMessage(`There is no command with name or alias \`${commandName}\`, ${message.author}!`, avatarURL));
         } else {
           delete require.cache[require.resolve(`./${command.name}.js`)];
 
@@ -25,7 +26,7 @@ module.exports = {
             console.log(`User reloaded ${command.name}.`)
           } catch (error) {
             console.error(error);
-            await message.channel.send(client.generateErrorMessage(`There was an error while reloading \`${command.name}\`:\n\`${error.message}\``, message.author.displayAvatarURL()));
+            await message.channel.send(client.generateErrorMessage(`There was an error while reloading \`${command.name}\`:\n\`${error.message}\``, avatarURL));
           }
         }
       });
@@ -35,7 +36,7 @@ module.exports = {
         "title": "<:AnitroxDenied:809651936642203668> **403 Forbidden**",
         "color": 13632027,
         "footer": {
-          "icon_url": message.author.displayAvatarURL(),
+          "icon_url": avatarURL,
           "text": config.footerTxt
         },
         "fields": [

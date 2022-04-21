@@ -4,12 +4,13 @@ module.exports = {
   description: "Give some lines of input, and get one back at random",
 
   async execute(client, message, _, config) {
+    const avatarURL = message.author.displayAvatarURL();
     var [head, ...options] = message.content.split(/\s*\n\s*/);
     head = head.slice(this.name.length + config.prefix.length);
     if (head) options.push(head);
 
     if (!options.length) {
-      await message.channel.send(client.generateErrorMessage("You need to provide some input!"));
+      await message.channel.send(client.generateErrorMessage("You need to provide some input!", avatarURL));
     } else {
       const answer = options[Math.floor(Math.random() * options.length)];
       await message.channel.send({embeds: [{
@@ -17,7 +18,7 @@ module.exports = {
         "description": answer,
         "color": 8311585,
         "footer": {
-          "icon_url": message.author.displayAvatarURL(),
+          "icon_url": avatarURL,
           "text": config.footerTxt
         },
       }]});      

@@ -4,6 +4,8 @@ module.exports = {
   description: 'Sets your nickname',
 
   async execute(client, message, args, config) {
+    const avatarURL = message.author.displayAvatarURL();
+    
     if (message.channel.permissionsFor(message.author).has("CHANGE_NICKNAME")) {
       const newnick = args.slice(0).join(" ")
       try {
@@ -28,10 +30,10 @@ module.exports = {
           ]
         }]});
       } catch (error) {
-        await message.channel.send(client.generateErrorMessage("Failed to set user nickname. Does the bot have the correct permissions?", message.author.displayAvatarURL()));
+        await message.channel.send(client.generateErrorMessage("Failed to set user nickname. Does the bot have the correct permissions?", avatarURL));
       };
     } else {
-      await message.channel.send(client.generateErrorMessage("You need to have permission ``CHANGE_NICKNAME`` to change your nick!", message.author.displayAvatarURL()));
+      await message.channel.send(client.generateErrorMessage("You need to have permission ``CHANGE_NICKNAME`` to change your nick!", avatarURL));
     }
   }
 }
