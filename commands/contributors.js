@@ -5,28 +5,28 @@ module.exports = {
   
     async execute(_0, message, _1, config){
     await message.channel.send({embed: {
-      "title": "Component Attribution",
-      "description": "Some parts of Anitrox are using open source code, and their attributions are avaliable here!",
+      "title": "Contributors",
+      "description": "Links to check out our contributors!",
       "color": 52508,
       "footer": {
         "icon_url": message.author.displayAvatarURL(),
         "text": config.footerTxt
       },
       "thumbnail": {
-        "url": "https://cdn.discordapp.com/attachments/803658122299572255/838854256471703602/793885335498522685.png"
+        "url": "https://cdn.discordapp.com/emojis/809651812323164192.webp?size=128&quality=lossless"
       },
       "fields": [
         {
-          "name": "Discord.JS",
-          "value": "[Check out the Discord.JS project on GitHub](https://github.com/discordjs/discord.js/)"
+          "name": "chuu_shi",
+          "value": "Thanks to Chuu for letting me use some of his resources to host Anitrox!\n <:GitHub:778165439477841981> [Check out his code!](https://github.com/chuushi)"
         },
         {
-          "name": "The Anitrox Project",
-          "value": "[Check out Anitrox on GitHub](https://github.com/IDeletedSystem64/anitrox)"
+          "name": "OfficialTCGMatt",
+          "value": "Matt has helped quite a bit with Anitrox, especially in the early days of Anitrox's development! He even has his own bot!\n <:GitHub:778165439477841981> [Check out his code!](https://github.com/OfficialTCGMatt)\n :robot: [Check out TheCodingBot!](https://github.com/TMC-Software/TheCodingBot)"
         },
         {
-          "name": "You",
-          "value": "Using and supporting the Anitrox Project, thank you! ❤"
+          "name": "Foxinatel",
+          "value": "Foxi has made massive improvements to Anitrox, such as improving error handling, and much more!\n<:GitHub:778165439477841981> [Check out his code!](https://github.com/foxinatel)"
         }
       ]
     }});
