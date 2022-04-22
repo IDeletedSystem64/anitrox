@@ -11,26 +11,30 @@ module.exports = {
     type: Constants.ApplicationCommandOptionTypes.USER
   }],
 
-  async execute (_0, message, _1, config) {
-    const taggedUser = message.mentions.users.first();
+  async parseMessage (client, config, message) {
+    await message.channel.send(this.handle(client, config, message.author, message.mentions.users.first()));
+  },
 
-    if (!taggedUser) {
-      await message.channel.send('*slams cheese on desk*\n**Cheese.** https://www.youtube.com/watch?v=Or4IE8fkpn4');
-    } else {
-      await message.channel.send({
-        embeds: [{
-          title: ':cheese: Cheesed',
-          description: `${taggedUser} You have been cheesed by ${message.author}!`,
-          color: 16312092,
-          footer: {
-            icon_url: message.author.displayAvatarURL(),
-            text: config.footerTxt
-          },
-          image: {
-            url: 'https://cdn.discordapp.com/attachments/803658122299572255/812867714368536636/R06325af354168febcafd96b8328b7590.png'
-          }
-        }]
-      });
-    }
+  async parseInteraction (client, config, interaction) {
+    await interaction.reply(this.handle(client, config, interaction.user, interaction.options.getUser('user')));
+  },
+
+  handle (_, config, user, target) {
+    if (!target) return '*slams cheese on desk*\n**Cheese.** https://www.youtube.com/watch?v=Or4IE8fkpn4';
+
+    return {
+      embeds: [{
+        title: ':cheese: Cheesed',
+        description: `${target} You have been cheesed by ${user}!`,
+        color: 16312092,
+        footer: {
+          icon_url: user.displayAvatarURL(),
+          text: config.footerTxt
+        },
+        image: {
+          url: 'https://cdn.discordapp.com/attachments/803658122299572255/812867714368536636/R06325af354168febcafd96b8328b7590.png'
+        }
+      }]
+    };
   }
 };

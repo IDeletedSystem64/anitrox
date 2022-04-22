@@ -14,24 +14,32 @@ module.exports = {
     name: 'userid',
     description: "Another user's ID",
     required: false,
-    type: Constants.ApplicationCommandOptionTypes.INTEGER
+    type: Constants.ApplicationCommandOptionTypes.STRING
   }],
 
-  async execute (client, message, args, config) {
-    const user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
+  async parseMessage (client, config, message, args) {
+    const target = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
+    await message.channel.send(this.handle(client, config, message.author, target));
+  },
 
-    await message.channel.send({
+  async parseInteraction (client, config, interaction) {
+    const target = interaction.options.getUser('user') || client.users.cache.get(interaction.options.getString('userid')) || interaction.user;
+    await interaction.reply(this.handle(client, config, interaction.user, target));
+  },
+
+  handle (_, config, user, target) {
+    return {
       embeds: [{
-        title: `:frame_photo: ${user.username}'s Beautiful Avatar!`,
+        title: `:frame_photo: ${target.username}'s Beautiful Avatar!`,
         color: 9442302,
         footer: {
-          icon_url: message.author.displayAvatarURL(),
+          icon_url: user.displayAvatarURL(),
           text: config.footerTxt
         },
         image: {
-          url: user.displayAvatarURL()
+          url: target.displayAvatarURL()
         }
       }]
-    });
+    };
   }
 };

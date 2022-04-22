@@ -32,25 +32,26 @@ client.generateErrorMessage = (errorMsg, avatarURL) => ({
 client.on('error', (e) => console.log(`[ERROR] ${e}`));
 client.on('warn', (e) => (`[WARN] ${e}`));
 client.once('ready', async () => {
-  const commands = config.sandbox ? client.guilds.cache.get(config.sandboxGuild)?.commands : client.application.commands;
+  // const commands = config.sandbox ? client.guilds.cache.get(config.sandboxGuild)?.commands : client.application.commands;
 
-  if (config.sandbox) {
-    console.log('deleting previous commands from sandbox');
-    const localCommands = await commands.fetch();
-    localCommands.forEach(async x => {
-      await commands.delete(x);
-    });
+  // if (config.sandbox) {
+  //   console.log('deleting previous commands from sandbox');
+  //   const localCommands = await commands.fetch();
+  //   localCommands.forEach(async x => {
+  //     await commands.delete(x);
+  //   });
 
-    // console.log('deleting global commands');
-    // const globalCommands = await client.application.commands.fetch();
-    // globalCommands.forEach(async x => {
-    //   await client.application.commands.delete(x);
-    // });
-  }
+  //   console.log('deleting global commands');
+  //   const globalCommands = await client.application.commands.fetch();
+  //   globalCommands.forEach(async x => {
+  //     await client.application.commands.delete(x);
+  //   });
+  // }
 
-  client.commands.forEach(async command => {
-    await commands.create(command);
-  });
+  // client.commands.forEach(async command => {
+  //   await commands.create(command);
+  //   console.log(command);
+  // });
 
   // console.clear();
   console.log('    ___          _ __                 ');
@@ -78,9 +79,9 @@ client.on('messageCreate', async (message) => {
   if (!client.commands.has(command)) return;
 
   try {
-    await client.commands.get(command).execute(client, message, args, config);
+    await client.commands.get(command).parseMessage(client, config, message, args);
   } catch (error) {
-    console.trace();
+    console.log(error);
     message.channel.send({
       embeds: [{
         title: '<:AnitroxError:809651936563429416> **Something went wrong!**',
@@ -93,6 +94,10 @@ client.on('messageCreate', async (message) => {
       }]
     });
   }
+});
+
+client.on('interactionCreate', async (interaction) => {
+  client.commands.get(interaction.commandName).parseInteraction(client, config, interaction);
 });
 
 client.login(config.token);

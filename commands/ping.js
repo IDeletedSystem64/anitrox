@@ -4,20 +4,28 @@ module.exports = {
   description: 'Gets bot ping',
   options: [],
 
-  async execute (client, message, _, config) {
+  async parseMessage (client, config, message, args) {
+    await message.channel.send(await this.handle(client, config, message.author, args.slice(0).join(' ')));
+  },
+
+  async parseInteraction (client, config, interaction) {
+    await interaction.reply(await this.handle(client, config, interaction.user, interaction.options.getString('question')));
+  },
+
+  async handle (client, config, user) {
     const index = Math.floor(Math.random() * config.locations.length);
     const location = config.locations[index];
 
-    await message.channel.send({
+    return {
       embeds: [{
         title: ':ping_pong: Ping',
         description: `**Pong!** We pinged **${location}** and got ${client.ws.ping} ms.`,
         color: 9442302,
         footer: {
-          icon_url: message.author.displayAvatarURL(),
+          icon_url: user.displayAvatarURL(),
           text: config.footerTxt
         }
       }]
-    });
+    };
   }
 };

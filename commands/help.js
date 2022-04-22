@@ -4,14 +4,22 @@ module.exports = {
   description: 'Get help on anything from commands, to what the bot does! just not your homework..',
   options: [],
 
-  async execute (_0, message, _1, config) {
-    await message.channel.send({
+  async parseMessage (client, config, message) {
+    await message.channel.send(this.handle(client, config, message.author));
+  },
+
+  async parseInteraction (client, config, interaction) {
+    await interaction.reply(this.handle(client, config, interaction.user));
+  },
+
+  handle (_, config, user) {
+    return {
       embeds: [{
         title: 'HELP! SEYMOUR! THE BOT IS ON FIRE!',
         description: 'Get help on anything from commands, to what the bot does! just not your homework..',
         color: 9442302,
         footer: {
-          icon_url: message.author.displayAvatarURL(),
+          icon_url: user.displayAvatarURL(),
           text: `${config.footerTxt} | No mother it's just the northern lights`
         },
         fields: [
@@ -25,6 +33,6 @@ module.exports = {
           }
         ]
       }]
-    });
+    };
   }
 };

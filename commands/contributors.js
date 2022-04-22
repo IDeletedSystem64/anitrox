@@ -4,14 +4,22 @@ module.exports = {
   description: 'Attributions to open source components used by Anitrox',
   options: [],
 
-  async execute (_0, message, _1, config) {
-    await message.channel.send({
+  async parseMessage (_, config, message) {
+    await message.channel.send(this.handle(config, message.author));
+  },
+
+  async parseInteraction (_, config, interaction) {
+    await interaction.reply(this.handle(config, interaction.user));
+  },
+
+  handle (config, user) {
+    return {
       embeds: [{
         title: 'Contributors',
         description: 'Links to check out our contributors!',
         color: 52508,
         footer: {
-          icon_url: message.author.displayAvatarURL(),
+          icon_url: user.displayAvatarURL(),
           text: config.footerTxt
         },
         thumbnail: {
@@ -32,6 +40,6 @@ module.exports = {
           }
         ]
       }]
-    });
+    };
   }
 };

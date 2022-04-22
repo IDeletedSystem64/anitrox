@@ -20,18 +20,26 @@ module.exports = {
   description: 'Shows bot and host information',
   options: [],
 
-  async execute (client, message, _, config) {
+  async parseMessage (client, config, message) {
+    await message.channel.send(this.handle(client, config, message.author));
+  },
+
+  async parseInteraction (client, config, interaction) {
+    await interaction.reply(this.handle(client, config, interaction.user));
+  },
+
+  async handle (client, config, user) {
     const os = require('os');
     const osu = require('node-os-utils');
     const cpu = osu.cpu;
 
-    await message.channel.send({
+    return {
       embeds: [{
         title: '<:AnitroxInfo:809651936831733791> Information about Anitrox',
         description: "Everything you've ever wanted to know about your favorite bot, Anitrox!",
         color: 9442302,
         footer: {
-          icon_url: message.author.displayAvatarURL(),
+          icon_url: user.displayAvatarURL(),
           text: config.footerTxt
         },
         thumbnail: {
@@ -104,6 +112,6 @@ module.exports = {
           }
         ]
       }]
-    });
+    };
   }
 };

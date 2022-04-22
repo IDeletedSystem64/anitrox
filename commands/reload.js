@@ -4,40 +4,50 @@ module.exports = {
   description: 'Reloads a command',
   options: [],
 
-  async execute (client, message, args, config) {
-    const avatarURL = message.author.displayAvatarURL();
-    if (message.author.id === config.ownerID) {
-      if (!args.length) {
-        await message.channel.send(client.generateErrorMessage('You forgot to provide anything to reload, you pillock', avatarURL));
-      }
+  async parseMessage (client, config, message, args) {
+    await message.channel.send(this.handle(client, config, message.author, args.split(' ')));
+  },
+
+  // TODO: figure out variable input (again)
+  async parseInteraction (client, config, interaction) {
+    await interaction.reply(this.handle(client, config, interaction.user));
+  },
+
+  handle (client, config, user, args) {
+    if (user.id === config.ownerID) {
+      if (!args) return client.generateErrorMessage('You forgot to provide anything to reload, you pillock', user.displayAvatarURL());
+      let returnMessage = '';
+
       args.forEach(async (arg) => {
         const commandName = arg.toLowerCase();
-        const command = message.client.commands.get(commandName) ||
-          message.client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+        const command = client.commands.get(commandName) ||
+          client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
         if (!command) {
-          await message.channel.send(client.generateErrorMessage(`There is no command with name or alias \`${commandName}\`, ${message.author}!`, avatarURL));
+          returnMessage += `There is no command with name or alias \`${commandName}\`\n`;
         } else {
           delete require.cache[require.resolve(`./${command.name}.js`)];
 
           try {
             const newCommand = require(`./${command.name}.js`);
             client.commands.set(newCommand.name, newCommand);
-            await message.channel.send(`<:AnitroxSuccess:809651936819019796>  **Reloaded \`${command.name}\` successfully!**`);
+            returnMessage += `Successfully reloaded \`${commandName}\`\n`;
             console.log(`User reloaded ${command.name}.`);
           } catch (error) {
             console.error(error);
-            await message.channel.send(client.generateErrorMessage(`There was an error while reloading \`${command.name}\`:\n\`${error.message}\``, avatarURL));
+            returnMessage += `There was an error while reloading \`${command.name}\`\n`;
           }
         }
       });
+
+      return returnMessage;
     } else {
-      message.channel.send({
+      return {
         embeds: [{
           title: '<:AnitroxDenied:809651936642203668> **403 Forbidden**',
           color: 13632027,
           footer: {
-            icon_url: avatarURL,
+            icon_url: user.displayAvatarURL(),
             text: config.footerTxt
           },
           fields: [
@@ -47,7 +57,7 @@ module.exports = {
             }
           ]
         }]
-      });
+      };
     }
   }
 };

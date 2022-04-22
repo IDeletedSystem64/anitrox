@@ -17,28 +17,30 @@ module.exports = {
     type: Constants.ApplicationCommandOptionTypes.USER
   }],
 
-  async execute (client, message, _, config) {
-    const taggedUser = message.mentions.users.first();
-    const avatarURL = message.author.displayAvatarURL();
+  async parseMessage (client, config, message) {
+    await message.channel.send(this.handle(client, config, message.author, message.mentions.users.first()));
+  },
 
-    if (!taggedUser) {
-      await message.channel.send(client.generateErrorMessage('You need to @mention a user!', avatarURL));
-    } else {
-      const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
-      await message.channel.send({
-        embeds: [{
-          title: '<:pats:801238281286713355> Pat',
-          description: `${taggedUser} You have been patted by ${message.author}!`,
-          color: 8311585,
-          footer: {
-            icon_url: avatarURL,
-            text: config.footerTxt
-          },
-          image: {
-            url: gif
-          }
-        }]
-      });
-    }
+  async parseInteraction (client, config, interaction) {
+    await interaction.reply(this.handle(client, config, interaction.user, interaction.options.getUser('user')));
+  },
+
+  handle (client, config, user, target) {
+    if (!target) return client.generateErrorMessage('You need to @mention a user!', user.displayAvatarURL());
+    const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
+    return {
+      embeds: [{
+        title: '<:pats:801238281286713355> Pat',
+        description: `${target} You have been patted by ${user}!`,
+        color: 8311585,
+        footer: {
+          icon_url: user.displayAvatarURL(),
+          text: config.footerTxt
+        },
+        image: {
+          url: gif
+        }
+      }]
+    };
   }
 };

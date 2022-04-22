@@ -9,66 +9,68 @@ module.exports = {
     description: 'Another user',
     required: false,
     type: Constants.ApplicationCommandOptionTypes.USER
-  },
-  {
-    name: 'userid',
-    description: "Another user's ID",
-    required: false,
-    type: Constants.ApplicationCommandOptionTypes.INTEGER
   }],
 
-  async execute (_0, message, _1, config) {
-    const user = message.mentions.users.first() || message.member;
+  async parseMessage (client, config, message) {
+    const target = message.mentions.members.first() || message.member;
+    await message.channel.send(this.handle(client, config, message.author, target));
+  },
 
-    await message.channel.send({
+  async parseInteraction (client, config, interaction) {
+    const target = interaction.options.getUser('user') ? (await interaction.guild.members.fetch(interaction.options.getUser('user'))) : interaction.member;
+    await interaction.reply(this.handle(client, config, interaction.user, target));
+  },
+
+  handle (client, config, user, target) {
+    return {
       embeds: [{
-        title: `Everything you've ever wanted to know about ${user.user}!`,
+        title: `Everything you've ever wanted to know about ${target}!`,
         color: 9442302,
         footer: {
-          icon_url: message.author.displayAvatarURL(),
+          icon_url: user.displayAvatarURL(),
           text: config.footerTxt
         },
         thumbnail: {
-          url: user.user.displayAvatarURL()
+          url: target.displayAvatarURL()
         },
         fields: [
           {
             name: 'Username',
-            value: user.user.username,
+            value: target.user.username,
             inline: true
           },
           {
             name: 'Discriminator',
-            value: user.user.discriminator,
+            value: target.user.discriminator,
             inline: true
           },
           {
             name: 'Full Username',
-            value: user.user.tag,
+            value: target.user.tag,
             inline: true
           },
           {
             name: 'User Profile Picture',
-            value: user.user.displayAvatarURL()
+            value: target.user.displayAvatarURL()
           },
           {
             name: 'User Status',
-            value: user.presence?.status ?? 'Error getting status, does the bot have the GUILD_PRESENCES intent?'
+            value: target.presence?.status ?? (config.intents.includes('GUILD_PRESENCES') ? 'Offline' : 'Missing GUILD_PRESENCES intent')
           // IMPORTANT NOTE:
           // There seems to be an issue where offline and invisible users return a null presense
           // I'll try to patch this soon if I can figure out why
           },
           {
             name: 'User ID',
-            value: `\`${user.user.id}\``
+            value: `\`${target.user.id}\``
           },
           {
             name: 'User Joined Discord',
-            value: user.user.createdAt.toString(),
+            value: target.user.createdAt.toString(),
             inline: true
           }
         ]
       }]
-    });
+    };
   }
 };

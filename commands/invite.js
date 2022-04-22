@@ -4,14 +4,22 @@ module.exports = {
   description: 'Add Anitrox to your beautiful server!',
   options: [],
 
-  async execute (_0, message, _1, config) {
-    await message.channel.send({
+  async parseMessage (client, config, message, args) {
+    await message.channel.send(this.handle(client, config, message.author, args.slice(0).join(' ')));
+  },
+
+  async parseInteraction (client, config, interaction) {
+    await interaction.reply(this.handle(client, config, interaction.user, interaction.options.getString('question')));
+  },
+
+  handle (_, config, user) {
+    return {
       embeds: [{
         title: 'Add Anitrox to your Server!',
         description: 'Weather you want stable, or that squeaky clean fresh PTB build, we gotchu.',
         color: 9442302,
         footer: {
-          icon_url: message.author.displayAvatarURL(),
+          icon_url: user.displayAvatarURL(),
           text: config.footerTxt
         },
         thumbnail: {
@@ -32,6 +40,6 @@ module.exports = {
           }
         ]
       }]
-    });
+    };
   }
 };
