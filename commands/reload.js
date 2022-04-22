@@ -12,7 +12,7 @@ module.exports = {
   })),
 
   async parseMessage (client, config, message, args) {
-    await message.channel.send(this.handle(client, config, message.author, args.split(' ')));
+    await message.channel.send(this.handle(client, config, message.author, args));
   },
 
   async parseInteraction (client, config, interaction) {
