@@ -10,7 +10,7 @@ const gifchoices = [
 module.exports = {
 
   name: require('path').parse(__filename).name,
-  description: 'Noms an user!',
+  description: 'Noms a user!',
   options: [{
     name: 'user',
     description: 'The user to nom',

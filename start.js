@@ -57,7 +57,6 @@ client.once('ready', async () => {
   }
 
   client.commands.forEach(async command => {
-    console.log(command);
     if (sandboxSettings.enabled && !existingLocal.map(x => x.name).includes(command.name)) {
       await localCommands.create(command);
       // console.log(`created new local command ${command.name}`);

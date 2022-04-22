@@ -3,7 +3,7 @@ const { Constants } = require('discord.js');
 module.exports = {
 
   name: require('path').parse(__filename).name,
-  description: 'Slaps an user!',
+  description: 'Slaps a user!',
   options: [{
     name: 'user',
     description: 'The user to slap',

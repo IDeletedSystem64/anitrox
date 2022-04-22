@@ -7,7 +7,7 @@ module.exports = {
   options: [...Array(10).keys()].map(i => ({
     name: `option${i + 1}`,
     description: 'Another option',
-    required: false,
+    required: i === 0,
     type: Constants.ApplicationCommandOptionTypes.STRING
   })),
 

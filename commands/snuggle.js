@@ -9,7 +9,7 @@ const gifchoices = [
 module.exports = {
 
   name: require('path').parse(__filename).name,
-  description: 'Snuggle an user!',
+  description: 'Snuggle a user!',
   options: [{
     name: 'user',
     description: 'The user to snuggle',
