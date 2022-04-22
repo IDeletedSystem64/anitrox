@@ -2,6 +2,7 @@ module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Restarts the bot',
+  options: [],
 
   async execute (client, message, _, config) {
     if (message.author.id === config.ownerID) {

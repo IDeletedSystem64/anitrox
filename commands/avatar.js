@@ -1,7 +1,21 @@
+const { Constants } = require('discord.js');
+
 module.exports = {
 
   name: require('path').parse(__filename).name,
   description: "Gets a user's avatar.",
+  options: [{
+    name: 'user',
+    description: 'Another user',
+    required: false,
+    type: Constants.ApplicationCommandOptionTypes.USER
+  },
+  {
+    name: 'userid',
+    description: "Another user's ID",
+    required: false,
+    type: Constants.ApplicationCommandOptionTypes.INTEGER
+  }],
 
   async execute (client, message, args, config) {
     const user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;

@@ -2,6 +2,7 @@ module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Give some lines of input, and get one back at random',
+  options: [],
 
   async execute (client, message, _, config) {
     const avatarURL = message.author.displayAvatarURL();

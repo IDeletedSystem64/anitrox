@@ -1,7 +1,15 @@
+const { Constants } = require('discord.js');
+
 module.exports = {
 
   name: require('path').parse(__filename).name,
-  description: 'Cheese an user, or run just ``n!cheese`` for a surprise :eyes:',
+  description: 'Cheese a user, or run with no arguments for a surprise :eyes:',
+  options: [{
+    name: 'user',
+    description: 'The user to cheese',
+    required: false,
+    type: Constants.ApplicationCommandOptionTypes.USER
+  }],
 
   async execute (_0, message, _1, config) {
     const taggedUser = message.mentions.users.first();

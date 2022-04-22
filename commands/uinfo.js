@@ -1,8 +1,21 @@
+const { Constants } = require('discord.js');
+
 module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Gets info about an user, such as ID, Discord Join date and more',
-  syntax: '<User>',
+  options: [{
+    name: 'user',
+    description: 'Another user',
+    required: false,
+    type: Constants.ApplicationCommandOptionTypes.USER
+  },
+  {
+    name: 'userid',
+    description: "Another user's ID",
+    required: false,
+    type: Constants.ApplicationCommandOptionTypes.INTEGER
+  }],
 
   async execute (_0, message, _1, config) {
     const user = message.mentions.users.first() || message.member;

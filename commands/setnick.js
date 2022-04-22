@@ -1,7 +1,15 @@
+const { Constants } = require('discord.js');
+
 module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Sets your nickname',
+  options: [{
+    name: 'name',
+    description: 'The new nickname',
+    required: true,
+    type: Constants.ApplicationCommandOptionTypes.STRING
+  }],
 
   async execute (client, message, args, config) {
     const avatarURL = message.author.displayAvatarURL();

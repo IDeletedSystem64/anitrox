@@ -1,3 +1,5 @@
+const { Constants } = require('discord.js');
+
 const gifchoices = [
   'https://i.imgur.com/Ns1RBzX.gif',
   'https://cdn.lowgif.com/full/2027501b8fa5225c-.gif',
@@ -9,6 +11,12 @@ module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Noms an user!',
+  options: [{
+    name: 'user',
+    description: 'The user to nom',
+    required: true,
+    type: Constants.ApplicationCommandOptionTypes.USER
+  }],
 
   async execute (client, message, _, config) {
     const taggedUser = message.mentions.users.first();

@@ -2,7 +2,7 @@ module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Get help on anything from commands, to what the bot does! just not your homework..',
-  syntax: '<Command>',
+  options: [],
 
   async execute (_0, message, _1, config) {
     await message.channel.send({

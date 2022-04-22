@@ -18,6 +18,7 @@ module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Shows bot and host information',
+  options: [],
 
   async execute (client, message, _, config) {
     const os = require('os');

@@ -2,6 +2,7 @@ module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Reloads a command',
+  options: [],
 
   async execute (client, message, args, config) {
     const avatarURL = message.author.displayAvatarURL();

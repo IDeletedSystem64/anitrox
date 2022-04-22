@@ -2,6 +2,7 @@ module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Gets bot ping',
+  options: [],
 
   async execute (client, message, _, config) {
     const index = Math.floor(Math.random() * config.locations.length);

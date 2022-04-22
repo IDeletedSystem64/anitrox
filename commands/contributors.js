@@ -2,6 +2,7 @@ module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Attributions to open source components used by Anitrox',
+  options: [],
 
   async execute (_0, message, _1, config) {
     await message.channel.send({

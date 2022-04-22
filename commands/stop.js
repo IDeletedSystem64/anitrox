@@ -2,6 +2,7 @@ module.exports = {
 
   name: require('path').parse(__filename).name,
   description: "IT'S TIME TO STOP!... the bot",
+  options: [],
 
   async execute (_0, message, _1, config) {
     if (message.author.id === config.ownerID) {

@@ -1,8 +1,15 @@
+const { Constants } = require('discord.js');
+
 module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Ask Anitrox a question, any question! and they will answer it!',
-  syntax: ['[Question]'],
+  options: [{
+    name: 'question',
+    description: 'The question to ask Anitrox',
+    required: true,
+    type: Constants.ApplicationCommandOptionTypes.STRING
+  }],
 
   async execute (client, message, args, config) {
     const index = Math.floor(Math.random() * config.answers.length);

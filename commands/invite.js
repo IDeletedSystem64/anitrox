@@ -2,7 +2,7 @@ module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Add Anitrox to your beautiful server!',
-  syntax: [],
+  options: [],
 
   async execute (_0, message, _1, config) {
     await message.channel.send({

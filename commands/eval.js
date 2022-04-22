@@ -1,9 +1,17 @@
+const { Constants } = require('discord.js');
+
 const { inspect } = require('util');
 
 module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Executes JS code',
+  options: [{
+    name: 'text',
+    description: 'The string to evaluate',
+    required: true,
+    type: Constants.ApplicationCommandOptionTypes.STRING
+  }],
 
   async execute (_, message, args, config) {
     if (message.author.id === config.ownerID) {
