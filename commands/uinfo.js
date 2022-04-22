@@ -56,9 +56,6 @@ module.exports = {
           {
             name: 'User Status',
             value: target.presence?.status ?? (config.intents.includes('GUILD_PRESENCES') ? 'Offline' : 'Missing GUILD_PRESENCES intent')
-          // IMPORTANT NOTE:
-          // There seems to be an issue where offline and invisible users return a null presense
-          // I'll try to patch this soon if I can figure out why
           },
           {
             name: 'User ID',
