@@ -1,16 +1,22 @@
+const { Constants } = require('discord.js');
+
 module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Reloads a command',
-  options: [],
+  options: [...Array(10).keys()].map(i => ({
+    name: `option${i + 1}`,
+    description: 'Another option',
+    required: false,
+    type: Constants.ApplicationCommandOptionTypes.STRING
+  })),
 
   async parseMessage (client, config, message, args) {
     await message.channel.send(this.handle(client, config, message.author, args.split(' ')));
   },
 
-  // TODO: figure out variable input (again)
   async parseInteraction (client, config, interaction) {
-    await interaction.reply(this.handle(client, config, interaction.user));
+    await interaction.reply(this.handle(client, config, interaction.user, [...Array(10).keys()].map(i => interaction.options.getString(`option${i + 1}`))));
   },
 
   handle (client, config, user, args) {

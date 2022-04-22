@@ -5,6 +5,8 @@
   "release": "anitrox_dev",
   "build": "Stable",
   "footerTxt": "Anitrox, made with <3 by IDeletedSystem64 | 2018-2022",
+  "sandbox": false,
+  "sandboxGuild": "Set the value above to true and put a server ID here to use local slash commands instead of global. Used for debugging purposes",
 
   "statuses": [
     "with np!help",

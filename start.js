@@ -32,28 +32,29 @@ client.generateErrorMessage = (errorMsg, avatarURL) => ({
 client.on('error', (e) => console.log(`[ERROR] ${e}`));
 client.on('warn', (e) => (`[WARN] ${e}`));
 client.once('ready', async () => {
-  // const commands = config.sandbox ? client.guilds.cache.get(config.sandboxGuild)?.commands : client.application.commands;
+  const commands = config.sandbox ? client.guilds.cache.get(config.sandboxGuild)?.commands : client.application.commands;
 
-  // if (config.sandbox) {
-  //   console.log('deleting previous commands from sandbox');
-  //   const localCommands = await commands.fetch();
-  //   localCommands.forEach(async x => {
-  //     await commands.delete(x);
-  //   });
+  // Be careful about running the code below, there's a 200-per-day limit on creating slash commands
+  if (config.sandbox) {
+    console.log('deleting previous commands from sandbox');
+    const localCommands = await commands.fetch();
+    localCommands.forEach(async x => {
+      await commands.delete(x);
+    });
 
-  //   console.log('deleting global commands');
-  //   const globalCommands = await client.application.commands.fetch();
-  //   globalCommands.forEach(async x => {
-  //     await client.application.commands.delete(x);
-  //   });
-  // }
+    console.log('deleting global commands');
+    const globalCommands = await client.application.commands.fetch();
+    globalCommands.forEach(async x => {
+      await client.application.commands.delete(x);
+    });
+  }
 
-  // client.commands.forEach(async command => {
-  //   await commands.create(command);
-  //   console.log(command);
-  // });
+  client.commands.forEach(async command => {
+    await commands.create(command);
+    console.log(command);
+  });
 
-  // console.clear();
+  console.clear();
   console.log('    ___          _ __                 ');
   console.log('   /   |  ____  (_) /__________  _  __');
   console.log('  / /| | / __ \\/ / __/ ___/ __ \\| |/_/');
