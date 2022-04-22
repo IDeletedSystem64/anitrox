@@ -16,7 +16,7 @@ module.exports = {
   },
 
   async parseInteraction (client, config, interaction) {
-    await interaction.reply(this.handle(client, config, interaction.user, [...Array(10).keys()].map(i => interaction.options.getString(`option${i + 1}`))));
+    await interaction.reply(this.handle(client, config, interaction.user, [...Array(10).keys()].map(i => interaction.options.getString(`option${i + 1}`)).filter(str => str)));
   },
 
   handle (client, config, user, args) {
@@ -25,7 +25,7 @@ module.exports = {
       let returnMessage = '';
 
       args.forEach(async (arg) => {
-        const commandName = arg.toLowerCase();
+        const commandName = arg?.toLowerCase();
         const command = client.commands.get(commandName) ||
           client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
