@@ -32,27 +32,41 @@ client.generateErrorMessage = (errorMsg, avatarURL) => ({
 client.on('error', (e) => console.log(`[ERROR] ${e}`));
 client.on('warn', (e) => (`[WARN] ${e}`));
 client.once('ready', async () => {
-  // const commands = config.sandbox ? client.guilds.cache.get(config.sandboxGuild)?.commands : client.application.commands;
+  const sandboxSettings = config.sandbox;
+  const localCommands = client.guilds.cache.get(sandboxSettings.id)?.commands;
+  const globalCommands = client.application.commands;
+  let existingLocal = await localCommands.fetch();
+  let existingGlobal = await globalCommands.fetch();
 
-  // Be careful about running the code below, there's a 200-per-day limit on creating slash commands
-  // if (config.sandbox) {
-  //   console.log('deleting previous commands from sandbox');
-  //   const localCommands = await commands.fetch();
-  //   localCommands.forEach(async x => {
-  //     await commands.delete(x);
-  //   });
+  if (sandboxSettings.enabled) {
+    if (sandboxSettings.refreshLocal) {
+      console.log('deleting previous local commands');
+      existingLocal.forEach(async x => {
+        await localCommands.delete(x);
+      });
+      existingLocal = new Discord.Collection();
+    }
 
-  //   console.log('deleting global commands');
-  //   const globalCommands = await client.application.commands.fetch();
-  //   globalCommands.forEach(async x => {
-  //     await client.application.commands.delete(x);
-  //   });
-  // }
+    if (sandboxSettings.refreshGlobal) {
+      console.log('deleting previous global commands');
+      existingGlobal.forEach(async x => {
+        await client.application.commands.delete(x);
+      });
+      existingGlobal = new Discord.Collection();
+    }
+  }
 
-  // client.commands.forEach(async command => {
-  //   await commands.create(command);
-  //   console.log(command);
-  // });
+  client.commands.forEach(async command => {
+    console.log(command);
+    if (sandboxSettings.enabled && !existingLocal.map(x => x.name).includes(command.name)) {
+      await localCommands.create(command);
+      // console.log(`created new local command ${command.name}`);
+    }
+    if (!existingGlobal.map(x => x.name).includes(command.name)) {
+      await globalCommands.create(command);
+      // console.log(`created new global command ${command.name}`);
+    }
+  });
 
   console.clear();
   console.log('    ___          _ __                 ');
