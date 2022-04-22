@@ -21,7 +21,7 @@ module.exports = {
 
   handle (client, config, user, args) {
     if (user.id === config.ownerID) {
-      if (!args) return client.generateErrorMessage('You forgot to provide anything to reload, you pillock', user.displayAvatarURL());
+      if (!args.length) return client.generateErrorMessage('You forgot to provide anything to reload, you pillock', user.displayAvatarURL());
       let returnMessage = '';
 
       args.forEach(async (arg) => {
