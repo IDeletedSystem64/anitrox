@@ -28,7 +28,7 @@ module.exports = {
   },
 
   handle (client, config, user, target) {
-    if (!target) return client.generateErrorMessage('You need to @mention a user!', user.displayAvaterURL());
+    if (!target) return client.generateErrorMessage('You need to @mention a user!', user.displayAvatarURL());
 
     const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
     return {
@@ -37,7 +37,7 @@ module.exports = {
         description: `${target} You have been kissed by ${user}!`,
         color: 9442302,
         footer: {
-          icon_url: user.displayAvaterURL(),
+          icon_url: user.displayAvatarURL(),
           text: config.footerTxt
         },
         image: {

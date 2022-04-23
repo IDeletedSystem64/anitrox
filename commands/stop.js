@@ -4,13 +4,13 @@ module.exports = {
   description: "IT'S TIME TO STOP!... the bot",
   options: [],
 
-  async parseMessage (client, config, message, args) {
-    await message.channel.send(await this.handle(client, config, message.author, args.slice(0).join(' ')));
+  async parseMessage (client, config, message) {
+    await message.channel.send(await this.handle(client, config, message.author));
     process.exit();
   },
 
   async parseInteraction (client, config, interaction) {
-    await interaction.reply(await this.handle(client, config, interaction.user, interaction.options.getString('question')));
+    await interaction.reply(await this.handle(client, config, interaction.user));
     process.exit();
   },
 

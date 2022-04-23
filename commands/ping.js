@@ -5,11 +5,11 @@ module.exports = {
   options: [],
 
   async parseMessage (client, config, message, args) {
-    await message.channel.send(await this.handle(client, config, message.author, args.slice(0).join(' ')));
+    await message.channel.send(await this.handle(client, config, message.author));
   },
 
   async parseInteraction (client, config, interaction) {
-    await interaction.reply(await this.handle(client, config, interaction.user, interaction.options.getString('question')));
+    await interaction.reply(await this.handle(client, config, interaction.user));
   },
 
   async handle (client, config, user) {

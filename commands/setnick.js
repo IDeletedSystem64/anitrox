@@ -11,12 +11,12 @@ module.exports = {
     type: Constants.ApplicationCommandOptionTypes.STRING
   }],
 
-  async parseMessage (client, config, message, args) {
-    await message.channel.send(this.handle(client, config, message.author, args.slice(0).join(' ')));
+  async parseMessage (client, config, message) {
+    await message.channel.send(this.handle(client, config, message.author));
   },
 
   async parseInteraction (client, config, interaction) {
-    await interaction.reply(this.handle(client, config, interaction.user, interaction.options.getString('question')));
+    await interaction.reply(this.handle(client, config, interaction.user));
   },
 
   handle (client, config, user, newNick) {
