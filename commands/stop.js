@@ -2,30 +2,44 @@ module.exports = {
 
   name: require('path').parse(__filename).name,
   description: "IT'S TIME TO STOP!... the bot",
-  
-  async execute(_0, message, _1, config) {
-    if (message.author.id == config.ownerID) {
-      await message.channel.send({embed: {
-        "title": "<a:AnitroxWorking:697147309531594843> **Shutting Down...**",
-        "description": "See you next time!",
-        "color": 9442302,
-        "footer": {
-          "icon_url": message.author.displayAvatarURL(),
-          "text": config.footerTxt
-        },
-      }});
-      console.log("The bot is shutting down! Bye bye!")
-      process.exit();
+  options: [],
+
+  async parseMessage (client, config, message) {
+    await message.channel.send(await this.handle(client, config, message.author));
+    process.exit();
+  },
+
+  async parseInteraction (client, config, interaction) {
+    await interaction.reply(await this.handle(client, config, interaction.user));
+    process.exit();
+  },
+
+  async handle (_, config, user) {
+    if (user.id === config.ownerID) {
+      console.log('The bot is shutting down! Bye bye!');
+      return {
+        embeds: [{
+          title: '<a:AnitroxWorking:697147309531594843> **Shutting Down...**',
+          description: 'See you next time!',
+          color: 9442302,
+          footer: {
+            icon_url: user.displayAvatarURL(),
+            text: config.footerTxt
+          }
+        }]
+      };
     } else {
-      await message.channel.send({embed: {
-        "title": "<:AnitroxDenied:809651936642203668> 403 Forbidden",
-        "description": "You need to be the bot owner to execute this command!",
-        "color": 13632027,
-        "footer": {
-          "icon_url": message.author.displayAvatarURL(),
-          "text": config.footerTxt
-        },
-      }});
+      return {
+        embeds: [{
+          title: '<:AnitroxDenied:809651936642203668> 403 Forbidden',
+          description: 'You need to be the bot owner to execute this command!',
+          color: 13632027,
+          footer: {
+            icon_url: user.displayAvatarURL(),
+            text: config.footerTxt
+          }
+        }]
+      };
     }
   }
-}
+};

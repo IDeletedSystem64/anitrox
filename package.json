@@ -4,13 +4,17 @@
   "description": "Discord Bot Based on Discord.JS",
   "main": "start.js",
   "dependencies": {
-    "discord.js": "^12.5.1",
+    "discord.js": "^13.6.0",
     "node-os-utils": "^1.3.2",
     "require-all": "^3.0.0"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "IDeletedSystem64",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.13.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.1.0",
+    "eslint-plugin-promise": "^6.0.0"
+  }
 }
