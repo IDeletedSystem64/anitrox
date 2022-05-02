@@ -26,8 +26,7 @@ module.exports = {
 
       args.forEach(async (arg) => {
         const commandName = arg?.toLowerCase();
-        const command = client.commands.get(commandName) ||
-          client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+        const command = client.commands.get(commandName);
 
         if (!command) {
           returnMessage += `There is no command with name or alias \`${commandName}\`\n`;
