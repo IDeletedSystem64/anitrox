@@ -35,34 +35,34 @@ client.once('ready', async () => {
   const sandboxSettings = config.sandbox;
   const localCommands = client.guilds.cache.get(sandboxSettings.id)?.commands;
   const globalCommands = client.application.commands;
-  let existingLocal = await localCommands.fetch();
-  let existingGlobal = await globalCommands.fetch();
+  let existingLocal = await localCommands?.fetch();
+  let existingGlobal = await globalCommands?.fetch();
 
   if (sandboxSettings.enabled) {
     if (sandboxSettings.refreshLocal) {
       console.log('deleting previous local commands');
-      existingLocal.forEach(async x => {
-        await localCommands.delete(x);
+      existingLocal?.forEach(async x => {
+        await localCommands?.delete(x);
       });
       existingLocal = new Discord.Collection();
     }
 
     if (sandboxSettings.refreshGlobal) {
       console.log('deleting previous global commands');
-      existingGlobal.forEach(async x => {
-        await client.application.commands.delete(x);
+      existingGlobal?.forEach(async x => {
+        await client.application?.commands.delete(x);
       });
       existingGlobal = new Discord.Collection();
     }
   }
 
   client.commands.forEach(async command => {
-    if (sandboxSettings.enabled && !existingLocal.map(x => x.name).includes(command.name)) {
-      await localCommands.create(command);
+    if (sandboxSettings.enabled && !existingLocal?.map(x => x.name).includes(command.name)) {
+      await localCommands?.create(command);
       // console.log(`created new local command ${command.name}`);
     }
-    if (!existingGlobal.map(x => x.name).includes(command.name)) {
-      await globalCommands.create(command);
+    if (!existingGlobal?.map(x => x.name).includes(command.name)) {
+      await globalCommands?.create(command);
       // console.log(`created new global command ${command.name}`);
     }
   });
@@ -79,7 +79,7 @@ client.once('ready', async () => {
   setInterval(async () => {
     // Picks a status from the config file
     const index = Math.floor(Math.random() * config.statuses.length);
-    await client.user.setActivity(config.statuses[index]);
+    await client.user?.setActivity(config.statuses[index]);
   }, 20000);
 });
 
