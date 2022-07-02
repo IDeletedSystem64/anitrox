@@ -1,29 +1,36 @@
 module.exports = {
-  name: "stop",
+
+  name: require('path').parse(__filename).name,
   description: "IT'S TIME TO STOP!... the bot",
-  async execute(_, message, config) {
-    if (message.author.id == config.ownerID) {
-      await message.channel.send({embed: {
-        "title": "<a:AnitroxWorking:697147309531594843> **Shutting Down...**",
-        "description": "See you next time!",
-        "color": 9442302,
-        "footer": {
-          "icon_url": message.author.displayAvatarURL(),
-          "text": config.footerTxt
-        },
-      }});
-      console.log("The bot is shutting down! Bye bye!")
-      process.exit();
+  options: [],
+
+  async parseMessage (client, config, message) {
+    await message.channel.send(await this.handle(client, config, message.author));
+    process.exit();
+  },
+
+  async parseInteraction (client, config, interaction) {
+    await interaction.reply(await this.handle(client, config, interaction.user));
+    process.exit();
+  },
+
+  async handle (client, config, user) {
+    if (user.id === config.ownerID) {
+      console.log('[SYSTEM] [INFO] ' + ` The bot is going down for shut down. \nShutdown requested by ${user.username}`);
+      return {
+        embeds: [{
+          title: '**Shut down the bot**',
+          description: '<a:AnitroxWorking:697147309531594843> **Shutting Down...**',
+          color: 9442302,
+          footer: {
+            icon_url: user.displayAvatarURL(),
+            text: config.footerTxt
+          }
+        }]
+      };
     } else {
-      await message.channel.send({embed: {
-        "title": "<:AnitroxDenied:809651936642203668> 403 Forbidden",
-        "description": "You need to be the bot owner to execute this command!",
-        "color": 13632027,
-        "footer": {
-          "icon_url": message.author.displayAvatarURL(),
-          "text": config.footerTxt
-        },
-      }});
+      console.error('[SYSTEM] [ERR] User ' + user.username + " tried to shut down the bot, but doesn't have permission! If this was you, Check your config.json");
+      return client.generateErrorMessage('Only the bot owner can stop the bot! Stop.', user.displayAvatarURL());
     }
   }
-}
+};

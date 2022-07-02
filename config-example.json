@@ -1,21 +1,27 @@
 {
-    "prefix": "n!",
-    "token": "IM SO EXCITED ABOUT BURGER",
-    "ownerID": "MY FAVORITE COLOR IS TWELVE",
-    "release": "anitrox_dev",
-    "build": "Stable",
-    "footerTxt": "Anitrox, made with <3 by IDeletedSystem64 | 2018-2022",
-  
-    "statuses": [
-      "with np!help",
-      "with Sophie!",
-      "Trans Rights!",
-      "in your computer",
-      "with my internet router",
-      "ssh: system64@borkeonv2",
-      "YouTube",
-      "with source code",
-      "Visual Studio Code",
+  "prefix": "n!",
+  "token": "IM SO EXCITED ABOUT BURGER",
+  "ownerID": "MY FAVORITE COLOR IS TWELVE",
+  "release": "anitrox_dev",
+  "build": "Stable",
+  "footerTxt": "Anitrox, made with <3 by IDeletedSystem64 | 2018-2022",
+  "sandbox": {
+    "enabled": false,
+    "id": "788391989460205571",
+    "refreshLocal": false,
+    "refreshGlobal": false
+  },
+
+  "statuses": [
+    "with np!help",
+    "with Sophie!",
+    "Trans Rights!",
+    "in your computer",
+    "with my internet router",
+    "ssh: system64@borkeonv2",
+    "YouTube",
+    "with source code",
+    "Visual Studio Code",
     "Minecraft",
     "with the network connections.",
     "VLC Media Player",
@@ -53,5 +59,10 @@
     "Go for it! :smile:",
     "Good idea!",
     "Sure"
+  ],
+  "intents": [
+    "GUILDS",
+    "GUILD_MESSAGES",
+    "GUILD_PRESENCES"
   ]
-  }
+}
