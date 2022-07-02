@@ -1,32 +1,47 @@
+const { Constants } = require('discord.js');
+
 const gifchoices = [
-  "https://i.pinimg.com/originals/b4/95/fb/b495fb19f4b9a1b04f48297b676c497b.gif",
-  "https://i.imgur.com/H7Ok5tn.gif",
-  "https://media1.tenor.com/images/8fe23ec8e2c5e44964e5c11983ff6f41/tenor.gif?itemid=5600215"
+  'https://i.pinimg.com/originals/b4/95/fb/b495fb19f4b9a1b04f48297b676c497b.gif',
+  'https://i.imgur.com/H7Ok5tn.gif',
+  'https://media1.tenor.com/images/8fe23ec8e2c5e44964e5c11983ff6f41/tenor.gif?itemid=5600215'
 ];
 
 module.exports = {
 
-  name: "poke",
-  description: "Pokes a user!",
-  async execute(client, message, _, config) {
-    const taggedUser = message.mentions.users.first();
-    
-    if(!taggedUser) {
-      await message.channel.send(client.generateErrorMessage("You need to @mention a user!", message.author.displayAvatarURL()));
-    } else {
-      const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
-      await message.channel.send({embed: {
-        "title": "👉 Poke!",
-        "description": `${taggedUser} You have been poked by ${message.author}!`,
-        "color": 8311585,
-        "footer": {
-          "icon_url": message.author.displayAvatarURL(),
-          "text": config.footerTxt
+  name: require('path').parse(__filename).name,
+  description: 'Pokes a user!',
+  options: [{
+    name: 'user',
+    description: 'The user to poke',
+    required: true,
+    type: Constants.ApplicationCommandOptionTypes.USER
+  }],
+
+  async parseMessage (client, config, message) {
+    await message.channel.send(this.handle(client, config, message.author, message.mentions.users.first()));
+  },
+
+  async parseInteraction (client, config, interaction) {
+    await interaction.reply(this.handle(client, config, interaction.user, interaction.options.getUser('user')));
+  },
+
+  handle (client, config, user, target) {
+    if (!target) return client.generateErrorMessage('You need to @mention a user!', user.displayAvatarURL());
+
+    const gif = gifchoices[Math.floor(Math.random() * gifchoices.length)];
+    return {
+      embeds: [{
+        title: '👉 Poke!',
+        description: `${target} You have been poked by ${user}!`,
+        color: 8311585,
+        footer: {
+          icon_url: user.displayAvatarURL(),
+          text: config.footerTxt
         },
-        "image": {
-          "url": gif
+        image: {
+          url: gif
         }
-      }});
-    }     
+      }]
+    };
   }
-}
+};

@@ -1,30 +1,47 @@
-module.exports = {
-  name: '8ball',
-  description: 'Ask Anitrox a question, any question! and they will answer it!',
-  syntax: ["[Question]"],
-  async execute(client, message, args, config) {
-    const index = Math.floor(Math.random() * config.answers.length);
-    const answer = config.answers[index]
-    const question = args.slice(0).join(" ")
+const { Constants } = require('discord.js');
 
-    if (!question) {
-      await message.channel.send(client.generateErrorMessage("You need to ask a question!", message.author.displayAvatarURL));
-    } else {
-      await message.channel.send({embed: {
-        "title": ":8ball: 8Ball",
-        "description": `Your amazing question: **${question}**`,
-        "color": 9442302,
-        "footer": {
-          "icon_url": message.author.displayAvatarURL(),
-          "text": config.footerTxt
+module.exports = {
+
+  name: require('path').parse(__filename).name,
+  description: 'Ask Anitrox a question, any question! and they will answer it!',
+  options: [{
+    name: 'question',
+    description: 'The question to ask Anitrox',
+    required: true,
+    type: Constants.ApplicationCommandOptionTypes.STRING
+  }],
+
+  async parseMessage (client, config, message, args) {
+    await message.channel.send(this.handle(client, config, message.author, args.slice(0).join(' ')));
+  },
+
+  async parseInteraction (client, config, interaction) {
+    await interaction.reply(this.handle(client, config, interaction.user, interaction.options.getString('question')));
+  },
+
+  handle (client, config, user, question) {
+    const index = Math.floor(Math.random() * config.answers.length);
+    const answer = config.answers[index];
+    const avatarURL = user.displayAvatarURL();
+
+    if (!question) return client.generateErrorMessage('You need to ask a question!', avatarURL);
+
+    return {
+      embeds: [{
+        title: ':8ball: 8Ball',
+        description: `Your amazing question: **${question}**`,
+        color: 9442302,
+        footer: {
+          icon_url: avatarURL,
+          text: config.footerTxt
         },
-        "fields": [
+        fields: [
           {
-            "name": "Answer",
-            "value": `${answer}`
+            name: 'Answer',
+            value: `${answer}`
           }
         ]
-      }});
-    }
+      }]
+    };
   }
-}
+};
