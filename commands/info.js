@@ -14,6 +14,10 @@ function Uptime (uptime) {
   return `${daystring}**, **${hourstring}**, **${minutetring}**, **${secondstring}`;
 }
 
+const os = require('os');
+const osu = require('node-os-utils');
+const cpu = osu.cpu;
+
 module.exports = {
 
   name: require('path').parse(__filename).name,
@@ -28,11 +32,7 @@ module.exports = {
     await interaction.reply(this.handle(client, config, interaction.user));
   },
 
-  async handle (client, config, user) {
-    const os = require('os');
-    const osu = require('node-os-utils');
-    const cpu = osu.cpu;
-
+  handle (client, config, user) {
     return {
       embeds: [{
         title: '<:AnitroxInfo:809651936831733791> Information about Anitrox',
