@@ -47,22 +47,8 @@ module.exports = {
 
       return returnMessage;
     } else {
-      return {
-        embeds: [{
-          title: '<:AnitroxDenied:809651936642203668> **403 Forbidden**',
-          color: 13632027,
-          footer: {
-            icon_url: user.displayAvatarURL(),
-            text: config.footerTxt
-          },
-          fields: [
-            {
-              name: '**What Happened?**',
-              value: "You don't have the appropriate permissions to run this command!"
-            }
-          ]
-        }]
-      };
+      console.error(`[SYSTEM] [ERR] User ${user.username} tried to reload ${args[0]}, but doesn't have permission!`);
+      return client.generateErrorMessage("You don't have permission to run this command.", user.displayAvatarURL());
     }
   }
 };

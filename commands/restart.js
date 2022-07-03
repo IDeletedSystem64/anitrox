@@ -43,7 +43,7 @@ module.exports = {
       } catch (e) { console.error(e); }
     } else {
       console.error('[SYSTEM] [ERR] User ' + user.username + " tried to restart the bot, but doesn't have permission! If this was you, Check your config.json");
-      return client.generateErrorMessage('Only the bot owner can restart the bot! Stop.', user.displayAvatarURL());
+      await channel.send(client.generateErrorMessage('You do not have permission to run this command.', user.displayAvatarURL()));
     }
   }
 };
