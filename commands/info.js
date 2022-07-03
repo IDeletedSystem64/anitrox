@@ -8,10 +8,10 @@ function Uptime (uptime) {
 
   const daystring = days + (days === 1 ? ' day' : ' days');
   const hourstring = hours + (hours === 1 ? ' hour' : ' hours');
-  const minutetring = minutes + (minutes === 1 ? ' minute' : ' minutes');
+  const minutestring = minutes + (minutes === 1 ? ' minute' : ' minutes');
   const secondstring = seconds + (seconds === 1 ? ' second' : ' seconds');
 
-  return `${daystring}**, **${hourstring}**, **${minutetring}**, **${secondstring}`;
+  return `${daystring}**, **${hourstring}**, **${minutestring}**, **${secondstring}`;
 }
 
 const os = require('os');
