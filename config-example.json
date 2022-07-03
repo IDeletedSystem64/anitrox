@@ -2,12 +2,12 @@
   "prefix": "n!",
   "token": "IM SO EXCITED ABOUT BURGER",
   "ownerID": "MY FAVORITE COLOR IS TWELVE",
-  "release": "anitrox_dev",
-  "build": "Stable",
+  "release": "Stable Release",
+  "build": "1.2.2",
   "footerTxt": "Anitrox, made with <3 by IDeletedSystem64 | 2018-2022",
   "sandbox": {
     "enabled": false,
-    "id": "788391989460205571",
+    "id": "793537380330111028",
     "refreshLocal": false,
     "refreshGlobal": false
   },
