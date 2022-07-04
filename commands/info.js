@@ -1,5 +1,5 @@
 function Uptime (uptime) {
-  const totalSeconds = (uptime / 1000);
+  const totalSeconds = process.uptime();
 
   const days = parseInt(totalSeconds / 86400);
   const hours = parseInt((totalSeconds % 86400) / 3600);
