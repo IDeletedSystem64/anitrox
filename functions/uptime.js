@@ -1,5 +1,5 @@
-module.exports = () => {
-  const tSeconds = process.uptime();
+module.exports = (uptime) => {
+  const tSeconds = (uptime / 1000);
 
   const tDays = parseInt(tSeconds / 86400);
   const tHrs = parseInt((tSeconds % 86400) / 3600);
