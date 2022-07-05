@@ -1,19 +1,4 @@
-function Uptime (uptime) {
-  const totalSeconds = process.uptime();
-
-  const days = parseInt(totalSeconds / 86400);
-  const hours = parseInt((totalSeconds % 86400) / 3600);
-  const minutes = parseInt((totalSeconds % 3600) / 60);
-  const seconds = parseInt(totalSeconds % 60);
-
-  const daystring = days + (days === 1 ? ' day' : ' days');
-  const hourstring = hours + (hours === 1 ? ' hour' : ' hours');
-  const minutestring = minutes + (minutes === 1 ? ' minute' : ' minutes');
-  const secondstring = seconds + (seconds === 1 ? ' second' : ' seconds');
-
-  return `${daystring}**, **${hourstring}**, **${minutestring}**, **${secondstring}`;
-}
-
+const Uptime = require('../functions/uptime.js');
 const os = require('os');
 const osu = require('node-os-utils');
 const cpu = osu.cpu;
