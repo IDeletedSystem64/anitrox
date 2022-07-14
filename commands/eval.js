@@ -20,7 +20,7 @@ module.exports = {
     await interaction.reply(this.handle(client, config, interaction.user, interaction.options.getString('code')));
   },
 
-  handle (_, config, user, code) {
+  handle (client, config, user, code) {
     if (user.id === config.ownerID) {
       try {
         const evaled = inspect(eval(code));
