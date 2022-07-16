@@ -10,7 +10,7 @@ module.exports = (uptime) => {
 
   const days = tDays + (tDays === 1 ? ' day' : ' days');
   const hours = tHrs + (tHrs === 1 ? ' hour' : ' hours');
-  const minutes = tMins + (tMins === 1 ? ' minute' : ' hours');
+  const minutes = tMins + (tMins === 1 ? ' minute' : ' minutes');
   const seconds = tSecs + (tSecs === 1 ? ' second' : ' seconds');
 
   return `${days}, ${hours}, ${minutes}, ${seconds}`;
