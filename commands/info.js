@@ -1,7 +1,6 @@
 const Uptime = require('../functions/uptime.js');
 const os = require('os');
 const osu = require('node-os-utils');
-// const config = require('../config.json');
 module.exports = {
   name: 'info',
   description: 'Bot and System information',
