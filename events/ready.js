@@ -46,6 +46,7 @@ module.exports = {
       console.log('  / /| | / __ \\/ / __/ ___/ __ \\| |/_/');
       console.log(' / ___ |/ / / / / /_/ /  / /_/ />  <  ');
       console.log('/_/  |_/_/ /_/_/\\__/_/   \\____/_/|_|  ');
+      console.log('');
       console.log(`${config.release}, ${config.build}`);
       console.log('Bot online. | Anitrox by IDeletedSystem64 | ALL MY CODE KEEPS BLOWING UP!');
       // Statuses
