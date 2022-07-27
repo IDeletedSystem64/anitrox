@@ -1,26 +1,30 @@
+const { Constants } = require('discord.js');
+
 module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Get help on anything from commands, to what the bot does! just not your homework..',
   options: [{
-    name: '<Command>',
+    name: 'command',
     description: 'View Information about this command',
-    required: false
+    required: false,
+    type: Constants.ApplicationCommandOptionTypes.STRING
   }],
   async parseMessage (client, config, message, args) {
-    await message.channel.send(this.handle(client, config, message.author, args));
+    await message.channel.send(this.handle(client, config, message.author, args[0]));
   },
 
   async parseInteraction (client, config, interaction) {
-    await interaction.reply(this.handle(client, config, interaction.user));
+    await interaction.reply(this.handle(client, config, interaction.user, interaction.options.getString('command')));
   },
 
-  handle (client, config, user, args) {
-    if (!args[0]) {
+  handle (client, config, user, command) {
+    if (!command) {
       return client.generateErrorMessage('Note to self: Design default help embed.', user.displayAvatarURL());
     }
 
-    const cmdName = args[0].toLowerCase();
+    // const cmdName = args[0].toLowerCase();
+    const cmdName = command
     const cmd = client.commands.get(cmdName);
 
     if (!cmd) {
