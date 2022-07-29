@@ -3,7 +3,7 @@
   "token": "IM SO EXCITED ABOUT BURGER",
   "ownerID": "MY FAVORITE COLOR IS TWELVE",
   "release": "Stable Release",
-  "build": "1.2.2",
+  "build": "1.3",
   "footerTxt": "Anitrox, made with <3 by IDeletedSystem64 | 2018-2022",
   "sandbox": {
     "enabled": false,
@@ -37,8 +37,15 @@
     "127.0.0.1",
     "Sophie's computer",
     "Mars",
-    "Elon Musk",
-    "TMC Software"
+    "Netro Corporation",
+    "System64 Technologies",
+    "myself",
+    "Twilight Sparkle",
+    "the Pokemon Center",
+    "Who asked?",
+    "you",
+    "your mother"
+
   ],
   "answers": [
     "Heck no!",
