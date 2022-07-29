@@ -18,7 +18,7 @@ module.exports = {
       await channel.send({
         embeds: [{
           title: '**Shut down the bot**',
-          description: '<a:AnitroxWorking:697147309531594843> **Shutting Down...**',
+          description: '<a:AnitroxWorking:997565411212144730> **Shutting Down...**',
           color: 9442302,
           footer: {
             icon_url: user.displayAvatarURL(),
