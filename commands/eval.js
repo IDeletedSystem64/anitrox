@@ -21,7 +21,7 @@ module.exports = {
   },
 
   handle (client, config, user, code) {
-    if (user.id === config.ownerID) {
+    if (user.id === process.env.OWNERID) {
       try {
         const evaled = inspect(eval(code));
         // await message.channel.send(evaled, { code: 'xl' });

@@ -13,7 +13,7 @@ module.exports = {
   },
 
   async handle (client, config, user, channel) {
-    if (user.id === config.ownerID) {
+    if (user.id === process.env.OWNERID) {
       console.log('[SYSTEM] [INFO] ' + `The bot is going down for shut down. \nShutdown requested by ${user.username}`);
       await channel.send({
         embeds: [{
