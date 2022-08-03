@@ -1,28 +1,44 @@
+const { Constants } = require('discord.js');
+
 module.exports = {
 
   name: require('path').parse(__filename).name,
   description: 'Get help on anything from commands, to what the bot does! just not your homework..',
   options: [{
-    name: '<Command>',
+    name: 'help',
     description: 'View Information about this command',
-    required: false
+    required: false,
+    type: Constants.ApplicationCommandOptionTypes.STRING
   }],
   async parseMessage (client, config, message, args) {
-    await message.channel.send(this.handle(client, config, message.author, args));
+    await message.channel.send(this.handle(client, config, message.author, args[0]));
   },
 
   async parseInteraction (client, config, interaction) {
-    await interaction.reply(this.handle(client, config, interaction.user));
+    await interaction.reply(this.handle(client, config, interaction.user, interaction.options.getString('help')));
   },
 
-  handle (client, config, user, args) {
-    if (!args[0]) {
-      return client.generateErrorMessage('Note to self: Design default help embed.', user.displayAvatarURL());
+  handle (client, config, user, command) {
+    if (!command) {
+      return {
+        embeds: [{
+          title: `:question: SEYMOUR! THE ${client.user.username} IS ON FIRE!`,
+          description: `Run ${config.prefix}help for more information on each command.`,
+          footer: {
+            icon_url: user.displayAvatarURL(),
+            text: config.footerTxt
+          },
+          fields: [
+            { name: 'Commands', value: client.commands.map(command => command.name).join('\n') }
+          ]
+        }]
+      };
     }
 
-    const cmdName = args[0].toLowerCase();
+    // const cmdName = args[0].toLowerCase();
+    const cmdName = command;
     const cmd = client.commands.get(cmdName);
-
+    console.log(cmd.options.map(option => option.required));
     if (!cmd) {
       return client.generateErrorMessage(`${cmdName} is not a valid command! Run ${config.prefix}help for a command list.`);
     }
@@ -39,8 +55,8 @@ module.exports = {
           { name: 'Command Name', value: `${cmdName}`, inline: true },
           { name: 'Command Description', value: cmd.description, inline: true },
           { name: 'Command Options', value: cmd.options.map(option => option.name).join('\n') || 'None', inline: true },
-          { name: 'Command Option Description', value: cmd.options.map(option => option.description).join('\n') || 'None', inline: true },
-          { name: 'Option Legend', value: '[Option] REQUIRED\n<Option> OPTIONAL' }
+          { name: 'Command Option Description', value: cmd.options.map(option => option.description) || 'None', inline: true }
+//        { name: 'Command Option Required?', value: cmd.options.map(option => option.required) ? 'Yes' : 'No' }
         ]
       }]
     };

@@ -3,7 +3,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const config = require('./config.json');
-
+require('dotenv').config();
 console.log('Starting!');
 const client = new Discord.Client({ intents: config.intents.map(intent => eval(`Discord.Intents.FLAGS.${intent}`)) });
 
@@ -14,6 +14,7 @@ fs.readdirSync('./commands')
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
   });
+// Create a collection using those command files
 
 fs.readdirSync('./events')
   .filter(file => file.endsWith('.js'))
@@ -21,6 +22,7 @@ fs.readdirSync('./events')
   .forEach(({ once, event, listener }) => {
     client[once ? 'once' : 'on'](event, listener(client, config));
   });
+// Create listeners from the event files.
 
 client.generateErrorMessage = (errorMsg, avatarURL) => ({
   embeds: [{
@@ -39,4 +41,5 @@ client.generateErrorMessage = (errorMsg, avatarURL) => ({
   }]
 });
 
-client.login(config.token);
+client.login(process.env.TOKEN);
+// Login to Discord!
