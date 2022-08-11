@@ -6,7 +6,7 @@ module.exports = {
   description: 'Get help on anything from commands, to what the bot does! just not your homework..',
   options: [{
     name: 'help',
-    description: 'View Information about this command',
+    description: 'The command you want information on',
     required: false,
     type: Constants.ApplicationCommandOptionTypes.STRING
   }],
@@ -30,7 +30,7 @@ module.exports = {
             text: config.footerTxt
           },
           fields: [
-            { name: 'Commands', value: client.commands.map(command => command.name).join('\n') }
+            { name: 'Commands', value: client.commands.map(command => command.name).join(', ') }
           ]
         }]
       };
