@@ -5,8 +5,6 @@ module.exports = (uptime) => {
   const tHrs = parseInt((tSeconds % 86400) / 3600);
   const tMins = parseInt((tSeconds % 3600) / 60);
   const tSecs = parseInt(tSeconds % 60);
-  // We can probably just return tSeconds (totalSeconds) instead of parsing.
-  // So that was a fucking lie.
 
   const days = tDays + (tDays === 1 ? ' day' : ' days');
   const hours = tHrs + (tHrs === 1 ? ' hour' : ' hours');

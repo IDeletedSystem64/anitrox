@@ -6,7 +6,7 @@ module.exports = {
   description: 'Get help on anything from commands, to what the bot does! just not your homework..',
   options: [{
     name: 'help',
-    description: 'View Information about this command',
+    description: 'The command you want information on',
     required: false,
     type: Constants.ApplicationCommandOptionTypes.STRING
   }],
@@ -22,6 +22,7 @@ module.exports = {
     if (!command) {
       return {
         embeds: [{
+          color: 9442302,
           title: `:question: SEYMOUR! THE ${client.user.username} IS ON FIRE!`,
           description: `Run ${config.prefix}help for more information on each command.`,
           footer: {
@@ -29,18 +30,17 @@ module.exports = {
             text: config.footerTxt
           },
           fields: [
-            { name: 'Commands', value: client.commands.map(command => command.name).join('\n') }
+            { name: 'Commands', value: client.commands.map(command => command.name).join(', ') }
           ]
         }]
       };
     }
 
-    // const cmdName = args[0].toLowerCase();
     const cmdName = command;
     const cmd = client.commands.get(cmdName);
-    console.log(cmd.options.map(option => option.required));
+    console.log(cmd.options.map);
     if (!cmd) {
-      return client.generateErrorMessage(`${cmdName} is not a valid command! Run ${config.prefix}help for a command list.`);
+      return client.generateErrorMessage(`${cmdName} is not a valid command. Run ${config.prefix}help for a command list!`);
     }
     return {
       embeds: [{
@@ -55,8 +55,8 @@ module.exports = {
           { name: 'Command Name', value: `${cmdName}`, inline: true },
           { name: 'Command Description', value: cmd.description, inline: true },
           { name: 'Command Options', value: cmd.options.map(option => option.name).join('\n') || 'None', inline: true },
-          { name: 'Command Option Description', value: cmd.options.map(option => option.description) || 'None', inline: true }
-//        { name: 'Command Option Required?', value: cmd.options.map(option => option.required) ? 'Yes' : 'No' }
+          { name: 'Command Option Description', value: cmd.options.map(option => option.description).join('\n') || 'None', inline: true }
+          // { name: 'Command Option Required?', value: cmd.options.map(option => option.required) ? 'Yes' : 'No' }
         ]
       }]
     };
