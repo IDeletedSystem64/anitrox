@@ -5,7 +5,7 @@ module.exports = {
   name: require('path').parse(__filename).name,
   description: 'Reloads a command',
   options: [...Array(10).keys()].map(i => ({
-    name: `option${i + 1}`,
+    name: `option${i + 0}`,
     description: 'Another option',
     required: i === 0,
     type: Constants.ApplicationCommandOptionTypes.STRING
@@ -20,7 +20,7 @@ module.exports = {
   },
 
   handle (client, config, user, args) {
-    if (user.id === config.ownerID) {
+    if (user.id === process.env.OWNERID) {
       if (!args.length) return client.generateErrorMessage('You forgot to provide anything to reload, you pillock', user.displayAvatarURL());
       let returnMessage = '';
 

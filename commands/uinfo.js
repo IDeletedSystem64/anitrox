@@ -24,7 +24,7 @@ module.exports = {
   handle (client, config, user, target) {
     return {
       embeds: [{
-        title: `Everything you've ever wanted to know about ${target}!`,
+        title: `Everything you've ever wanted to know about ${target.user.username}!`,
         color: 9442302,
         footer: {
           icon_url: user.displayAvatarURL(),

@@ -20,8 +20,8 @@ module.exports = {
     await interaction.reply(this.handle(client, config, interaction.user, interaction.options.getString('code')));
   },
 
-  handle (_, config, user, code) {
-    if (user.id === config.ownerID) {
+  handle (client, config, user, code) {
+    if (user.id === process.env.OWNERID) {
       try {
         const evaled = inspect(eval(code));
         // await message.channel.send(evaled, { code: 'xl' });

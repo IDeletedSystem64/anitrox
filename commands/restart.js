@@ -13,9 +13,9 @@ module.exports = {
   },
 
   async handle (client, config, user, channel) {
-    if (user.id === config.ownerID) {
+    if (user.id === process.env.OWNERID) {
       const embeds = [{
-        title: '<a:AnitroxWorking:697147309531594843> Restart Bot',
+        title: '<a:AnitroxWorking:997565411212144730>  Restart Bot',
         description: 'Restarting Anitrox...',
         color: 9442302,
         footer: {
@@ -27,11 +27,11 @@ module.exports = {
       const response = await channel.send({ embeds });
       try {
         client.destroy();
-        await client.login(config.token);
+        await client.login(process.env.TOKEN);
         console.log('[SYSTEM] [INFO] Restarted successfully!');
         await response.edit({
           embeds: [{
-            title: '<a:AnitroxWorking:697147309531594843> Restart Bot',
+            title: ':white_check_mark: Restart Bot',
             description: 'Restarted!',
             color: 9442302,
             footer: {
