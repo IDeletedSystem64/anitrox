@@ -1,6 +1,10 @@
-node_modules/
+#VSCode configurations.
 .vscode
+
+# NPM/Yarn stuff.
+node_modules/
 package-lock.json
-releasenotes.txt
+
+# Let's not leak any tokens now... That would be very bad
 config.json
 .env
