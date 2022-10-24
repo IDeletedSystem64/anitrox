@@ -29,10 +29,6 @@ module.exports = {
     type: Constants.ApplicationCommandOptionTypes.USER
   }],
 
-  async parseMessage (client, config, message) {
-    await message.channel.send(this.handle(client, config, message.author, message.mentions.users.first()));
-  },
-
   async parseInteraction (client, config, interaction) {
     await interaction.reply(this.handle(client, config, interaction.user, interaction.options.getUser('user')));
   },

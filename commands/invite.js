@@ -4,10 +4,6 @@ module.exports = {
   description: 'Add Anitrox to your beautiful server!',
   options: [],
 
-  async parseMessage (client, config, message) {
-    await message.channel.send(this.handle(client, config, message.author));
-  },
-
   async parseInteraction (client, config, interaction) {
     await interaction.reply(this.handle(client, config, interaction.user));
   },

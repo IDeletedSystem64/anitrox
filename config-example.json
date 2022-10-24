@@ -1,7 +1,6 @@
 {
-  "prefix": "n!",
   "release": "Developer Release",
-  "build": "1.4_dev",
+  "build": "1.4dev",
   "footerTxt": "Anitrox, made with <3 by IDeletedSystem64 | 2018-2022",
   "sandbox": {
     "enabled": false,

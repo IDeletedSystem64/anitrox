@@ -4,10 +4,6 @@ module.exports = {
   description: "IT'S TIME TO STOP!... the bot",
   options: [],
 
-  async parseMessage (client, config, message) {
-    await this.handle(client, config, message.author, message.channel);
-  },
-
   async parseInteraction (client, config, interaction) {
     await this.handle(client, config, interaction.user, interaction.channel);
   },

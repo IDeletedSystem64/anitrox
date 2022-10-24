@@ -6,11 +6,6 @@ module.exports = {
   description: 'Bot and System information',
   options: [],
 
-  async parseMessage (client, config, message) {
-    await message.channel.send(this.handle(client, config, message.author));
-  },
-  // We'll be moving solely to Slash Commands in 1.4
-
   async parseInteraction (client, config, interaction) {
     await interaction.reply(this.handle(client, config, interaction.user));
   },

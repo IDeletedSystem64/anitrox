@@ -11,11 +11,6 @@ module.exports = {
     type: Constants.ApplicationCommandOptionTypes.USER
   }],
 
-  async parseMessage (client, config, message) {
-    const target = message.mentions.members.first() || message.member;
-    await message.channel.send(this.handle(client, config, message.author, target));
-  },
-
   async parseInteraction (client, config, interaction) {
     const target = interaction.options.getUser('user') ? (await interaction.guild.members.fetch(interaction.options.getUser('user'))) : interaction.member;
     await interaction.reply(this.handle(client, config, interaction.user, target));

@@ -17,11 +17,6 @@ module.exports = {
     type: Constants.ApplicationCommandOptionTypes.STRING
   }],
 
-  async parseMessage (client, config, message, args) {
-    const target = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
-    await message.channel.send(this.handle(client, config, message.author, target));
-  },
-
   async parseInteraction (client, config, interaction) {
     const target = interaction.options.getUser('user') || client.users.cache.get(interaction.options.getString('userid')) || interaction.user;
     await interaction.reply(this.handle(client, config, interaction.user, target));

@@ -4,10 +4,6 @@ module.exports = {
   description: 'Gets bot ping',
   options: [],
 
-  async parseMessage (client, config, message, args) {
-    await message.channel.send(await this.handle(client, config, message.author));
-  },
-
   async parseInteraction (client, config, interaction) {
     await interaction.reply(await this.handle(client, config, interaction.user));
   },
