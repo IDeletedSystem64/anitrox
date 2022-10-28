@@ -26,7 +26,7 @@ module.exports = {
         fields: [
           { name: '<:anitrox:831193012699791361> Bot Information', value: '** **' },
           { name: 'Bot Name', value: `${client.user.tag}`, inline: true },
-          { name: 'Bot ID', value: `${client.user.id}`, inline: true },
+          { name: 'Bot ID', value: '``' + `${client.user.id}` + '``', inline: true },
           { name: 'Bot Owner', value: isNaN(process.env.OWNERID) ? "Owner didn't set an OwnerID :(" : client.users.cache.get(process.env.OWNERID).username, inline: true },
           { name: 'Release Type', value: config.release, inline: true },
           { name: 'Version', value: config.build, inline: true },
