@@ -14,7 +14,7 @@ module.exports = {
         message.channel.send({
           embeds: [{
             title: `<:AnitroxWarning:997565364718276669> Attention, ${message.author.username}!`,
-            description: `Anitrox will be moving entirely to slash commands in 1.4, You will no longer be able to use commands by typing ${config.prefix}command.\n Please use slash commands in the future. [Learn more](https://support.discord.com/hc/en-us/articles/1500000368501-Slash-Commands-FAQ)`,
+            description: `Anitrox will be moving entirely to slash commands in 1.4, You will no longer be able to use \`\` ${command} \`\` by typing ${config.prefix}${command}.\n Please use slash commands in the future. [Learn more](https://support.discord.com/hc/en-us/articles/1500000368501-Slash-Commands-FAQ)`,
             color: 15548997,
             footer: {
               icon_url: message.author.displayAvatarURL(),
