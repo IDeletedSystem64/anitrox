@@ -37,7 +37,7 @@ module.exports = {
           text: config.footerTxt
         },
         image: {
-          url: target.displayAvatarURL()
+          url: target.displayAvatarURL({ dynamic: true })
         }
       }]
     };
