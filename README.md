@@ -14,4 +14,4 @@ Afterwards fill out the ``.env.example`` and ``config-example.json`` and then re
 <br>
 ⚠️ If you don't specify the Owner ID, Some commands such as the bot controls will be unusable! 
 # Support
-Support is available on the [Discord Server!](discord.gg/5nQtMNpf43), or @ me on   [Twitter!](twitter.com/IDeleteSystem64), [Mastodon!](glaceon.social/@IDeletedSystem64)
+Support is available on the [Discord Server!](discord.gg/5nQtMNpf43), or @ me on [Mastodon!](glaceon.social/@IDeletedSystem64)
