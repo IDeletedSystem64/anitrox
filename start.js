@@ -1,13 +1,20 @@
 #!/usr/bin/env -S node
 
 const fs = require('fs');
-const Discord = require('discord.js');
+const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const config = require('./config.json');
 require('dotenv').config();
 console.log('Starting!');
-const client = new Discord.Client({ intents: config.intents.map(intent => eval(`Discord.Intents.FLAGS.${intent}`)) });
-
-client.commands = new Discord.Collection();
+// const client = new Discord.Client({ intents: config.intents.map(intent => eval(`Discord.Intents.FLAGS.${intent}`)) });
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildPresences
+  ]
+});
+// todo: move back to file
+client.commands = new Collection();
 fs.readdirSync('./commands')
   .filter(file => file.endsWith('.js'))
   .forEach(file => {
