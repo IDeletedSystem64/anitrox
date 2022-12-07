@@ -1,4 +1,4 @@
-const { Constants } = require('discord.js');
+const { ApplicationCommandOptionType } = require('discord.js');
 
 const gifchoices = [
   'https://cdn.discordapp.com/attachments/803658122299572255/807670647920001044/hug2.gif',
@@ -16,7 +16,7 @@ module.exports = {
     name: 'user',
     description: 'The user to hug',
     required: true,
-    type: Constants.ApplicationCommandOptionTypes.USER
+    type: ApplicationCommandOptionType.String
   }],
 
   async parseInteraction (client, config, interaction) {

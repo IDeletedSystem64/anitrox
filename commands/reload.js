@@ -1,4 +1,4 @@
-const { Constants } = require('discord.js');
+const { ApplicationCommandOptionType } = require('discord.js');
 
 module.exports = {
 
@@ -8,7 +8,7 @@ module.exports = {
     name: `option${i + 0}`,
     description: 'Another option',
     required: i === 0,
-    type: Constants.ApplicationCommandOptionTypes.STRING
+    type: ApplicationCommandOptionType.User
   })),
 
   async parseInteraction (client, config, interaction) {

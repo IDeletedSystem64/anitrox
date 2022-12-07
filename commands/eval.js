@@ -1,4 +1,4 @@
-const { Constants } = require('discord.js');
+const { ApplicationCommandOptionType } = require('discord.js');
 const { inspect } = require('util');
 
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
     name: 'code',
     description: 'The string to evaluate',
     required: true,
-    type: Constants.ApplicationCommandOptionTypes.STRING
+    type: ApplicationCommandOptionType.String
   }],
 
   async parseInteraction (client, config, interaction) {
