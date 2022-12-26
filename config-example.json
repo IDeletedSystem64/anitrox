@@ -1,8 +1,8 @@
 {
   "prefix": "n!",
   "release": "Developer Release",
-  "build": "1.4dev",
-  "footerTxt": "Anitrox, made with <3 by IDeletedSystem64 | 2018-2022",
+  "build": "1.3.3dev",
+  "footerTxt": "Anitrox, made with <3 by IDeletedSystem64 | 2018-2023",
   "sandbox": {
     "enabled": false,
     "id": "0",
