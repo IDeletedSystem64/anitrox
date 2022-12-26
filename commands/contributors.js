@@ -1,7 +1,7 @@
 module.exports = {
 
   name: require('path').parse(__filename).name,
-  description: 'Attributions to open source components used by Anitrox',
+  description: 'Attributions to users who have worked on Anitrox!',
   options: [],
 
   async parseMessage (_, config, message) {
@@ -28,11 +28,11 @@ module.exports = {
         fields: [
           {
             name: 'chuu_shi',
-            value: 'Thanks to Chuu for letting me use some of his resources to host Anitrox!\n <:GitHub:778165439477841981> [Check out his code!](https://github.com/chuushi)'
+            value: 'Thanks to Chuu for letting me use some of his resources to host Anitrox!\n <:GitHub:778165439477841981> [Check out his code!](https://github.com/chuushi)\n <:discord:1057053513210937444> [Check out his Discord community!](https://port.chuu.sh/)'
           },
           {
-            name: 'OfficialTCGMatt',
-            value: "Matt has helped quite a bit with Anitrox, especially in the early days of Anitrox's development! He even has his own bot!\n <:GitHub:778165439477841981> [Check out his code!](https://github.com/OfficialTCGMatt)\n :robot: [Check out TheCodingBot!](https://github.com/TMC-Software/TheCodingBot)"
+            name: 'TheCodingGuy',
+            value: "Matt has helped quite a bit with Anitrox, especially in the early days of Anitrox's development! He even has his own bot!\n <:GitHub:778165439477841981> [Check out his code!](https://github.com/Aisuruneko)\n :robot: [Check out TheCodingBot!](https://github.com/NetroCorp/TheCodingBot)\n :globe_with_meridians: [Check out Netro Corp!](https://netrocorp.net)"
           },
           {
             name: 'Foxinatel',
