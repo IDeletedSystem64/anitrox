@@ -4,6 +4,10 @@ module.exports = {
   description: 'Attributions to open source components used by Anitrox',
   options: [],
 
+  async parseMessage (_, config, message) {
+    await message.channel.send(this.handle(config, message.author));
+  },
+
   async parseInteraction (_, config, interaction) {
     await interaction.reply(this.handle(config, interaction.user));
   },
