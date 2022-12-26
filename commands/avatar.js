@@ -30,15 +30,12 @@ module.exports = {
   handle (_, config, user, target) {
     return {
       embeds: [{
-        title: `:frame_photo: ${target.username}'s Beautiful Avatar!`,
+        title: `:frame_photo: ${target.username}'s Beautiful Profile Picture!`,
+        description: `[Profile picture link (Mobile users, tap here!)](${target.displayAvatarURL({ dynamic: true })})`,
         color: 9442302,
-        footer: {
-          icon_url: user.displayAvatarURL(),
-          text: config.footerTxt
-        },
-        image: {
-          url: target.displayAvatarURL({ dynamic: true })
-        }
+        image: { url: target.displayAvatarURL({ dynamic: true }) },
+        footer: { icon_url: user.displayAvatarURL(), text: config.footerTxt }
+
       }]
     };
   }
