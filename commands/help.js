@@ -1,4 +1,4 @@
-const { Constants } = require('discord.js');
+const { ApplicationCommandOptionType } = require('discord.js');
 
 module.exports = {
 
@@ -8,7 +8,7 @@ module.exports = {
     name: 'help',
     description: 'The command you want information on',
     required: false,
-    type: Constants.ApplicationCommandOptionTypes.STRING
+    type: ApplicationCommandOptionType.String
   }],
   async parseMessage (client, config, message, args) {
     await message.channel.send(this.handle(client, config, message.author, args[0]));
