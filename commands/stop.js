@@ -17,8 +17,8 @@ module.exports = {
       console.log('[SYSTEM] [INFO] ' + `The bot is going down for shut down. \nShutdown requested by ${user.username}`);
       await channel.send({
         embeds: [{
-          title: '**Shut down the bot**',
-          description: '<a:AnitroxWorking:997565411212144730> **Shutting Down...**',
+          title: 'Shut down the bot',
+          description: '<a:AnitroxWorking:997565411212144730> Shutting down now, Until next time!',
           color: 9442302,
           footer: {
             icon_url: user.displayAvatarURL(),
