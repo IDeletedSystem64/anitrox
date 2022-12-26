@@ -48,7 +48,7 @@ module.exports = {
       console.log('/_/  |_/_/ /_/_/\\__/_/   \\____/_/|_|  ');
       console.log('');
       console.log(`${config.release}, ${config.build}`);
-      console.log('Bot ready. | Anitrox by IDeletedSystem64 | Now with 100% more slash commands!');
+      console.log('Bot online. | Anitrox by IDeletedSystem64 | ALL MY CODE KEEPS BLOWING UP!');
       // Statuses
       setInterval(async () => {
         // Picks a status from the config file

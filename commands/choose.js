@@ -11,6 +11,13 @@ module.exports = {
     type: ApplicationCommandOptionType.String
   })),
 
+  async parseMessage (client, config, message, args) {
+    let [head, ...options] = message.content.split(/\s*\n\s*/);
+    head = head.slice(this.name.length + config.prefix.length);
+    if (head) options.push(head);
+    await message.channel.send(this.handle(client, config, message.author, options));
+  },
+
   async parseInteraction (client, config, interaction) {
     console.log([...Array(10).keys()].map(i => interaction.options.getString(`option${i + 1}`)).filter(str => str));
     await interaction.reply(this.handle(client, config, interaction.user, [...Array(10).keys()].map(i => interaction.options.getString(`option${i + 1}`)).filter(str => str)));

@@ -4,6 +4,10 @@ module.exports = {
   description: 'Restarts the bot',
   options: [],
 
+  async parseMessage (client, config, message) {
+    await this.handle(client, config, message.author, message.channel);
+  },
+
   async parseInteraction (client, config, interaction) {
     await this.handle(client, config, interaction.user, interaction.channel);
   },
@@ -12,7 +16,7 @@ module.exports = {
     if (user.id === process.env.OWNERID) {
       const embeds = [{
         title: '<a:AnitroxWorking:997565411212144730>  Restart Bot',
-        description: 'Restarting Anitrox...',
+        description: '<a:AnitroxWorking:997565411212144730> Restarting now, Be back in a minute!',
         color: 9442302,
         footer: {
           icon_url: user.displayAvatarURL(),

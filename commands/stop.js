@@ -4,28 +4,32 @@ module.exports = {
   description: "IT'S TIME TO STOP!... the bot",
   options: [],
 
-  async parseInteraction (client, config, interaction) {
-    await this.handle(client, config, interaction);
+  async parseMessage (client, config, message) {
+    await this.handle(client, config, message.author, message.channel);
   },
 
-  async handle (client, config, interaction) {
-    if (interaction.user.id === process.env.OWNERID) {
-      console.log('[SYSTEM] [INFO] ' + `The bot is going down for shut down. Shutdown requested by ${interaction.user.username}`);
-      await interaction.reply({
+  async parseInteraction (client, config, interaction) {
+    await this.handle(client, config, interaction.user, interaction.channel);
+  },
+
+  async handle (client, config, user, channel) {
+    if (user.id === process.env.OWNERID) {
+      console.log('[SYSTEM] [INFO] ' + `The bot is going down for shut down. \nShutdown requested by ${user.username}`);
+      await channel.send({
         embeds: [{
-          title: 'Shutdown bot',
-          description: '<a:AnitroxWorking:997565411212144730> Shutting Down...',
+          title: 'Shut down the bot',
+          description: '<a:AnitroxWorking:997565411212144730> Shutting down now, Until next time!',
           color: 9442302,
           footer: {
-            icon_url: interaction.user.displayAvatarURL(),
+            icon_url: user.displayAvatarURL(),
             text: config.footerTxt
           }
         }]
       });
       process.exit();
     } else {
-      console.error('[SYSTEM] [ERR] User ' + interaction.user.username + " tried to shut down the bot, but doesn't have permission! If this was you, Check your config.json");
-      await interaction.reply(client.generateErrorMessage('You do not have permission to run this command.', interaction.user.displayAvatarURL()));
+      console.error('[SYSTEM] [ERR] User ' + user.username + " tried to shut down the bot, but doesn't have permission! If this was you, Check your config.json");
+      await channel.send(client.generateErrorMessage('You do not have permission to run this command.', user.displayAvatarURL()));
     }
   }
 };

@@ -17,6 +17,11 @@ module.exports = {
     type: ApplicationCommandOptionType.User
   }],
 
+  async parseMessage (client, config, message, args) {
+    const target = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
+    await message.channel.send(this.handle(client, config, message.author, target));
+  },
+
   async parseInteraction (client, config, interaction) {
     const target = interaction.options.getUser('user') || client.users.cache.get(interaction.options.getString('userid')) || interaction.user;
     await interaction.reply(this.handle(client, config, interaction.user, target));
@@ -25,15 +30,12 @@ module.exports = {
   handle (_, config, user, target) {
     return {
       embeds: [{
-        title: `:frame_photo: ${target.username}'s Beautiful Avatar!`,
+        title: `:frame_photo: ${target.username}'s Beautiful Profile Picture!`,
+        description: `[Profile picture link (Mobile users, tap here!)](${target.displayAvatarURL({ dynamic: true })})`,
         color: 9442302,
-        footer: {
-          icon_url: user.displayAvatarURL(),
-          text: config.footerTxt
-        },
-        image: {
-          url: target.displayAvatarURL()
-        }
+        image: { url: target.displayAvatarURL({ dynamic: true }) },
+        footer: { icon_url: user.displayAvatarURL(), text: config.footerTxt }
+
       }]
     };
   }
