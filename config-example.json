@@ -1,17 +1,17 @@
 {
   "prefix": "n!",
-  "release": "Stable Release",
-  "build": "1.3.2",
+  "release": "Developer Release",
+  "build": "1.4dev",
   "footerTxt": "Anitrox, made with <3 by IDeletedSystem64 | 2018-2022",
   "sandbox": {
     "enabled": false,
-    "id": "793537380330111028",
+    "id": "0",
     "refreshLocal": false,
     "refreshGlobal": false
   },
 
   "statuses": [
-    "with np!help",
+    "with /help",
     "with Sophie!",
     "Trans Rights!",
     "in your computer",
