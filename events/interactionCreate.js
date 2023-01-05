@@ -2,6 +2,7 @@ module.exports = {
   event: require('path').parse(__filename).name,
   once: false,
   listener: (client, config) =>
+    async (interaction) => {
       try {
         await client.commands.get(interaction.commandName)?.parseInteraction(client, config, interaction);
       } catch (error) {
@@ -19,5 +20,4 @@ module.exports = {
         });
       }
     }
-}
-;
+};
