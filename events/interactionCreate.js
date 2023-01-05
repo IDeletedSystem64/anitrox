@@ -7,7 +7,7 @@ module.exports = {
         await client.commands.get(interaction.commandName)?.parseInteraction(client, config, interaction);
       } catch (error) {
         console.error(error);
-        interaction.channel.send({
+        interaction.reply({
           embeds: [{
             title: '<:AnitroxError:809651936563429416> **Something went wrong!**',
             description: error.stack,
@@ -16,7 +16,8 @@ module.exports = {
               icon_url: interaction.user.displayAvatarURL(),
               text: config.footerTxt
             }
-          }]
+          }],
+          ephemeral: false
         });
       }
     }
