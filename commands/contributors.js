@@ -37,6 +37,10 @@ module.exports = {
           {
             name: 'Foxinatel',
             value: 'Foxi has made massive improvements to Anitrox, such as improving error handling, and much more!\n<:GitHub:778165439477841981> [Check out his code!](https://github.com/foxinatel)'
+          },
+          {
+            name: 'Zaeroses',
+            value: 'Zaeroses created the Xenia icon Ive used in about when a user hosts Anitrox on Linux based systems. Its been modified to have a transflag-colored glow in the background. \n<:fediverse:1060390228881322004> [Check out their Mastodon! (chitter.xyz)](https://chitter.xyz/@Zaeroses)\n<:GitHub:778165439477841981> [Checkout their code!](https://github.com/Zaeroses)'
           }
         ]
       }]
