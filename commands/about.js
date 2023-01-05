@@ -2,8 +2,8 @@ const Uptime = require('../functions/uptime.js');
 const os = require('os');
 const osu = require('node-os-utils');
 module.exports = {
-  name: 'info',
-  description: 'Bot and System information',
+  name: 'about',
+  description: 'About this bot, as well as the system its running on',
   options: [],
 
   async parseMessage (client, config, message) {
@@ -40,7 +40,7 @@ module.exports = {
           { name: ':timer: Bot Uptime', value: Uptime(client.uptime), inline: true },
           { name: ':one: Total Servers', value: `** **${client.guilds.cache.size}`, inline: true },
           { name: '<:hostinfo:997565639352926250> System Information', value: '** **' },
-          { name: `${((process.platform === 'linux') ? '<:linux_tux:997565742960615424>' : '<:windows:997919047511453696>')} System Platform`, value: process.platform, inline: true },
+          { name: `${((process.platform === 'linux') ? '<:linux_xenia_trans:1060380032788353144>' : '<:windows:997919047511453696>')} System Platform`, value: process.platform, inline: true },
           { name: `${((process.platform === 'linux') ? ':gear: Kernel Version' : ':gear: System Version')}`, value: os.release(), inline: true },
           { name: ':timer: System Uptime', value: Uptime(os.uptime() * 1000), inline: true },
           { name: '<:cpu:997565592028598282> System CPU Architecture', value: os.arch(), inline: true },
