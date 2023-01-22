@@ -3,7 +3,6 @@
 
 # NPM/Yarn stuff.
 node_modules/
-package-lock.json
 
 # Let's not leak any tokens now... That would be very bad
 config.json
