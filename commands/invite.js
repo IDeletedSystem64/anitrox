@@ -27,9 +27,8 @@ module.exports = {
         },
         fields: [
           { name: 'Anitrox', value: 'Get the ripe off the vine Anitrox! \n [Add Anitrox to your server](https://discord.com/oauth2/authorize?client_id=576805923964715018&scope=bot&permissions=8)' },
-          { name: 'Anitrox PTB (Public Test Build)', value: 'Anitrox PTB is going to be discontinued on November 25th, 2022. [Learn More](https://docs.google.com/document/d/1cpmJjBEo-blxvirOtDsIT-Hrq40qVseRHBY7asBT47k)' },
           { name: 'Anitrox Dev, Self hosting and more!', value: 'Self-host your own Anitrox (including dev!), Contribute, and more! The possibilites are endless. [Anitrox Source](https://github.com/IDeletedSystem64/anitrox)' },
-          { name: 'Need help?', value: 'Come join the Anitrox Support Server, for support and much more!\n [Anitrox Support Server](https://discord.gg/grebRGsBZ3)' }
+          { name: 'Support', value: 'Come join the Anitrox Support Server, for support with Anitrox, help setting up your own self-hosted Anitrox and more!\n [Anitrox Support Server](https://discord.gg/grebRGsBZ3)' }
         ]
       }]
     };
