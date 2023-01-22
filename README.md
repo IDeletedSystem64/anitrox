@@ -1,17 +1,34 @@
+# Anitrox
+Your new favorite bot!
 
-# Anitrox d.js v14 Development Branch (anitrox_v14)
-This is the Anitrox development branch for Discord.JS v14, Once done this will become Anitrox 1.4
-# Dependencies to get started
-To begin, you will need to satisfy the following dependencies:
-Node.JS: 16.9.0
-npm: 6.14
-# Dependencies for development
-Visual Studio Code (Recommended, Though you can use any other editor.)
-ESLint
-# Let's get this ~~party~~ bot started!
-For first time start up, You will need to run ``npm install`` to install the needed npm packages.
-Afterwards fill out the ``.env.example`` and ``config-example.json`` and then rename them to ``.env`` and ``config.json``, then just run ``node start.js`` (or ``./start.js`` on Linux)!
-<br>
-⚠️ If you don't specify the Owner ID, Some commands such as the bot controls will be unusable! 
-# Support
-Support is available on the [Discord Server!](discord.gg/5nQtMNpf43), or @ me on [Mastodon!](glaceon.social/@IDeletedSystem64)
+## Get started!
+To get started, You'll need Node.JS and NPM
+
+You can get these through either your Linux distributions package manager, or if you are on Windows, by [clicking here.](https://nodejs.org/en/)
+
+## Install those dependencies!
+
+Run ``npm install`` and wait for it to download dependencies
+
+## Configure yo bot!
+
+Get or make your Discord bot token from [The Discord developer portal](https://discord.com/developers/applications), and rename ``.env.example`` to ``.env``. Set the ``TOKEN=""`` to the token you got from Discord 
+
+Then grab your Discord User ID and put it in ``OWNERID=""``, This tells the bot who owns it 
+
+⚠️ **WARNING**: This gives access to the bots controls, such as restart/shutdown, and eval! Make sure you use your own ID and not somebody elses.
+
+## Get this party started! 
+
+Run ``npm start`` to start the bot!
+
+
+<img src="https://i.pinimg.com/originals/ba/e4/de/bae4de2fa4f778f874c84928b8e19203.png" alt="Pinkie Pie blasting a party cannon" height="auto" width="50%">
+
+# But I don't want to self host!
+
+No worries! You can add the bot to your server by [clicking here!](https://discord.com/oauth2/authorize?client_id=576805923964715018&scope=bot&permissions=8)
+
+## Need help, or support?
+You can join the Anitrox support server by [clicking here!](https://discord.gg/u2J9FmBfPy), Mentioning me on Twitter or Mastodon (@IDeletedSystem64@glaceon.social). If it's to report a bug, Please open a GitHub issue.
+
