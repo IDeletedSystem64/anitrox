@@ -8,7 +8,8 @@ You can get these through either your Linux distributions package manager, or if
 
 ## Install those dependencies!
 
-Run ``npm install`` and wait for it to download dependencies
+Run ``npm install`` and wait for it to download dependencies\
+*For development: ESLint extension in your editor of choice*
 
 ## Configure yo bot!
 
@@ -32,3 +33,8 @@ No worries! You can add the bot to your server by [clicking here!](https://disco
 ## Need help, or support?
 You can join the Anitrox support server by [clicking here!](https://discord.gg/u2J9FmBfPy), Mentioning me on Twitter or Mastodon (@IDeletedSystem64@glaceon.social). If it's to report a bug, Please open a GitHub issue.
 
+
+# Contributing
+You are more than welcome to contribute to Anitrox, such as adding features, squashing bugs and suggesting new things for the bot!
+
+⚠️ **WARNING**: Using stolen code or AI generated code will result in your PR being closed. 
