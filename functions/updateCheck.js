@@ -1,20 +1,50 @@
 /* eslint-disable brace-style */ // Tell eslint to stfu :)
+
 const fetch = require('node-fetch');
 const config = require('../config.json');
 
-module.exports = () => {
-  const repo = `https://api.github.com/repos/${config.gitRepo}/releases/latest`;
-  fetch(repo).then(async (response) => {
-    response = await response.json();
-    const latest = response.name;
-    const currentVer = config.build;
+class updateChecker {
+  constructor () {
+    this.status = null;
+    this.failReason = null;
+  }
 
-    let status = 0; // 0 = Up-to-date, 1 = New update.
+  checkUpdates = (notify) => {
+    const repo = `https://api.github.com/repos/${config.updater.gitRepo}/releases/latest`;
+    const getUpdates = () => {
+      return fetch(repo)
+        .then(async (response) => {
+          if (response.status !== 200) {
+            this.status = 2; // Error
+            this.failReason = response.statusText;
+          } else {
+            response = await response.json();
+            if (!response) { this.status = 2; } // Something went wrong while checking for updates :(
+            const version = {
+              latest: response.name,
+              current: config.build
+            };
 
-    if (currentVer === latest) { status = 0; } // Anitrox is up to date
-    else if (currentVer < latest) { status = 1; } // Anitrox is not up to date
-    else if (currentVer > latest) { status = 0; } // Anitrox is ahead, Treat this as it being up to date.
+            if (version.current === version.latest) { this.status = 0; return version; } // Up-to-date!
+            else if (version.current < version.latest) { this.status = 1; return version; } // Not up to date.
+            else this.status = 2; // Something went wrong while checking for updates :(
 
-    if (status === 1) console.log(`\n✨ It must be your lucky day! Anitrox ${latest} is now available! Download it from github.com/${config.gitRepo}/releases!`); // Log to console about the new release!
-  });
-};
+            return response;
+          };
+        })
+        .catch(err => { console.error(err); });
+    };
+    return getUpdates().then(response => {
+      if (notify === true) {
+        if (this.status === 1) console.log(`\n✨ It must be your lucky day! Anitrox ${response.latest} is now available! Download it from github.com/${config.updater.gitRepo}/releases!`); // Log to console about the new release!
+        else if (this.status === 2) console.error(`\nSomething went wrong while checking for updates... :( | ${this.failReason}`); // This can probably be done more properly, But quite honestly I'm tired of working at this. ^system64
+        else if (this.status === 0) {} // Up-to-date
+        else console.error(`Unknown Update Status!! ${this.status}`);
+      } else return this.status;
+    });
+  };
+
+  getStatus = () => { return this.status; };
+}
+
+module.exports = function () { return new updateChecker(); };

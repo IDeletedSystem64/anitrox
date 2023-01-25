@@ -44,15 +44,19 @@ module.exports = {
       console.log('    ___          _ __                 ');
       console.log('   /   |  ____  (_) /__________  _  __');
       console.log('  / /| | / __ \\/ / __/ ___/ __ \\| |/_/');
-      console.log(' / ___ |/ / / / / /_/ /  / /_/ />  <  ');
-      console.log('/_/  |_/_/ /_/_/\\__/_/   \\____/_/|_|  ');
-      console.log('');
-      console.log(`${config.release}, ${config.build}`);
-      console.log('Bot online. | Anitrox by IDeletedSystem64 | ALL MY CODE KEEPS BLOWING UP!');
+      console.log(' / ___ |/ / / / / /_/ /  / /_/ /> w <  ');
+      console.log(`/_/  |_/_/ /_/_/\\__/_/   \\____/_/|_|    ${config.build}`);
+      console.log('Ready!| Anitrox by IDeletedSystem64 | Also check out Novetus!');
+      if (config.updater.enabled === true) {
+        await client.updater.checkUpdates(true); // This is probably the wrong way to do it
+        setInterval(async () => {
+          await client.updater.checkUpdates(true);
+        }, parseInt(config.updater.frequency * 60000)); // This is set to 6 hours (360 minutes) by default.
+      }
+
       // Statuses
       setInterval(async () => {
-        // Picks a status from the config file
-        const index = Math.floor(Math.random() * config.statuses.length);
+        const index = Math.floor(Math.random() * config.statuses.length); // Picks a status from the config file
         await client.user?.setActivity(config.statuses[index]);
       }, 20000);
     }

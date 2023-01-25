@@ -1,7 +1,13 @@
 {
   "prefix": "n!",
-  "build": "1.4dev",
+  "build": "1.4",
   "footerTxt": "Anitrox, made with <3 by IDeletedSystem64 | 2018-2023",
+  "imageApi": "",
+  "updater": {
+    "enabled": true,
+    "frequency": "360",
+    "gitRepo": "IDeletedSystem64/anitrox"
+  },
   "sandbox": {
     "enabled": false,
     "id": "0",

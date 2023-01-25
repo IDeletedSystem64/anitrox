@@ -47,6 +47,9 @@ client.generateErrorMessage = (errorMsg, avatarURL) => ({
     ]
   }]
 });
+// Error message generator.
+
+client.updater = require('./functions/updateCheck.js')(); // da update checker (real)
 
 client.login(process.env.TOKEN);
 // Login to Discord!
