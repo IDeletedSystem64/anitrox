@@ -1,6 +1,6 @@
 
-# Anitrox Development Branch (anitrox_dev)
-This is the development branch, Where all the work happens. Be careful as some features may bite, or be removed without notice!
+# Anitrox
+This is the stable branch for Anitrox
 # Dependencies to get started
 To begin, you will need to satisfy the following dependencies:
 Node.JS: 16.6.0
@@ -14,4 +14,4 @@ Afterwards fill out the ``.env.example`` and ``config-example.json`` and then re
 <br>
 ⚠️ If you don't specify the Owner ID, Some commands such as the bot controls will be unusable! 
 # Support
-Support is available on the [Discord Server!](discord.gg/5nQtMNpf43), or @ me on   [Twitter!](twitter.com/IDeleteSystem64) [Mastodon!](glaceon.social/@IDeletedSystem64)
+Support is available on the [Discord Server!](discord.gg/5nQtMNpf43), or @ me on   [Twitter!](twitter.com/IDeleteSystem64) [Mastodon!](glaceon.social/@IDeletedSystem64), heck even [email me](mailto:ideleted@system64.dev) I don't care
