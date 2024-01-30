@@ -1,6 +1,17 @@
-# Anitrox
-Your new favorite bot!
+# the Anitrox project was formally discontinued on January 30th, 2024.
+Anitrox was shut down on October 23rd, 2023. Development is now permenantly ceased and support is no longer available. 
+You will no longer be able to make merge requests, or open bug reports on the bot. 
 
+## Building on from here.
+You can still fork the bot, and do whatever you'd like with it. We'll be shifting from the GPLv2 license to the MIT license with this change. 
+
+## Why now?
+I've been becoming increasingly frustrated and unhappy with Discord as a service and platform, and have no desire in putting any more time into something for a platform I quite despise at this point. If you look at the last commits, There hasn't even *been* any active development for on going on months at this point. I've also been shifting my focus on programming towards other things, which has also been contributing to the lack of further development. 
+
+# Thank you.
+Thank you to everyone who contributed to the bot, weather you contributed with code, a bug report or helped work out an issue, **thank you.**
+
+# 
 ## Get started!
 To get started, You'll need Node.JS and NPM
 
@@ -26,15 +37,3 @@ Run ``npm start`` to start the bot!
 
 <img src="https://i.pinimg.com/originals/ba/e4/de/bae4de2fa4f778f874c84928b8e19203.png" alt="Pinkie Pie blasting a party cannon" height="auto" width="50%">
 
-# But I don't want to self host!
-
-No worries! You can add the bot to your server by [clicking here!](https://discord.com/oauth2/authorize?client_id=576805923964715018&scope=bot&permissions=8)
-
-## Need help, or support?
-You can join the Anitrox support server by [clicking here!](https://discord.gg/u2J9FmBfPy), Mentioning me on Twitter or Mastodon (@IDeletedSystem64@glaceon.social). If it's to report a bug, Please open a GitHub issue.
-
-
-# Contributing
-You are more than welcome to contribute to Anitrox, such as adding features, squashing bugs and suggesting new things for the bot!
-
-⚠️ **WARNING**: Using stolen code or AI generated code will result in your PR being closed. 
